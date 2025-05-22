@@ -1,99 +1,93 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Handle form submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
+// Intersection Observer for animate-on-scroll
+// Product Scroll Functionality
+const scrollContainer = document.querySelector('.products-scroll');
+const scrollLeftBtn = document.querySelector('.scroll-left');
+const scrollRightBtn = document.querySelector('.scroll-right');
 
-            // Here you would typically send the data to your server
-            // For now, we'll just show a success message
-            alert('Thank you for your message! We will get back to you soon.');
-            contactForm.reset();
-        });
-    }
+if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
+    const scrollAmount = 300; // Width of one product card
 
-    // Mobile navigation toggle
-    const navbar = document.querySelector('.navbar');
-    if (navbar) {
-        let lastScroll = 0;
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-
-            if (currentScroll <= 0) {
-                navbar.classList.remove('scroll-up');
-                return;
-            }
-
-            if (currentScroll > lastScroll && !navbar.classList.contains('scroll-down')) {
-                // Scroll Down
-                navbar.classList.remove('scroll-up');
-                navbar.classList.add('scroll-down');
-            } else if (currentScroll < lastScroll && navbar.classList.contains('scroll-down')) {
-                // Scroll Up
-                navbar.classList.remove('scroll-down');
-                navbar.classList.add('scroll-up');
-            }
-            lastScroll = currentScroll;
-        });
-    }
-
-    // Add smooth scrolling to all links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const href = this.getAttribute('href');
-            
-            if (href === "#") return;
-            
-            const target = document.querySelector(href);
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
+    scrollLeftBtn.addEventListener('click', () => {
+        scrollContainer.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
         });
     });
 
-    // Form validation
-    const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
-    formInputs.forEach(input => {
-        input.addEventListener('blur', function() {
-            if (this.hasAttribute('required') && !this.value) {
-                this.classList.add('error');
-            } else {
-                this.classList.remove('error');
-            }
-        });
-
-        input.addEventListener('focus', function() {
-            this.classList.remove('error');
+    scrollRightBtn.addEventListener('click', () => {
+        scrollContainer.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
         });
     });
 
-    // Add animation class to elements when they come into view
-    const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.product-card, .service-card, .value-card, .support-card');
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight;
-
-            if (elementPosition < screenPosition) {
-                element.classList.add('animate');
-            }
-        });
+    // Show/hide scroll buttons based on scroll position
+    const toggleScrollButtons = () => {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+        scrollLeftBtn.style.opacity = scrollLeft > 0 ? '1' : '0';
+        scrollRightBtn.style.opacity = scrollLeft < scrollWidth - clientWidth ? '1' : '0';
     };
 
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Initial check for elements in view
+    scrollContainer.addEventListener('scroll', toggleScrollButtons);
+    window.addEventListener('resize', toggleScrollButtons);
+    toggleScrollButtons(); // Initial check
+}
+
+// Animate cards on scroll
+const animateOnScroll = () => {
+    const cards = document.querySelectorAll('.product-card, .service-card, .value-card, .support-card');
+    
+    cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (cardTop < windowHeight * 0.85) {
+            card.classList.add('animate');
+        }
+    });
+};
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+        }
+    });
+}, observerOptions);
+
+// Observe all animatable elements
+document.querySelectorAll('.product-card, .service-card, .value-card, .support-card').forEach(el => {
+    observer.observe(el);
+});
+
+// Navbar scroll behavior
+let lastScroll = 0;
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll <= 0) {
+        navbar.classList.remove('scroll-up');
+        return;
+    }
+
+    if (currentScroll > lastScroll && !navbar.classList.contains('scroll-down')) {
+        // Scrolling down
+        navbar.classList.remove('scroll-up');
+        navbar.classList.add('scroll-down');
+    } else if (currentScroll < lastScroll && navbar.classList.contains('scroll-down')) {
+        // Scrolling up
+        navbar.classList.remove('scroll-down');
+        navbar.classList.add('scroll-up');
+    }
+
+    lastScroll = currentScroll;
 });

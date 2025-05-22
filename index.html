@@ -12,13 +12,20 @@
     <header>
         <nav class="navbar">
             <div class="container">
-                <div class="logo">
+                <a href="index.html" class="logo">
                     <img src="images/logo.png" alt="Primeasure Logo">
-                </div>
+                </a>
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="pages/about.html">About</a></li>
-                    <li><a href="pages/products.html">Products</a></li>
+                    <li class="has-dropdown">
+                        <a href="pages/solutions.html">Solutions</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pages/solutions/test-measurement.html">Test & Measurement</a></li>
+                            <li><a href="pages/solutions/broadcast.html">Broadcast</a></li>
+                            <li><a href="pages/solutions.html#software">Software</a></li>
+                        </ul>
+                    </li>
                     <li><a href="pages/contact.html">Contact</a></li>
                 </ul>
             </div>
@@ -30,40 +37,104 @@
             <div class="hero-content">
                 <h1>Welcome to Primeasure Technologies</h1>
                 <p>Leading provider of Testing Equipment and Broadcasting Solutions</p>
-                <a href="pages/products.html" class="cta-button">Explore Our Products</a>
-            </div>
-        </section>
-
-        <section class="quick-overview">
-            <div class="container">
-                <h2>Our Expertise</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h3>Testing Equipment</h3>
-                        <p>State-of-the-art testing and measuring equipment for precise results</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Broadcasting Solutions</h3>
-                        <p>Advanced broadcasting solutions for modern media requirements</p>
-                    </div>
-                </div>
+                <a href="pages/solutions.html" class="cta-button">Explore Our Solutions</a>
             </div>
         </section>
 
         <section class="featured-products">
             <div class="container">
                 <h2>Featured Products</h2>
-                <div class="product-grid">
+                <div class="products-scroll">
                     <div class="product-card">
-                        <div class="product-image"></div>
-                        <h3>Testing Equipment Series X</h3>
-                        <p>High-precision measuring tools</p>
+                        <div class="product-image">
+                            <img src="images/products/sv7c.png" alt="SV7C">
+                        </div>
+                        <h3>Introspect SV7C for DDR Memory Interfaces</h3>
+                        <p>The SV7C is a parallel high-speed tester that meets the emerging test and validation requirements of increasingly complex electronic component and board designs. </p>
+                <a href="pages/solutions/test-measurement.html" class="learn-more">Learn More →</a>
                     </div>
                     <div class="product-card">
-                        <div class="product-image"></div>
-                        <h3>Broadcast Pro Suite</h3>
-                        <p>Complete broadcasting solution</p>
+                        <div class="product-image">
+                            <img src="images/products/wavemaster8000hd-65ghz.png" alt="Signal Generator">
+                        </div>
+                        <h3>Teledyne LeCroy WaveMaster 8000HD High Bandwidth Oscilloscope</h3>
+                        <p>WaveMaster 8000HD is the only high speed oscilloscope designed for all stages of product development, whether first-silicon characterization, link validation over channels, or debugging across the entire the protocol stack.</p>
+                        <a href="pages/solutions/test-measurement.html" class="learn-more">Learn More →</a>
                     </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/products/gv-amp.jpg" alt="Network Analyzer">
+                        </div>
+                        <h3>GrassValley AMP</h3>
+                        <p>AMPP is a virtualized, open media production platform that powers seamless, scalable, and high-performance workflows across live production, content management, automation, and distribution.</p>
+                        <a href="pages/solutions/broadcast.html" class="learn-more">Learn More →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/products/sv5c-gen.png" alt="Broadcast Transmitter">
+                        </div>
+                        <h3>Introspect SV5C C/D-PHY MIPI Generator and Analyzer </h3>
+                        <p>High-power transmitter with digital signal processing</p>
+                        <a href="pages/solutions.html#software" class="learn-more">Learn More →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/rf-analyzer.jpg" alt="RF Analyzer">
+                        </div>
+                        <h3>RF Analyzer Master</h3>
+                        <p>Comprehensive RF analysis with built-in reporting tools</p>
+                        <a href="pages/solutions/test-measurement.html" class="learn-more">Learn More →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/digital-oscilloscope.jpg" alt="Digital Oscilloscope">
+                        </div>
+                        <h3>Digital Oscilloscope Pro</h3>
+                        <p>High-bandwidth oscilloscope with advanced triggering</p>
+                        <a href="pages/solutions/test-measurement.html" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+                <div class="scroll-indicators">
+                    <button class="scroll-left" aria-label="Scroll left">‹</button>
+                    <button class="scroll-right" aria-label="Scroll right">›</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="partners-section">
+            <div class="container">
+                <h2>Our Trusted Partners</h2>
+                <div class="partners-grid">
+                    <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
+                        <img src="images/partners/lecroy.jpg" alt="Partner Company 1">
+                    </a>
+                    <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
+                        <img src="images/partners/introspect.png" alt="Partner Company 2">
+                    </a>
+                    <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
+                        <img src="images/partners/gv.jpg" alt="Partner Company 3">
+                    </a>
+                    <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
+                        <img src="images/partners/chyron.png" alt="Partner Company 4">
+                    </a>
+                    <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
+                        <img src="images/partners/metus.jpg" alt="Partner Company 5">
+                    </a>
+                    <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
+                        <img src="images/partners/tvu.jpg" alt="Partner Company 6">
+                    </a>
+                    <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
+                        <img src="images/partners/synamedia.jpg" alt="Partner Company 7">
+                    </a>
+                    <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
+                        <img src="images/partners/telestream.png" alt="Partner Company 8">
+                    </a>
+                    <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
+                        <img src="images/partners/torque.jpg" alt="Partner Company 9">
+                    </a>
+                    <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
+                        <img src="images/partners/partner10.png" alt="Partner Company 10">
+                    </a>
                 </div>
             </div>
         </section>
@@ -81,7 +152,7 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="pages/about.html">About Us</a></li>
-                        <li><a href="pages/products.html">Products</a></li>
+                        <li><a href="pages/solutions.html">Solutions</a></li>
                         <li><a href="pages/contact.html">Contact</a></li>
                     </ul>
                 </div>
