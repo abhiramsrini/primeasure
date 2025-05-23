@@ -78,7 +78,7 @@ body {
 }
 
 .logo img {
-    height: 50px;
+    height: 70px;
 }
 
 .nav-links {
@@ -168,8 +168,8 @@ body {
 }
 
 .hero-content {
-    max-width: 700px;
-    margin: 0 auto;
+    text-align: center;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
 }
 
 .hero h1 {
