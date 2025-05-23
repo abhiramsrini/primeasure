@@ -161,7 +161,7 @@ body {
 .hero {
     background: var(--gradient-primary);
     color: var(--white);
-    padding: 8rem 2rem 6rem;
+    padding: 8rem 2rem 2rem;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -488,7 +488,7 @@ h2::after {
 
 /* Summary Section */
 .summary-section {
-    padding: 4rem 0;
+    padding: 2rem 0;
     background-color: var(--white);
 }
 
@@ -511,7 +511,7 @@ h2::after {
 
 /* Partner Solutions Section - Horizontal Layout */
 .partners-section {
-    padding: 6rem 0;
+    padding: 3rem 0;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
@@ -633,7 +633,7 @@ h2::after {
 
 /* Customers Section */
 .customers-section {
-    padding: 4rem 0;
+    padding: 2rem 0;
     background-color: var(--white);
 }
 
@@ -678,12 +678,12 @@ h2::after {
 }
 
 .customer-logo:hover img {
-    transform: scale(1.05);
+    transform: scale(1.18);
 }
 
 /* About Page Styles */
 .about-content {
-    padding: 4rem 0;
+    padding: 2rem 0;
 }
 
 .about-text {
@@ -780,7 +780,7 @@ h2::after {
 
 /* Products Page Styles */
 .products-section {
-    padding: 4rem 0;
+    padding: 2rem 0;
 }
 
 .category-section {
@@ -843,7 +843,7 @@ h2::after {
 
 /* Support Section */
 .support-section {
-    padding: 4rem 0;
+    padding: 2rem 0;
     background-color: var(--light-gray);
 }
 
@@ -869,7 +869,7 @@ h2::after {
 
 /* Contact Page Styles */
 .contact-section {
-    padding: 4rem 0;
+    padding: 2rem 0;
 }
 
 .contact-grid {
@@ -1014,17 +1014,9 @@ h2::after {
 .service-card,
 .value-card,
 .support-card {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.product-card.animate,
-.service-card.animate,
-.value-card.animate,
-.support-card.animate {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 /* Solutions Grid */
