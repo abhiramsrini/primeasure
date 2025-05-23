@@ -187,7 +187,6 @@ body {
     animation: fadeInUp 0.8s ease-out 0.2s backwards;
 }
 
-
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -485,6 +484,201 @@ h2::after {
     height: 4px;
     background: var(--gradient-primary);
     border-radius: 2px;
+}
+
+/* Summary Section */
+.summary-section {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.summary-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.summary-content h2 {
+    margin-bottom: 2rem;
+}
+
+.summary-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--dark-gray);
+}
+
+/* Partner Solutions Section - Horizontal Layout */
+.partners-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.partners-section h2 {
+    margin-bottom: 4rem;
+    font-size: 2.8rem;
+}
+
+.partners-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.partner-card {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+}
+
+.partner-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.partner-card:hover::before {
+    transform: scaleX(1);
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(237, 28, 36, 0.1);
+}
+
+.partner-logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-bottom: 1px solid var(--border-color);
+    padding: 2rem;
+    height: 140px;
+}
+
+.partner-logo-section img {
+    max-width: 200px;
+    max-height: 100px;
+    object-fit: contain;
+    filter: grayscale(0.2);
+    transition: var(--transition);
+}
+
+.partner-card:hover .partner-logo-section img {
+    filter: grayscale(0);
+    transform: scale(1.05);
+}
+
+.partner-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.partner-content h3 {
+    color: var(--primary-blue);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.partner-features-horizontal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.partner-features-horizontal li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--dark-gray);
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.partner-features-horizontal li::before {
+    content: '●';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    color: var(--primary-red);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Customers Section */
+.customers-section {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.customers-section h2 {
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+}
+
+.customers-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+    align-items: center;
+}
+
+.customer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    transition: var(--transition);
+    height: 100px;
+    cursor: pointer;
+}
+
+.customer-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: var(--transition);
+    opacity: 1;
+}
+
+.customer-logo:hover {
+    border-color: transparent;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.customer-logo:hover img {
+    transform: scale(1.05);
 }
 
 /* About Page Styles */
@@ -909,10 +1103,20 @@ h2::after {
     transform: translateY(0);
 }
 
-/* Responsive Partners Grid */
+/* Responsive Styles for Partner Solutions */
 @media screen and (max-width: 1200px) {
     .partners-grid {
         grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .partners-container {
+        max-width: 1200px;
+        gap: 1.5rem;
+    }
+    
+    .customers-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
     }
 }
 
@@ -920,16 +1124,110 @@ h2::after {
     .partners-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+    
+    .partners-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 600px;
+    }
+    
+    .partner-card {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .partner-logo-section {
+        border-bottom: 1px solid var(--border-color);
+        height: 120px;
+        padding: 1.5rem;
+    }
+    
+    .partner-content {
+        padding: 1.5rem;
+    }
+    
+    .partner-features-horizontal {
+        gap: 0.5rem;
+    }
+    
+    .partner-content h3 {
+        font-size: 1.4rem;
+    }
+    
+    .customers-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
     .partners-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    .partners-section {
+        padding: 4rem 0;
+    }
+    
+    .partners-section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .partner-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .partner-logo-section {
+        height: 100px;
+        padding: 1rem;
+    }
+    
+    .partner-logo-section img {
+        max-width: 150px;
+        max-height: 80px;
+    }
+    
+    .customers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .customer-logo {
+        height: 80px;
+        padding: 1rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .partners-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .partners-container {
+        gap: 1.5rem;
+    }
+    
+    .partner-content {
+        padding: 1.25rem;
+    }
+    
+    .partner-logo-section {
+        padding: 1rem;
+    }
+    
+    .partner-features-horizontal li {
+        font-size: 0.9rem;
+        padding: 0.4rem 0;
+    }
+    
+    .customers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .customer-logo {
+        height: 70px;
+        padding: 0.8rem;
     }
 }
