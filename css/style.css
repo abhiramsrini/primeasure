@@ -1276,6 +1276,9 @@ h2::after {
         font-size: 12px;
         padding: 2px 8px;
     }
+    .hero {
+        padding-top: 4.5rem !important; /* Prevents navbar overlap */
+    }
     .hero h1 {
         font-size: 1.5rem;
     }
