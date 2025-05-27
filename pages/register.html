@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .register-form-section {
+            padding: 4rem 0;
+            background: var(--light-gray);
+        }
+        .register-form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
+        }
+        .register-form-container h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .form-group label {
+            font-weight: 600;
+        }
+        .form-group input[readonly] {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <section class="register-form-section">
+        <div class="register-form-container">
+            <h2>Register for Event</h2>
+            <form action="https://formsubmit.co/abhiramsrini@primeasure.com" method="POST">
+                <div class="form-group">
+                    <label for="event-title">Event</label>
+                    <input type="text" id="event-title" name="Event" readonly required>
+                </div>
+                <div class="form-group">
+                    <label for="event-date">Date</label>
+                    <input type="text" id="event-date" name="Date" readonly required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="Email" required>
+                </div>
+                <button type="submit" class="submit-button" style="width:100%;margin-top:1rem;">Submit Registration</button>
+                <input type="hidden" name="_subject" value="New Event Registration">
+                <input type="hidden" name="_captcha" value="false">
+            </form>
+        </div>
+    </section>
+    <script>
+        // Populate event title and date from URL query params
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param) || '';
+        }
+        document.getElementById('event-title').value = decodeURIComponent(getQueryParam('title'));
+        document.getElementById('event-date').value = decodeURIComponent(getQueryParam('date'));
+    </script>
+</body>
+</html>
