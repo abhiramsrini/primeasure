@@ -1230,6 +1230,129 @@ h2::after {
     }
 }
 
+/* Enhanced Mobile & Tablet Responsiveness */
+@media (max-width: 900px) {
+    .container {
+        padding: 0 8px;
+    }
+    .navbar .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .hero {
+        padding: 6rem 1rem 1rem;
+    }
+    .featured-products .container {
+        padding: 0 8px;
+    }
+    .partners-section,
+    .events-section,
+    .summary-section,
+    .customers-section,
+    .support-section {
+        padding: 2rem 0;
+    }
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0 4px;
+    }
+    .navbar {
+        padding: 0.5rem 0;
+    }
+    .logo img {
+        height: 48px;
+    }
+    .nav-links li a {
+        font-size: 12px;
+        padding: 2px 8px;
+    }
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .cta-button {
+        font-size: 12px;
+        height: 32px;
+        padding: 2px 8px;
+    }
+    .products-scroll {
+        gap: 1rem;
+        padding: 0.5rem 0.25rem;
+        margin: 1rem -0.25rem;
+    }
+    .product-card,
+    .event-card,
+    .value-card,
+    .expertise-card,
+    .support-card {
+        min-width: 0;
+        padding: 0.5rem;
+    }
+    .product-card h3,
+    .event-card h3,
+    .value-card h3,
+    .expertise-card h3 {
+        font-size: 1rem;
+        padding: 1rem 0.5rem 0.5rem;
+    }
+    .product-card p,
+    .event-card p {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.5rem 1rem;
+    }
+    .event-main,
+    .event-hover {
+        padding: 1rem 0.5rem;
+    }
+    .register-button,
+    .learn-more,
+    .submit-button {
+        font-size: 0.95rem;
+        padding: 0.4rem 1rem;
+    }
+    .footer-content {
+        gap: 1rem;
+    }
+    .footer-section h4 {
+        font-size: 1rem;
+    }
+    .footer-section ul li {
+        font-size: 0.95rem;
+    }
+    .footer-bottom {
+        padding-top: 1rem;
+    }
+    .social-links {
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .register-form-container,
+    .container {
+        padding: 0 2px;
+    }
+    .register-form-container h2,
+    h2 {
+        font-size: 1.1rem;
+    }
+    .form-group label {
+        font-size: 0.95rem;
+    }
+}
+
 /* Events Section */
 .events-section {
     padding: 4rem 0;
