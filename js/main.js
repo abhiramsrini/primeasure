@@ -1,38 +1,51 @@
-// Intersection Observer for animate-on-scroll
-// Product Scroll Functionality
-const scrollContainer = document.querySelector('.products-scroll');
-const scrollLeftBtn = document.querySelector('.scroll-left');
-const scrollRightBtn = document.querySelector('.scroll-right');
+// Carousel Functionality
+const carouselTrack = document.querySelector('.carousel-track');
+const slides = document.querySelectorAll('.carousel-slide');
+const dotsContainer = document.querySelector('.carousel-dots');
+let currentSlide = 0;
+let slideTimer;
 
-if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
-    const scrollAmount = 300; // Width of one product card
-
-    scrollLeftBtn.addEventListener('click', () => {
-        scrollContainer.scrollBy({
-            left: -scrollAmount,
-            behavior: 'smooth'
-        });
+// Create dot indicators
+slides.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('carousel-dot');
+    if (index === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+        clearInterval(slideTimer);
+        goToSlide(index);
+        startSlideTimer();
     });
+    dotsContainer.appendChild(dot);
+});
 
-    scrollRightBtn.addEventListener('click', () => {
-        scrollContainer.scrollBy({
-            left: scrollAmount,
-            behavior: 'smooth'
-        });
+const dots = document.querySelectorAll('.carousel-dot');
+
+function updateDots() {
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
     });
-
-    // Show/hide scroll buttons based on scroll position
-    const toggleScrollButtons = () => {
-        const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
-        scrollLeftBtn.style.opacity = scrollLeft > 0 ? '1' : '0';
-        scrollRightBtn.style.opacity = scrollLeft < scrollWidth - clientWidth ? '1' : '0';
-    };
-
-    scrollContainer.addEventListener('scroll', toggleScrollButtons);
-    window.addEventListener('resize', toggleScrollButtons);
-    toggleScrollButtons(); // Initial check
 }
 
+function goToSlide(index) {
+    currentSlide = index;
+    carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+    updateDots();
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    goToSlide(currentSlide);
+}
+
+function startSlideTimer() {
+    slideTimer = setInterval(nextSlide, 5000);
+}
+
+// Initialize carousel
+goToSlide(0);
+startSlideTimer();
+
+// Intersection Observer for animate-on-scroll
 // Animate cards on scroll
 const animateOnScroll = () => {
     const cards = document.querySelectorAll('.product-card, .service-card, .value-card, .support-card');
