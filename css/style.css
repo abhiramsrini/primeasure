@@ -1766,32 +1766,157 @@ h2::after {
 /* Events Section */
 .events-section {
     padding: 4rem 0;
-    background: var(--light-gray);
+    background: var(--white);
 }
+
+/* Homepage Events - No top padding to align with other sections */
+.homepage-events {
+    padding-top: 0;
+}
+/* Events Grid - Default (Full Size) */
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
+}
+
+/* Events Grid - Homepage */
+.homepage-events .events-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 992px) {
+    .homepage-events .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .homepage-events .events-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+}
+
+.homepage-events .event-card {
+    min-height: 120px;
+}
+
+.homepage-events .event-date-badge {
+    padding: 0.75rem;
+    min-width: 80px;
+}
+
+.homepage-events .event-date-badge .month {
+    font-size: 0.85rem;
+}
+
+.homepage-events .event-date-badge .day {
+    font-size: 1.3rem;
+    margin: 0.2rem 0;
+}
+
+.homepage-events .event-date-badge .year {
+    font-size: 0.8rem;
+}
+
+.homepage-events .event-main {
+    padding: 1rem;
+}
+
+.homepage-events .event-main h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.homepage-events .event-main .event-location {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.homepage-events .event-main p {
+    display: none;
+}
+
+.homepage-events .event-hover {
+    padding: 1rem;
+}
+
+.homepage-events .event-hover p {
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+}
+
+.homepage-events .register-button {
+    padding: 0.3rem 1rem;
+    font-size: 0.8rem;
+}
+
+.homepage-events h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 .event-card {
     position: relative;
     background: var(--white);
-    border-radius: var(--border-radius-md);
+    border-radius: var(--border-radius-lg);
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-sm);
     overflow: hidden;
     transition: var(--transition);
-    min-height: 180px;
+    min-height: 200px;
+    display: flex;
     cursor: pointer;
 }
-.event-main {
-    padding: 2rem 1.5rem;
-    text-align: center;
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
-.event-date {
-    color: var(--primary-blue);
+.event-date-badge {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 120px;
+}
+.event-date-badge .month {
+    font-size: 1.2rem;
     font-weight: 600;
-    margin-top: 0.5rem;
+    text-transform: uppercase;
+}
+.event-date-badge .day {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0.5rem 0;
+}
+.event-date-badge .year {
+    font-size: 1.1rem;
+}
+.event-main {
+    padding: 2rem;
+    flex: 1;
+}
+.event-main h3 {
+    color: var(--primary-blue);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+.event-main .event-location {
+    display: flex;
+    align-items: center;
+    color: var(--dark-gray);
+    margin-bottom: 1rem;
+}
+.event-main .event-location i {
+    margin-right: 0.5rem;
+    color: var(--primary-red);
 }
 .event-hover {
     position: absolute;
