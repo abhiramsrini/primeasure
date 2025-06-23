@@ -239,78 +239,64 @@ body {
     position: relative;
     background: var(--white);
     margin-top: -1px;
-    padding-top: 0;
+    padding: 4rem 0;
 }
 
-body {
-    overflow-x: hidden;
-    width: 100%;
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-direction: row;
 }
 
-.carousel {
-    width: 100vw;
+.carousel-container {
+    flex: 1;
+    max-width: 50%;
+    aspect-ratio: 16/9;
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    background: var(--white);
-    position: relative;
-    top: -1px;
-}
-
-.carousel-track-container {
-    width: 100%;
-    position: relative;
+    min-height: 350px;
     overflow: hidden;
-    background: var(--white);
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-slide {
-    flex: 0 0 100%;
-    width: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 400px;
-}
-
-.carousel-content {
-    position: absolute;
-    bottom: 40px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-}
-
-.carousel-content .cta-button {
-    background-color: var(--primary-red);
-    color: var(--white);
-    padding: 12px 30px;
-    font-size: 16px;
-    font-weight: 500;
+    border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
 }
 
-.carousel-slide {
-    background-color: var(--white);
-    padding: 2rem 0;
+.carousel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    background: var(--primary-blue);
 }
 
-.carousel-content .cta-button:hover {
-    background-color: #ff4d4f;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+.carousel-track-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: transparent;
+}
+
+.carousel-track {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.carousel-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+    overflow: hidden;
+    background: var(--primary-blue);
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    background: var(--primary-blue);
 }
 
 @media (max-width: 768px) {
@@ -322,10 +308,6 @@ body {
         min-height: 300px;
     }
 
-    .carousel-content {
-        bottom: 60px;
-    }
-    
     .carousel-dots {
         bottom: 110px;
     }
@@ -343,13 +325,9 @@ body {
     
     .carousel-slide {
         min-height: 250px;
-        padding: 1rem 0;
+        padding: 0;
     }
 
-    .carousel-content {
-        bottom: 40px;
-    }
-    
     .carousel-dots {
         bottom: 90px;
     }
@@ -360,17 +338,11 @@ body {
     }
 }
 
-.carousel-slide img {
-    width: 100vw;
-    height: auto;
-    max-height: 600px;
-    object-fit: cover;
-    display: block;
-}
+/* Remove duplicate carousel-slide img definition */
 
 .carousel-dots {
     position: absolute;
-    bottom: 90px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -378,17 +350,74 @@ body {
     z-index: 1;
 }
 
+/* Carousel Info Section */
+.carousel-info {
+    flex: 1;
+    max-width: 50%;
+    padding: 2rem;
+}
+
+.carousel-info h2 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.carousel-info h2::after {
+    left: 0;
+    transform: none;
+}
+
+.carousel-info p {
+    color: var(--dark-gray);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.carousel-info p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 992px) {
+    .carousel-wrapper.default,
+    .carousel-wrapper.alternative {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .carousel-container,
+    .carousel-info {
+        max-width: 100%;
+    }
+
+    .carousel-info {
+        padding: 0;
+    }
+}
+
 .carousel-dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    transition: background 0.3s ease;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    padding: 0;
+    margin: 0;
 }
 
 .carousel-dot.active {
-    background: var(--white);
+    background: var(--primary-red);
+    border-color: var(--primary-red);
+}
+
+.carousel-dot:hover {
+    background: var(--primary-red);
+    border-color: var(--primary-red);
+    transform: scale(1.1);
 }
 
 @keyframes fadeInUp {

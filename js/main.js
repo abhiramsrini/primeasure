@@ -1,49 +1,101 @@
 // Carousel Functionality
-const carouselTrack = document.querySelector('.carousel-track');
-const slides = document.querySelectorAll('.carousel-slide');
-const dotsContainer = document.querySelector('.carousel-dots');
-let currentSlide = 0;
-let slideTimer;
+class Carousel {
+    constructor(element) {
+        this.carousel = element;
+        this.track = element.querySelector('.carousel-track');
+        this.slides = element.querySelectorAll('.carousel-slide');
+        this.dotsContainer = element.querySelector('.carousel-dots');
+        this.currentSlide = 0;
+        this.slideTimer = null;
+        this.isVisible = true;
 
-// Create dot indicators
-slides.forEach((_, index) => {
-    const dot = document.createElement('div');
-    dot.classList.add('carousel-dot');
-    if (index === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => {
-        clearInterval(slideTimer);
-        goToSlide(index);
-        startSlideTimer();
-    });
-    dotsContainer.appendChild(dot);
+
+        // Initialize the carousel
+        this.createDots();
+        this.goToSlide(0);
+        this.startSlideTimer();
+        this.setupVisibilityHandler();
+    }
+
+    createDots() {
+        // Clear existing dots if any
+        this.dotsContainer.innerHTML = '';
+        
+        this.slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                this.clearTimer();
+                this.goToSlide(index);
+                this.startSlideTimer();
+            });
+            this.dotsContainer.appendChild(dot);
+        });
+
+        this.dots = this.dotsContainer.querySelectorAll('.carousel-dot');
+    }
+
+    updateDots() {
+        this.dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentSlide);
+        });
+    }
+
+    goToSlide(index) {
+        this.currentSlide = index;
+        
+        // Position all slides
+        this.slides.forEach((slide, i) => {
+            slide.style.transform = `translateX(${100 * (i - index)}%)`;
+        });
+        
+        // Update dots
+        this.updateDots();
+    }
+
+    nextSlide() {
+        this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+        this.goToSlide(this.currentSlide);
+    }
+
+    clearTimer() {
+        if (this.slideTimer) {
+            clearInterval(this.slideTimer);
+            this.slideTimer = null;
+        }
+    }
+
+    startSlideTimer() {
+        this.clearTimer();
+        if (this.isVisible) {
+            this.slideTimer = setInterval(() => this.nextSlide(), 5000);
+        }
+    }
+
+    setupVisibilityHandler() {
+        // Handle tab visibility changes
+        document.addEventListener('visibilitychange', () => {
+            this.isVisible = !document.hidden;
+            if (this.isVisible) {
+                this.startSlideTimer();
+            } else {
+                this.clearTimer();
+            }
+        });
+    }
+
+    destroy() {
+        this.clearTimer();
+        // Remove event listeners if needed
+    }
+}
+
+// Initialize all carousels
+document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('.carousel');
+    carousels.forEach(carousel => new Carousel(carousel));
 });
-
-const dots = document.querySelectorAll('.carousel-dot');
-
-function updateDots() {
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
-    });
-}
-
-function goToSlide(index) {
-    currentSlide = index;
-    carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-    updateDots();
-}
-
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    goToSlide(currentSlide);
-}
-
-function startSlideTimer() {
-    slideTimer = setInterval(nextSlide, 5000);
-}
-
-// Initialize carousel
-goToSlide(0);
-startSlideTimer();
 
 // Intersection Observer for animate-on-scroll
 // Animate cards on scroll
