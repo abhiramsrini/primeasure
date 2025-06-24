@@ -924,11 +924,46 @@ h2::after {
 .value-card:hover {
     border-color: transparent;
     box-shadow: var(--shadow-md);
+    transform: translateY(-5px);
+}
+
+.value-card .service-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-gray);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.value-card .service-icon i {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    transition: var(--transition);
+}
+
+.value-card:hover .service-icon {
+    background: var(--primary-blue);
+}
+
+.value-card:hover .service-icon i {
+    color: var(--white);
 }
 
 .value-card h3 {
     color: var(--primary-blue);
     margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.value-card p {
+    color: var(--dark-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
 }
 
 /* Products Page Styles */
