@@ -875,26 +875,59 @@ h2::after {
     border-radius: var(--border-radius-md);
     border: 1px solid var(--border-color);
     transition: var(--transition);
+    text-align: center;
 }
 
 .expertise-card:hover {
     border-color: transparent;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.expertise-card .service-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-gray);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.expertise-card .service-icon i {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    transition: var(--transition);
+}
+
+.expertise-card:hover .service-icon {
+    background: var(--primary-blue);
+}
+
+.expertise-card:hover .service-icon i {
+    color: var(--white);
 }
 
 .expertise-card h3 {
     color: var(--primary-blue);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .expertise-card ul {
     list-style: none;
+    text-align: left;
+    margin-top: 1rem;
 }
 
 .expertise-card ul li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     padding-left: 1.5rem;
     position: relative;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .expertise-card ul li:before {
@@ -903,6 +936,7 @@ h2::after {
     font-weight: bold;
     position: absolute;
     left: 0;
+    top: 0.2rem;
 }
 
 .values-grid {
