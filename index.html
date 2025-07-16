@@ -34,19 +34,60 @@
     </header>
 
     <main>
-        <section class="hero-banner">
-            <div class="container">
-                <div class="hero-content">
+        <section class="hero-carousel">
+            <div class="carousel-contents">
+                <div class="carousel-content active" data-slide="0">
                     <h1>Welcome to Primeasure</h1>
-                    <p>Leading distributor of test & measurement solutions and broadcast technology</p>
+                    <p>Delivering cutting-edge test & measurement, broadcast, and software solutions to empower your success</p>
                     <div class="hero-buttons">
-                        <a href="pages/solutions.html" class="cta-button">Explore Solutions</a>
-                        <a href="pages/contact.html" class="cta-button outline">Contact Us</a>
+                        <a href="#vision-expertise" class="cta-button">Discover Our Expertise</a>
+                    </div>
+                </div>
+                <div class="carousel-content" data-slide="1">
+                    <h1>Precision Test & Measurement Instruments</h1>
+                    <p>Explore our advanced test and measurement tools designed for accuracy and reliability across industries</p>
+                    <div class="hero-buttons">
+                        <a href="#pages/solutions/test-measurement.html" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+                <div class="carousel-content" data-slide="2">
+                    <h1>Advanced Broadcast Solutions</h1>
+                    <p>State-of-the-art broadcasting equipment and systems for flawless media delivery</p>
+                    <div class="hero-buttons">
+                        <a href="pages/solutions/broadcast.html" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+                <div class="carousel-content" data-slide="3">
+                    <h1>Software Automation Solutions</h1>
+                    <p>Streamline your workflows with intelligent automation</p>
+                    <div class="hero-buttons">
+                        <a href="pages/solutions.html#software" class="cta-button">Learn More</a>
                     </div>
                 </div>
             </div>
+            <div class="carousel-track-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="images/solutions/logo-image.png" alt="GV Amp">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/solutions/waveform.png" alt="SV7C">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/solutions/studio.png" alt="Wavemaster">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/solutions/blocks.png" alt="Software Automation">
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-dot active" data-index="0"></button>
+                    <button class="carousel-dot" data-index="1"></button>
+                    <button class="carousel-dot" data-index="2"></button>
+                    <button class="carousel-dot" data-index="3"></button>
+                </div>
+            </div>
         </section>
-
 
         <section class="carousel-section">
             <div class="container">
@@ -69,7 +110,7 @@
                             <div class="carousel-dots"></div>
                         </div>
                     </div>
-                    <div class="carousel-info">
+                    <div id="vision-expertise" class="carousel-info">
                         <h2>Where Your Vision Meets Our Expertise</h2>
                         <p>For over three decades, we have delivered solutions across diverse market segments with expertise in Broadcast, Test & Measurement, and Software.</p>
                         <p>We partner with leading global manufacturers and have invested in training our engineers to provide first-level support for all our partners. </p>
@@ -82,7 +123,7 @@
         <section class="carousel-section">
             <div class="container">
                 <div class="carousel-wrapper default">
-                    <div class="carousel-info">
+                    <div id="end-to-end" class="carousel-info">
                         <h2>End to End Solutions</h2>
                         <p>We support customers throughout the entire sales lifecycle — from tailored proof-of-concept demonstrations replicating their workflows to overseeing installation and ensuring seamless implementation.</p>
                         <p>We provide hands-on guidance during initial deployment for a smooth transition and act as the first line of support for any post-sale issues. Our integrated solutions are designed for compatibility and optimal performance.</p>
@@ -98,7 +139,7 @@
                                         <img src="images/solutions/blocks.png" alt="Measurement System">
                                     </div>
                                     <div class="carousel-slide">
-                                        <img src="images/solutions/measurement.png" alt="Analysis Platform">
+                                        <img src="images/solutions/lecroy-solution.jpg" alt="Analysis Platform">
                                     </div>
                                 </div>
                             </div>
@@ -130,8 +171,8 @@
                             <div class="carousel-dots"></div>
                         </div>
                     </div>
-                    <div class="carousel-info">
-                        <h2>Suport with a sense of commitment</h2>
+                    <div id="support-commitment" class="carousel-info">
+                        <h2>Support with a sense of commitment</h2>
                         <p>We are committed to delivering exactly what we promise — solutions that are reliable and enduring.</p>
                         <p>To uphold this commitment, we prioritize continuous training for our engineers through our technology partners.</p>
                         <p>This focus, combined with our dedication to customer success, ensures we meet all support requirements, even in the most demanding situations.</p>
@@ -178,182 +219,6 @@
                 </div>
             </div>
         </section>
-
-        <section class="what-we-do-section">
-            <div class="container">
-                <h2>What We Do</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h3>End to End Solutions</h3>
-                        <p>Complete technology solutions tailored to your business needs, from initial planning to final implementation.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-drafting-compass"></i>
-                        </div>
-                        <h3>Solutions Architect</h3>
-                        <p>Expert architectural design and planning to ensure your solution is scalable, efficient, and future-ready.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h3>Installation & POC</h3>
-                        <p>Professional implementation and proof of concept development to validate solutions before full deployment.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h3>Post Sales Support</h3>
-                        <p>Ongoing maintenance, updates, and technical support to ensure your solutions continue to perform optimally.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="events-section homepage-events">
-            <div class="container">
-                <h2>Upcoming Events</h2>
-                <div class="events-grid">
-                    <div class="event-card">
-                        <div class="event-date-badge">
-                            <span class="month">JUL</span>
-                            <span class="day">25</span>
-                            <span class="year">2025</span>
-                        </div>
-                        <div class="event-main">
-                            <h3>Test & Measurement Seminar</h3>
-                            <div class="event-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Bangalore, India</span>
-                            </div>
-                            <p>Learn about advanced measurement techniques and best practices.</p>
-                        </div>
-                        <div class="event-hover">
-                            <p>Join industry professionals for in-depth technical discussions.</p>
-                            <a href="pages/register.html" class="register-button">Register Now</a>
-                        </div>
-                    </div>
-
-                    <div class="event-card">
-                        <div class="event-date-badge">
-                            <span class="month">AUG</span>
-                            <span class="day">10</span>
-                            <span class="year">2025</span>
-                        </div>
-                        <div class="event-main">
-                            <h3>Broadcast Technology Workshop</h3>
-                            <div class="event-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Chennai, India</span>
-                            </div>
-                            <p>A hands-on workshop on broadcast technology.</p>
-                        </div>
-                        <div class="event-hover">
-                            <p>Get practical experience with broadcast equipment.</p>
-                            <a href="pages/register.html" class="register-button">Register Now</a>
-                        </div>
-                    </div>
-
-                    <div class="event-card">
-                        <div class="event-date-badge">
-                            <span class="month">SEP</span>
-                            <span class="day">15</span>
-                            <span class="year">2025</span>
-                        </div>
-                        <div class="event-main">
-                            <h3>Broadcast India Show 2025</h3>
-                            <div class="event-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Mumbai, India</span>
-                            </div>
-                            <p>Join us at Booth #324 to explore our solutions.</p>
-                        </div>
-                        <div class="event-hover">
-                            <p>Premier event showcasing broadcast technology.</p>
-                            <a href="pages/register.html" class="register-button">Register Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="pages/events.html" class="cta-button">View All Events</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="partners-section">
-            <div class="container">
-                <h2>Our Trusted Partners</h2>
-                <div class="partners-slider">
-                    <div class="slider-track">
-                        <!-- Original set -->
-                        <div class="slide">
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/lecroy.jpg" alt="Partner Company 1">
-                            </a>
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/introspect.png" alt="Partner Company 2">
-                            </a>
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/gv.jpg" alt="Partner Company 3">
-                            </a>
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/chyron.png" alt="Partner Company 4">
-                            </a>
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/metus.jpg" alt="Partner Company 5">
-                            </a>
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/tvu.jpg" alt="Partner Company 6">
-                            </a>
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/synamedia.jpg" alt="Partner Company 7">
-                            </a>
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/telestream.png" alt="Partner Company 8">
-                            </a>
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/torque.jpg" alt="Partner Company 9">
-                            </a>
-                        </div>
-                        <!-- Duplicate set for seamless loop -->
-                        <div class="slide">
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/lecroy.jpg" alt="Partner Company 1">
-                            </a>
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/introspect.png" alt="Partner Company 2">
-                            </a>
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/gv.jpg" alt="Partner Company 3">
-                            </a>
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/chyron.png" alt="Partner Company 4">
-                            </a>
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/metus.jpg" alt="Partner Company 5">
-                            </a>
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/tvu.jpg" alt="Partner Company 6">
-                            </a>
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/synamedia.jpg" alt="Partner Company 7">
-                            </a>
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/telestream.png" alt="Partner Company 8">
-                            </a>
-                            <a href="#" class="partner-logo" target="_blank" rel="noopener noreferrer">
-                                <img src="images/partners/torque.jpg" alt="Partner Company 9">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer>
@@ -388,6 +253,7 @@
         </div>
     </footer>
 
+    <script src="js/carousel.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
