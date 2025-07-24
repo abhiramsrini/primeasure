@@ -85,6 +85,10 @@
                     <input type="hidden" id="event-type" name="event-type">
                     <input type="hidden" id="event-id" name="event-id">
                     <div class="form-group">
+                        <label for="event-title-field">Event</label>
+                        <input type="text" id="event-title-field" name="event-title" readonly>
+                    </div>
+                    <div class="form-group">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" required>
                     </div>
@@ -191,6 +195,9 @@
             document.getElementById('event-title').textContent = `Register for ${eventTitle}`;
             document.title = `Register for ${eventTitle} - Primeasure Technology`;
             
+            // Set event title in form field
+            document.getElementById('event-title-field').value = eventTitle;
+            
             // Update event card
             document.getElementById('event-name').textContent = eventTitle;
             document.getElementById('event-location').textContent = eventLocation;
@@ -217,10 +224,96 @@
         }
 
         // Form submission handling
-        document.getElementById('registration-form').addEventListener('submit', function(e) {
+        document.getElementById('registration-form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            alert('Thank you for registering! We will contact you with further details.');
-            window.location.href = 'events.html';
+            
+            // Get form data
+            const formData = {
+                'entry.1287541098': document.getElementById('event-title-field').value,
+                'entry.908367769': document.getElementById('name').value,
+                'entry.446693609': document.getElementById('email').value,
+                'entry.1619260382': document.getElementById('phone').value,
+                'entry.1308701333': document.getElementById('company').value || '',
+                'entry.119358989': document.getElementById('designation').value || '',
+                'entry.80917227': document.getElementById('message').value || ''
+            };
+
+            // Disable form and show loading state
+            const form = e.target;
+            const submitBtn = form.querySelector('.submit-button');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            Array.from(form.elements).forEach(element => element.disabled = true);
+
+            try {
+                // Submit to Google Form
+                const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe7rtOOYIsrEH-iEJJHrBCqjktH58z5af_7MJ1OEcEVGfYttA/formResponse';
+                await fetch(formUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams(formData)
+                });
+
+                // Show success message with overlay
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0, 0, 0, 0.7);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 9999;
+                `;
+
+                const message = document.createElement('div');
+                message.style.cssText = `
+                    background: white;
+                    padding: 2rem;
+                    border-radius: 8px;
+                    text-align: center;
+                    max-width: 400px;
+                    margin: 1rem;
+                `;
+                message.innerHTML = `
+                    <h3 style="color: #241F61; margin-bottom: 1rem;">Registration Successful!</h3>
+                    <p style="margin-bottom: 1.5rem;">Thank you for registering! We will contact you with further details about the event.</p>
+                    <button style="
+                        background: #ED1C24;
+                        color: white;
+                        border: none;
+                        padding: 0.5rem 1.5rem;
+                        border-radius: 4px;
+                        cursor: pointer;
+                    ">Close</button>
+                `;
+
+                document.body.appendChild(overlay);
+                overlay.appendChild(message);
+
+                // Handle close button click
+                const closeBtn = message.querySelector('button');
+                closeBtn.addEventListener('click', () => {
+                    overlay.remove();
+                    window.location.href = 'events.html';
+                });
+
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('There was an error submitting the form. Please try again.');
+                
+                // Re-enable form
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+                Array.from(form.elements).forEach(element => element.disabled = false);
+            }
         });
     </script>
 </body>
