@@ -12,6 +12,9 @@
     <header>
         <nav class="navbar">
             <div class="container">
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="menu-icon"></span>
+                </button>
                 <a href="../../index.html" class="logo">
                     <img src="../../images/logo.png" alt="Primeasure Logo">
                 </a>
@@ -24,11 +27,14 @@
                         <ul class="dropdown-menu">
                             <li><a href="test-measurement.html">Test & Measurement</a></li>
                             <li><a href="broadcast.html">Broadcast</a></li>
-                            <li><a href="../solutions.html#software">Software</a></li>
+                            <li><a href="software.html">Software</a></li>
                         </ul>
                     </li>
-                    <li><a href="../contact.html">Contact</a></li>
                 </ul>
+                <a href="../contact.html" class="schedule-demo">
+                    <i class="fas fa-user"></i>
+                    <span>Contact Us</span>
+                </a>
             </div>
         </nav>
     </header>
@@ -48,12 +54,32 @@
 
         <section class="summary-section">
             <div class="container">
-                <div class="summary-content">
-                    <p><strong>Primeasure Technologies is the authorized distributor for Teledyne LeCroy and Introspect Technology in India.</strong></p>
+                <div class="carousel-wrapper default">
+                    <div class="carousel-container">
+                        <div class="carousel">
+                            <div class="carousel-track-container">
+                                <div class="carousel-track">
+                                    <div class="carousel-slide">
+                                        <img src="../../images/products/wavemaster8000hd-65ghz.png" alt="WaveMaster 8000HD">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="../../images/products/sv7m.png" alt="SV7C Protocol Analyzer">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="../../images/products/sv5c-gen.png" alt="SV5C Generator">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </div>
+                    <div class="carousel-info">
+                        <p><strong>Primeasure Technologies is the authorized distributor for Teledyne LeCroy and Introspect Technology in India.</strong></p>
 
-                    <p>At Primeasure Technologies, we deliver cutting-edge test and measurement solutions that enable engineers and researchers to achieve unprecedented accuracy and reliability. Our comprehensive portfolio includes high-performance oscilloscopes, memory interface testing systems, and specialized validation tools designed for the most demanding applications.</p>
-                    
-                    <p>From first-silicon characterization to complex protocol debugging, our solutions empower teams to validate designs faster, reduce time-to-market, and ensure product quality. With industry-leading bandwidth capabilities and advanced analysis features, we support innovation across semiconductor, telecommunications, and high-speed digital design sectors.</p>
+                        <p>At Primeasure Technologies, we deliver cutting-edge test and measurement solutions that enable engineers and researchers to achieve unprecedented accuracy and reliability. Our comprehensive portfolio includes high-performance oscilloscopes, memory interface testing systems, and specialized validation tools designed for the most demanding applications.</p>
+                        
+                        <p>From first-silicon characterization to complex protocol debugging, our solutions empower teams to validate designs faster, reduce time-to-market, and ensure product quality. With industry-leading bandwidth capabilities and advanced analysis features, we support innovation across semiconductor, telecommunications, and high-speed digital design sectors.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -245,6 +271,8 @@
         </div>
     </footer>
 
+    <script src="../../js/carousel.js"></script>
     <script src="../../js/main.js"></script>
+    <script src="../../js/menu.js"></script>
 </body>
 </html>

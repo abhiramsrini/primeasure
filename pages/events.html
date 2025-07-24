@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events - Primeasure Technology</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
             <a href="../index.html" class="logo">
                 <img src="../images/logo.png" alt="Primeasure Logo">
             </a>
@@ -19,14 +23,18 @@
                 <li><a href="../pages/about.html">About</a></li>
                 <li><a href="../pages/events.html" class="active">Events</a></li>
                 <li class="has-dropdown">
-                    <a href="../pages/solutions.html">Solutions</a>
+                    <a href="javascript:void(0)">Solutions</a>
                     <ul class="dropdown-menu">
-                        <li><a href="../pages/solutions/broadcast.html">Broadcast</a></li>
-                        <li><a href="../pages/solutions/test-measurement.html">Test & Measurement</a></li>
+                        <li><a href="solutions/test-measurement.html">Test & Measurement</a></li>
+                        <li><a href="solutions/broadcast.html">Broadcast</a></li>
+                        <li><a href="solutions/software.html">Software</a></li>
                     </ul>
                 </li>
-                <li><a href="../pages/contact.html">Contact</a></li>
             </ul>
+            <a href="../pages/contact.html" class="schedule-demo">
+                <i class="fas fa-user"></i>
+                <span>Contact Us</span>
+            </a>
         </div>
     </nav>
 
@@ -41,128 +49,131 @@
     <!-- Events Grid -->
     <section class="events-section">
         <div class="container">
-            <h2>Primeasure Events</h2>
+            <h2>Upcoming Events</h2>
             <div class="events-grid">
                 <div class="event-card">
                     <div class="event-date-badge">
-                        <span class="month">JUL</span>
-                        <span class="day">25</span>
+                        <span class="weekday">TUESDAY</span>
+                        <span class="month">SEPT</span>
+                        <span class="day">2</span>
                         <span class="year">2025</span>
+                        <span class="time">2:00 PM</span>
                     </div>
                     <div class="event-main">
-                        <h3>Test & Measurement Seminar</h3>
+                        <h3>Discover Advanced Memory Solutions</h3>
                         <div class="event-location">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Bangalore, India</span>
+                            <span>Bengaluru, India</span>
                         </div>
-                        <p>Learn about advanced measurement techniques and best practices from our experts.</p>
+                        <p>Learn about advanced memory solutions and best practices from our experts.</p>
+                    </div>
+                    <div class="event-logo">
+                        <img src="../images/logo.png" alt="Synamedia Logo">
                     </div>
                     <div class="event-hover">
                         <p>Join industry professionals for in-depth technical discussions and demonstrations.</p>
-                        <a href="../pages/register.html" class="register-button">Register Now</a>
+                        <a href="../pages/register.html?event=seminar&title=Discover+Advanced+Memory+Solutions&date=2025-09-02&time=2:00+PM&location=Bengaluru%2C+India&description=Join+industry+professionals+for+in-depth+technical+discussions+and+demonstrations.&image=../images/logo.png" class="register-button">Register Now</a>
                     </div>
                 </div>
 
                 <div class="event-card">
                     <div class="event-date-badge">
-                        <span class="month">AUG</span>
-                        <span class="day">10</span>
+                        <span class="weekday">FRIDAY</span>
+                        <span class="month">SEPT</span>
+                        <span class="day">12-15</span>
                         <span class="year">2025</span>
+                        <span class="time">9:00 AM</span>
                     </div>
                     <div class="event-main">
-                        <h3>Broadcast Technology Workshop</h3>
+                        <h3>IBC 2025</h3>
                         <div class="event-location">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Chennai, India</span>
+                            <span>Amsterdam, Netherlands</span>
                         </div>
-                        <p>A hands-on workshop covering the latest innovations in broadcast technology.</p>
+                        <p>Join us at the world's most influential media, entertainment & technology show. Visit us at the GrassValley Booth Hall 9, Booth 9.A01.</p>
+                    </div>
+                    <div class="event-logo">
+                        <img src="../images/events/ibc.png" alt="GrassValley Logo">
                     </div>
                     <div class="event-hover">
-                        <p>Get practical experience with cutting-edge broadcast equipment and network with industry experts.</p>
-                        <a href="../pages/register.html" class="register-button">Register Now</a>
+                        <p>Experience the future of broadcasting at IBC 2025. Connect with our team at the GrassValley booth.</p>
+                        <a href="../pages/register.html?event=expo&title=IBC+2025&date=2025-09-12&time=9:00+AM&location=Amsterdam%2C+Netherlands&description=Experience+the+future+of+broadcasting+at+IBC+2025.+Connect+with+our+team+at+the+GrassValley+booth.&image=../images/events/ibc.png" class="register-button">Register Now</a>
                     </div>
                 </div>
 
                 <div class="event-card">
                     <div class="event-date-badge">
-                        <span class="month">DEC</span>
-                        <span class="day">05</span>
-                        <span class="year">2025</span>
-                    </div>
-                    <div class="event-main">
-                        <h3>Product Launch Event</h3>
-                        <div class="event-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Mumbai, India</span>
-                        </div>
-                        <p>Be the first to see our newest innovations in broadcast and test measurement solutions.</p>
-                    </div>
-                    <div class="event-hover">
-                        <p>Exclusive preview of our latest products with live demonstrations and networking opportunities.</p>
-                        <a href="../pages/register.html" class="register-button">Register Now</a>
-                    </div>
-                </div>
-            </div>
-
-            <h2>Industry Events</h2>
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-date-badge">
-                        <span class="month">SEP</span>
-                        <span class="day">15</span>
-                        <span class="year">2025</span>
-                    </div>
-                    <div class="event-main">
-                        <h3>Broadcast India Show 2025</h3>
-                        <div class="event-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Mumbai, India</span>
-                        </div>
-                        <p>Join us at Booth #324 to explore our latest broadcast solutions and meet our experts.</p>
-                    </div>
-                    <div class="event-hover">
-                        <p>A premier event showcasing cutting-edge broadcast technology and innovations.</p>
-                        <a href="../pages/register.html" class="register-button">Register Now</a>
-                    </div>
-                </div>
-
-                <div class="event-card">
-                    <div class="event-date-badge">
+                        <span class="weekday">MONDAY</span>
                         <span class="month">OCT</span>
-                        <span class="day">05</span>
+                        <span class="day">14-16</span>
                         <span class="year">2025</span>
+                        <span class="time">9:00 AM</span>
                     </div>
                     <div class="event-main">
-                        <h3>TestMeasure Expo 2025</h3>
+                        <h3>Broadcast India 2025</h3>
                         <div class="event-location">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Bangalore, India</span>
+                            <span>Mumbai, India</span>
                         </div>
-                        <p>Experience hands-on demonstrations of our advanced test & measurement solutions.</p>
+                        <p>Join us at the GrassValley booth to explore our latest broadcast solutions and meet our experts.</p>
+                    </div>
+                    <div class="event-logo">
+                        <img src="../images/events/bi2025.png" alt="GrassValley Logo">
                     </div>
                     <div class="event-hover">
-                        <p>Discover the latest in testing equipment and measurement technology.</p>
-                        <a href="../pages/register.html" class="register-button">Register Now</a>
+                        <p>India's premier event for the Media & Entertainment industry. Visit us at the GrassValley booth.</p>
+                        <a href="../pages/register.html?event=expo&title=Broadcast+India+2025&date=2025-10-14&time=9:00+AM&location=Mumbai%2C+India&description=Join+us+at+the+GrassValley+booth+to+explore+our+latest+broadcast+solutions+and+meet+our+experts.&image=../images/events/bi2025.png" class="register-button">Register Now</a>
                     </div>
                 </div>
 
                 <div class="event-card">
                     <div class="event-date-badge">
+                        <span class="weekday">TUESDAY</span>
                         <span class="month">NOV</span>
-                        <span class="day">20</span>
+                        <span class="day">19-21</span>
                         <span class="year">2025</span>
+                        <span class="time">9:00 AM</span>
                     </div>
                     <div class="event-main">
-                        <h3>Media Tech Summit</h3>
+                        <h3>AUTO EV BHARAT 2025</h3>
                         <div class="event-location">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Chennai, India</span>
+                            <span>Bengaluru, India</span>
                         </div>
-                        <p>Learn about the future of broadcasting technology and network with industry leaders.</p>
+                        <p>Join us as we represent Teledyne Lecroy and explore our test and measuring solutions catered for the automobile industry.</p>
+                    </div>
+                    <div class="event-logo">
+                        <img src="../images/events/auto-ev.png" alt="Teledyne Lecroy Logo">
                     </div>
                     <div class="event-hover">
-                        <p>Join industry experts for discussions on the future of media technology.</p>
-                        <a href="../pages/register.html" class="register-button">Register Now</a>
+                        <p>Discover advanced automotive testing solutions and connect with industry experts at India's premier EV expo.</p>
+                        <a href="../pages/register.html?event=expo&title=AUTO+EV+BHARAT+2025&date=2025-11-19&time=9:00+AM&location=Bengaluru%2C+India&description=Discover+advanced+automotive+testing+solutions+and+connect+with+industry+experts+at+India's+premier+EV+expo.&image=../images/events/auto-ev.png" class="register-button">Register Now</a>
+                    </div>
+                </div>
+                
+
+                <div class="event-card">
+                    <div class="event-date-badge">
+                        <span class="weekday">TBD</span>
+                        <span class="month">DEC</span>
+                        <span class="day">TBD</span>
+                        <span class="year">2025</span>
+                        <span class="time">TBD</span>
+                    </div>
+                    <div class="event-main">
+                        <h3>Advanced Oscilloscope Technology Showcase</h3>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bengaluru, India</span>
+                        </div>
+                        <p>Experience hands-on demonstrations of cutting-edge oscilloscopes and explore revolutionary testing solutions across multiple industries.</p>
+                    </div>
+                    <div class="event-logo">
+                        <img src="../images/logo.png" alt="Teledyne LeCroy Logo">
+                    </div>
+                        <div class="event-hover">
+                        <p>Join us for an interactive showcase featuring next-generation oscilloscopes and advanced measurement technologies from Teledyne LeCroy.</p>
+                        <a href="../pages/register.html?event=showcase&title=Advanced+Oscilloscope+Technology+Showcase&date=TBD&time=TBD&location=Bengaluru%2C+India&description=Join+us+for+an+interactive+showcase+featuring+next-generation+oscilloscopes+and+advanced+measurement+technologies+from+Teledyne+LeCroy.&image=../images/logo.png" class="register-button">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -182,7 +193,6 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="../pages/about.html">About Us</a></li>
-                        <li><a href="../pages/solutions.html">Solutions</a></li>
                         <li><a href="../pages/events.html">Events</a></li>
                         <li><a href="../pages/contact.html">Contact</a></li>
                     </ul>
@@ -203,5 +213,6 @@
     </footer>
 
     <script src="../js/main.js"></script>
+    <script src="../js/menu.js"></script>
 </body>
 </html>

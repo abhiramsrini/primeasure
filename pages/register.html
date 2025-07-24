@@ -5,28 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Registration - Primeasure Technology</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Override event card styles for registration page */
+        .contact-section .event-card {
+            cursor: default;
+        }
+        .contact-section .event-card:hover {
+            transform: none;
+            box-shadow: var(--shadow-sm);
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
             <a href="../index.html" class="logo">
                 <img src="../images/logo.png" alt="Primeasure Logo">
             </a>
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li class="has-dropdown">
-                    <a href="../pages/solutions.html">Solutions</a>
+                    <a href="solutions.html">Solutions</a>
                     <ul class="dropdown-menu">
-                        <li><a href="../pages/solutions/broadcast.html">Broadcast</a></li>
-                        <li><a href="../pages/solutions/test-measurement.html">Test & Measurement</a></li>
+                        <li><a href="solutions/test-measurement.html">Test & Measurement</a></li>
+                        <li><a href="solutions/broadcast.html">Broadcast</a></li>
+                        <li><a href="solutions.html#software">Software</a></li>
                     </ul>
                 </li>
-                <li><a href="../pages/about.html">About</a></li>
-                <li><a href="../pages/events.html">Events</a></li>
-                <li><a href="../pages/contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
+            <a href="contact.html" class="schedule-demo">Request for Quote</a>
         </div>
     </nav>
 
@@ -34,16 +50,40 @@
     <div class="hero-banner">
         <div class="hero-content">
             <h1>Event Registration</h1>
-            <p id="event-description">Register for our upcoming events</p>
+            <p>Register for our upcoming events</p>
         </div>
     </div>
 
     <!-- Registration Form -->
     <section class="contact-section">
         <div class="container">
-            <div class="contact-form" style="max-width: 600px; margin: 0 auto;">
+            <!-- Event Card -->
+            <div class="event-card">
+                <div class="event-date-badge">
+                    <span class="weekday" id="event-weekday"></span>
+                    <span class="month" id="event-month"></span>
+                    <span class="day" id="event-day"></span>
+                    <span class="year" id="event-year"></span>
+                    <span class="time" id="event-time"></span>
+                </div>
+                <div class="event-main">
+                    <h3 id="event-name"></h3>
+                    <div class="event-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="event-location"></span>
+                    </div>
+                    <p class="description" id="event-description"></p>
+                </div>
+                <div class="event-logo">
+                    <img src="" alt="Event Logo">
+                </div>
+            </div>
+            
+            <div class="contact-form">
                 <h2 id="event-title">Event Registration</h2>
                 <form id="registration-form">
+                    <input type="hidden" id="event-type" name="event-type">
+                    <input type="hidden" id="event-id" name="event-id">
                     <div class="form-group">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" required>
@@ -92,10 +132,10 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="../pages/about.html">About Us</a></li>
-                        <li><a href="../pages/solutions.html">Solutions</a></li>
-                        <li><a href="../pages/events.html">Events</a></li>
-                        <li><a href="../pages/contact.html">Contact</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -113,24 +153,74 @@
         </div>
     </footer>
 
+    <script src="../js/main.js"></script>
+    <script src="../js/menu.js"></script>
     <script>
         // Get URL parameters
         const urlParams = new URLSearchParams(window.location.search);
+        const eventType = urlParams.get('event');
         const eventTitle = urlParams.get('title');
         const eventDate = urlParams.get('date');
+        const eventTime = urlParams.get('time');
+        const eventLocation = urlParams.get('location');
+        const eventDesc = urlParams.get('description');
+        const eventImage = urlParams.get('image');
+
+        // Format date parts
+        function getDateParts(dateStr) {
+            if (dateStr === 'TBD') {
+                return {
+                    weekday: 'TBD',
+                    month: 'TBD',
+                    day: 'TBD',
+                    year: '2025'
+                };
+            }
+            const date = new Date(dateStr);
+            return {
+                weekday: date.toLocaleDateString('en-US', { weekday: 'long' }).toUpperCase(),
+                month: date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase(),
+                day: date.getDate().toString().padStart(2, '0'),
+                year: date.getFullYear().toString()
+            };
+        }
 
         // Update page content
         if (eventTitle) {
+            // Update page title and form title
             document.getElementById('event-title').textContent = `Register for ${eventTitle}`;
-            document.getElementById('event-description').textContent = `Registration for ${eventTitle} - ${eventDate}`;
             document.title = `Register for ${eventTitle} - Primeasure Technology`;
+            
+            // Update event card
+            document.getElementById('event-name').textContent = eventTitle;
+            document.getElementById('event-location').textContent = eventLocation;
+            document.getElementById('event-description').textContent = eventDesc;
+
+            // Update date badge
+            const dateParts = getDateParts(eventDate);
+            document.getElementById('event-weekday').textContent = dateParts.weekday;
+            document.getElementById('event-month').textContent = dateParts.month;
+            document.getElementById('event-day').textContent = dateParts.day;
+            document.getElementById('event-year').textContent = dateParts.year;
+            document.getElementById('event-time').textContent = eventTime || 'TBD';
+
+            // Set event logo
+            if (eventImage) {
+                const logoImg = document.querySelector('.event-logo img');
+                logoImg.src = eventImage;
+                logoImg.alt = `${eventTitle} Logo`;
+            }
+
+            // Set hidden form fields
+            document.getElementById('event-type').value = eventType;
+            document.getElementById('event-id').value = `${eventType}-${eventDate}`;
         }
 
         // Form submission handling
         document.getElementById('registration-form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for registering! We will contact you with further details.');
-            window.location.href = '../pages/events.html';
+            window.location.href = 'events.html';
         });
     </script>
 </body>
