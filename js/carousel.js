@@ -486,7 +486,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 new HeroCarousel(heroCarousel, {
                     autoRotate: true,
                     rotationInterval: 6000,
-                    pauseOnHover: true,
+                    pauseOnHover: false,
                     transitionDuration: 400
                 });
             } catch (error) {

@@ -909,7 +909,6 @@ body {
     height: 100%;
     position: absolute;
     inset: 0;
-    background: var(--primary-blue);
 }
 
 .carousel-track-container {
@@ -932,7 +931,6 @@ body {
     height: 100%;
     transition: transform 0.5s ease-in-out;
     overflow: hidden;
-    background: var(--primary-blue);
 }
 
 .carousel-slide img {
@@ -940,7 +938,6 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
-    background: var(--primary-blue);
 }
 
 @media (max-width: 768px) {
@@ -1796,7 +1793,7 @@ h2::after {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
 }
 
@@ -1837,9 +1834,11 @@ h2::after {
 /* Contact Form Styles */
 .contact-form {
     background: var(--white);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 12px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
 }
 
 .form-group {
