@@ -358,6 +358,24 @@ body {
     height: 90px;
 }
 
+@media (max-width: 900px) {
+    .logo img {
+        height: 70px;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo img {
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 55px;
+    }
+}
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -406,6 +424,7 @@ body {
         margin-left: auto;
         padding: 8px 16px;
         font-size: 13px;
+        position: relative;
     }
 
     .schedule-demo i {
@@ -414,6 +433,23 @@ body {
 
     .schedule-demo span {
         display: none;
+    }
+
+    /* Add tooltip for mobile to show what the button does */
+    .schedule-demo::after {
+        content: 'Contact';
+        position: absolute;
+        bottom: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 10px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .schedule-demo:hover::after {
+        opacity: 1;
     }
 }
 
@@ -562,29 +598,59 @@ body {
     background-color: var(--primary-blue);
 }
 
+/* Make dropdown arrow white when parent is active */
+.has-dropdown > a.active::before {
+    color: var(--white);
+}
+
+/* Keep arrow white on hover when active */
+.has-dropdown > a.active:hover::before {
+    color: var(--white);
+}
+
 /* Dropdown arrow */
 .has-dropdown > a {
-    padding-right: 28px; /* Space for dropdown arrow */
+    display: inline-flex;
+    align-items: center;
     cursor: default;
+    gap: 6px;
 }
 
 .has-dropdown > a::before {
-    content: '▾';
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 12px;
-    transition: transform 0.3s ease;
+    content: '\f107'; /* FontAwesome chevron-down */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 16px;
+    color: var(--dark-gray);
+    transition: all 0.3s ease;
+    display: inline-block;
+    line-height: 1;
 }
 
 .has-dropdown:hover > a::before {
-    transform: translateY(-50%) rotate(180deg);
+    transform: rotate(180deg);
+    color: var(--primary-blue);
 }
 
-/* Remove duplicate dropdown arrow */
-.has-dropdown > a::after {
-    content: '';
+/* Fix mobile menu dropdown arrow position */
+@media (max-width: 900px) {
+    .has-dropdown > a::before {
+        position: absolute;
+        right: 16px;
+        margin-left: 0;
+    }
+}
+
+/* Add bounce animation on hover */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
+}
+
+.has-dropdown:hover > a::before {
+    transform: rotate(180deg);
+    animation: bounce 0.5s ease infinite;
+    color: var(--primary-blue);
 }
 
 /* Style the underline for Solutions link */
@@ -617,6 +683,39 @@ body {
     height: 700px;
     position: relative;
     overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+    .hero-carousel {
+        height: 600px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-carousel {
+        margin-top: 70px; /* Adjusted for smaller navbar */
+        height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-carousel {
+        height: 450px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-carousel {
+        margin-top: 60px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-carousel {
+        margin-top: 55px;
+        height: 350px;
+    }
 }
 
 .hero-carousel .carousel-track-container {
@@ -696,6 +795,64 @@ body {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+@media (max-width: 1200px) {
+    .hero-carousel .carousel-content h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-carousel .carousel-content p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-carousel .carousel-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-carousel .carousel-content p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-carousel .carousel-content h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-carousel .carousel-content p {
+        font-size: 1.1rem;
+        margin-bottom: 1.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-carousel .carousel-content h1 {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero-carousel .carousel-content p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-carousel .carousel-content h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero-carousel .carousel-content p {
+        font-size: 0.95rem;
+        margin-bottom: 1.2rem;
+    }
+}
+
 .hero-carousel .hero-buttons {
     display: flex;
     justify-content: center;
@@ -713,6 +870,34 @@ body {
 .hero-carousel .hero-buttons .cta-button:hover {
     background: #ff4d4f;
     transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+    .hero-carousel .hero-buttons .cta-button {
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-carousel .hero-buttons .cta-button {
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-carousel .hero-buttons .cta-button {
+        padding: 0.8rem 1.8rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-carousel .hero-buttons .cta-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
 }
 
 .hero-carousel::after {
@@ -893,6 +1078,24 @@ body {
     flex-direction: row;
 }
 
+@media (max-width: 1200px) {
+    .carousel-wrapper {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-wrapper {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-wrapper {
+        gap: 1rem;
+    }
+}
+
 .carousel-container {
     flex: 1;
     max-width: 50%;
@@ -902,6 +1105,26 @@ body {
     overflow: hidden;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 1200px) {
+    .carousel-container {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        min-height: 250px;
+        aspect-ratio: 4/3;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        min-height: 200px;
+        aspect-ratio: 1/1;
+    }
 }
 
 .carousel {
@@ -996,6 +1219,57 @@ body {
     flex: 1;
     max-width: 50%;
     padding: 2rem;
+}
+
+@media (max-width: 1200px) {
+    .carousel-info {
+        padding: 1.5rem;
+    }
+    
+    .carousel-info h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .carousel-info p {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-info {
+        padding: 1rem;
+    }
+    
+    .carousel-info h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .carousel-info p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-info {
+        padding: 0.5rem;
+    }
+    
+    .carousel-info h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .carousel-info p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 0.8rem;
+    }
 }
 
 .carousel-info h2 {
@@ -1205,6 +1479,38 @@ footer {
     margin-bottom: 2rem;
 }
 
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        text-align: left;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        gap: 1rem;
+    }
+    
+    .footer-section h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .footer-section ul li {
+        margin-bottom: 0.4rem;
+        font-size: 0.9rem;
+    }
+}
+
 .footer-section h4 {
     margin-bottom: 1rem;
 }
@@ -1247,6 +1553,36 @@ footer {
     transition: color 0.3s ease;
     display: flex;
     align-items: center;
+    min-height: 44px;
+    min-width: 44px;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+@media (max-width: 600px) {
+    .social-links {
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    .social-links a {
+        font-size: 1.3rem;
+        min-height: 48px;
+        min-width: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .social-links a {
+        font-size: 1.1rem;
+        min-height: 44px;
+        min-width: 44px;
+    }
 }
 
 .social-links a:hover {
@@ -1428,24 +1764,74 @@ h2::after {
 /* Customers Section */
 .customers-section {
     padding: 4rem 0;
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    background: var(--light-gray);
     border-top: 1px solid var(--border-color);
+    overflow: hidden;
+    position: relative;
+}
+
+.customers-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    opacity: 0.8;
 }
 
 .customers-section h2 {
     margin-bottom: 3.5rem;
     font-size: 2.2rem;
+    position: relative;
 }
 
-.customers-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2.5rem;
-    margin: 0 auto;
-    max-width: 1000px;
-    align-items: center;
-    justify-content: center;
-    padding: 0 1rem;
+.customers-slider {
+    position: relative;
+    padding: 1rem 0;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.customers-slider::before,
+.customers-slider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.customers-slider::before {
+    left: 0;
+    background: linear-gradient(90deg, #f8f9fa 0%, rgba(248, 249, 250, 0) 100%);
+}
+
+.customers-slider::after {
+    right: 0;
+    background: linear-gradient(-90deg, #f8f9fa 0%, rgba(248, 249, 250, 0) 100%);
+}
+
+.customers-track {
+    display: flex;
+    animation: scroll 40s linear infinite;
+    gap: 2rem;
+}
+
+.customers-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .customer-logo {
@@ -1458,8 +1844,8 @@ h2::after {
     border-radius: var(--border-radius-md);
     transition: var(--transition);
     height: 100px;
-    width: 180px;
-    margin: 0 auto;
+    min-width: 180px;
+    flex-shrink: 0;
 }
 
 .customer-logo img {
@@ -1481,6 +1867,40 @@ h2::after {
 
 .customer-logo:hover img {
     transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .customer-logo {
+        height: 80px;
+        min-width: 150px;
+        padding: 1rem;
+    }
+    
+    .customer-logo img {
+        max-width: 120px;
+        max-height: 40px;
+    }
+    
+    .customers-track {
+        animation-duration: 30s;
+    }
+}
+
+@media (max-width: 480px) {
+    .customer-logo {
+        height: 70px;
+        min-width: 130px;
+        padding: 0.8rem;
+    }
+    
+    .customer-logo img {
+        max-width: 100px;
+        max-height: 35px;
+    }
+    
+    .customers-track {
+        animation-duration: 25s;
+    }
 }
 
 @media screen and (max-width: 1400px) {
@@ -2411,6 +2831,26 @@ h2::after {
     gap: 2rem;
 }
 
+@media (max-width: 1200px) {
+    .solutions-grid {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .solutions-grid {
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .solutions-grid {
+        gap: 0.8rem;
+        padding: 0 0.25rem;
+    }
+}
+
 .solution-card {
     position: relative;
     min-height: 300px;
@@ -2499,6 +2939,32 @@ h2::after {
     position: relative;
     z-index: 3;
     cursor: pointer;
+    min-height: 44px;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .solution-card .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        min-height: 44px;
+    }
+}
+
+@media (max-width: 600px) {
+    .solution-card .cta-button {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        min-height: 44px;
+    }
+}
+
+@media (max-width: 480px) {
+    .solution-card .cta-button {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+        min-height: 44px;
+    }
 }
 
 .test-measurement .cta-button:hover {
