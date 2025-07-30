@@ -233,54 +233,97 @@ body {
     }
 
     .dropdown-menu {
-        position: static;
-        box-shadow: none;
-        width: 100%;
+        position: static !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04) !important;
+        width: 100% !important;
         opacity: 0;
         visibility: hidden;
         max-height: 0;
-        transform: translateY(-10px);
-        margin: 0;
-        padding: 0;
-        border: none;
-        background: var(--light-gray);
-        border-radius: var(--border-radius-md);
+        transform: translateY(0);
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 1px solid #e1e5e9 !important;
+        background: #ffffff !important;
+        border-radius: 8px !important;
         overflow: hidden;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        will-change: max-height, transform, opacity;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        will-change: max-height, opacity, visibility;
+        z-index: 99999 !important;
+        position: relative !important;
     }
 
+    .has-dropdown.active .dropdown-menu,
     .has-dropdown:hover .dropdown-menu {
         opacity: 1;
         visibility: visible;
-        max-height: 1000px;
+        max-height: 400px;
         transform: translateY(0);
-        margin-top: 0.5rem;
-        padding: 0.5rem;
+        margin-top: 0.75rem;
+        padding: 1rem;
     }
 
     .dropdown-menu li {
-        margin: 0.25rem 0;
+        margin: 0.15rem 0;
         opacity: 0;
-        transform: translateX(-10px);
+        transform: translateY(-5px);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        transition-delay: calc(var(--li-index, 0) * 0.05s);
+        border-radius: var(--border-radius-md);
+        overflow: hidden;
     }
 
     .dropdown-menu li a {
-        padding: 0.75rem 1rem 0.75rem 2rem;
-        margin: 0;
+        padding: 0.75rem 1rem !important;
+        margin: 0 !important;
         position: relative;
-        transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        background: #f8f9fa !important;
+        color: #333333 !important;
+        font-weight: 500 !important;
+        font-size: 1rem !important;
+        display: flex !important;
+        align-items: center;
+        min-height: 44px !important;
+        border-radius: 6px !important;
+        border: 1px solid #e1e5e9 !important;
+        margin-bottom: 0.5rem !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04) !important;
+        text-decoration: none !important;
+        -webkit-tap-highlight-color: transparent;
     }
 
+    .has-dropdown.active .dropdown-menu li,
     .has-dropdown:hover .dropdown-menu li {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
+        transition-delay: calc(var(--index, 0) * 0.05s);
     }
 
-    .dropdown-menu li a:hover {
-        padding-left: 2.5rem;
+    /* Mobile touch states - refined and subtle */
+    .dropdown-menu li a:hover,
+    .dropdown-menu li a:focus,
+    .dropdown-menu li a:active,
+    .dropdown-menu li a.touched {
+        background: #f0f5ff !important;
+        color: #1890ff !important;
+        transform: scale(0.98) !important;
+        border-color: #91d5ff !important;
+        box-shadow: 0 4px 8px rgba(24, 144, 255, 0.15) !important;
+    }
+
+    /* Fallback for touch devices */
+    @media (pointer: coarse) {
+        .dropdown-menu li a {
+            background: #f8f9fa !important;
+            color: #333333 !important;
+            border: 1px solid #e1e5e9 !important;
+        }
+        
+        .dropdown-menu li a:active {
+            background: #f0f5ff !important;
+            color: #1890ff !important;
+            transform: scale(0.96) !important;
+            border-color: #91d5ff !important;
+        }
     }
 
     .has-dropdown:hover .dropdown-menu li:nth-child(1) { animation-delay: 0.1s; }
@@ -326,10 +369,6 @@ body {
 
     .nav-links li a:hover {
         background: var(--light-gray);
-    }
-
-    .dropdown-menu li a:hover {
-        background: var(--white);
     }
 }
 
@@ -1309,6 +1348,15 @@ body {
 
     .carousel-info {
         padding: 0;
+    }
+    
+    /* Ensure consistent mobile layout: Text always first, Image second */
+    .carousel-info {
+        order: 1;
+    }
+    
+    .carousel-container {
+        order: 2;
     }
 }
 
