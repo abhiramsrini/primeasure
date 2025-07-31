@@ -391,7 +391,7 @@ class HeroCarousel extends BaseCarousel {
         // Set hero-specific defaults
         const heroDefaults = {
             autoRotate: true,
-            rotationInterval: 6000,
+            rotationInterval: 4000,
             transitionDuration: 400,
             pauseOnHover: true,
             showDots: true,
@@ -485,7 +485,7 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 new HeroCarousel(heroCarousel, {
                     autoRotate: true,
-                    rotationInterval: 6000,
+                    rotationInterval: 4000,
                     pauseOnHover: false,
                     transitionDuration: 400
                 });
