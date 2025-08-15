@@ -1,4 +1,386 @@
-/* Responsive Styles */
+/* Enhanced Mobile Navigation Responsive Styles */
+
+/* ===============================================
+   MOBILE NAVIGATION SYSTEM
+   =============================================== */
+
+/* Mobile Navigation Base Styles */
+@media (max-width: 900px) {
+    /* Mobile Menu Toggle Button */
+    .mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--mobile-touch-target);
+        height: var(--mobile-touch-target);
+        background: var(--mobile-nav-bg);
+        border: 1px solid var(--mobile-nav-border);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all var(--mobile-nav-timing) var(--mobile-nav-easing);
+        position: relative;
+        z-index: 1001;
+        order: 1;
+    }
+
+    .mobile-menu-toggle:hover {
+        background: var(--light-gray);
+        border-color: var(--primary-blue);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .mobile-menu-toggle:active {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+
+    /* Enhanced Hamburger Icon */
+    .mobile-menu-toggle .menu-icon {
+        width: 20px;
+        height: var(--hamburger-line-height);
+        background: var(--primary-blue);
+        border-radius: 2px;
+        position: relative;
+        transition: all var(--mobile-nav-timing) var(--mobile-nav-easing);
+    }
+
+    .mobile-menu-toggle .menu-icon::before,
+    .mobile-menu-toggle .menu-icon::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: var(--hamburger-line-height);
+        background: var(--primary-blue);
+        border-radius: 2px;
+        transition: all var(--mobile-nav-timing) var(--mobile-nav-easing);
+    }
+
+    .mobile-menu-toggle .menu-icon::before {
+        top: calc(-1 * (var(--hamburger-gap) + var(--hamburger-line-height)));
+    }
+
+    .mobile-menu-toggle .menu-icon::after {
+        top: calc(var(--hamburger-gap) + var(--hamburger-line-height));
+    }
+
+    /* Active state - transform to X */
+    .mobile-menu-toggle.active .menu-icon {
+        background: transparent;
+        transform: rotate(45deg);
+    }
+
+    .mobile-menu-toggle.active .menu-icon::before {
+        top: 0;
+        transform: rotate(90deg);
+    }
+
+    .mobile-menu-toggle.active .menu-icon::after {
+        top: 0;
+        transform: rotate(90deg);
+    }
+
+    /* Mobile Menu Container */
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--mobile-nav-bg);
+        border-top: 1px solid var(--mobile-nav-border);
+        box-shadow: var(--mobile-nav-shadow);
+        visibility: hidden;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all var(--mobile-nav-timing) var(--mobile-nav-easing);
+        z-index: 1000;
+        flex-direction: column;
+        pointer-events: none;
+    }
+
+    .nav-links.active {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Mobile Menu Items */
+    .nav-links li {
+        width: 100%;
+        margin: 0;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all var(--mobile-nav-timing) var(--mobile-nav-easing);
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Staggered animation for menu items */
+    .nav-links.active li:nth-child(1) { transition-delay: 0.1s; }
+    .nav-links.active li:nth-child(2) { transition-delay: 0.15s; }
+    .nav-links.active li:nth-child(3) { transition-delay: 0.2s; }
+    .nav-links.active li:nth-child(4) { transition-delay: 0.25s; }
+    .nav-links.active li:nth-child(5) { transition-delay: 0.3s; }
+
+    /* Mobile Menu Links */
+    .nav-links li a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: var(--mobile-touch-target);
+        padding: 0.75rem 1rem;
+        border-radius: var(--border-radius-md);
+        background: transparent;
+        color: var(--dark-gray);
+        font-size: 1rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.2s var(--mobile-nav-easing);
+        margin-bottom: 0.5rem;
+        border: 1px solid transparent;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a:focus {
+        background: var(--light-gray);
+        color: var(--primary-blue);
+        transform: translateX(4px);
+        border-color: rgba(36, 31, 97, 0.1);
+    }
+
+    .nav-links li a:active {
+        background: rgba(36, 31, 97, 0.1);
+        transform: scale(0.98) translateX(4px);
+    }
+
+    .nav-links li a.active {
+        background: var(--primary-blue);
+        color: var(--white);
+        font-weight: 600;
+    }
+
+    /* Remove desktop hover effects on mobile */
+    .nav-links li a::after {
+        display: none;
+    }
+
+    /* Mobile Dropdown Parent - Flattened Design */
+    .has-dropdown {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    .has-dropdown::after {
+        display: none !important;
+    }
+
+    /* Solutions Parent Item - Styled as Section Header */
+    .has-dropdown > a {
+        position: relative;
+        background: rgba(36, 31, 97, 0.08) !important;
+        color: var(--primary-blue) !important;
+        font-weight: 600 !important;
+        border-left: 4px solid var(--primary-blue) !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    /* Remove dropdown arrow for flattened design */
+    .has-dropdown > a::before {
+        display: none !important;
+    }
+
+    /* Mobile Flattened Submenu - Always Visible as Indented Items */
+    .nav-links .dropdown-menu {
+        /* Reset all desktop positioning */
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        transform-origin: initial !important;
+        
+        /* Always visible flattened layout */
+        width: 100% !important;
+        max-height: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        overflow: visible !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        
+        /* Remove background/borders for seamless integration */
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        transition: none !important;
+        
+        /* Display as flex column for proper stacking */
+        z-index: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        box-sizing: border-box !important;
+        min-width: auto !important;
+    }
+
+    /* Reset desktop dropdown pseudo-elements */
+    .nav-links .dropdown-menu::before {
+        display: none !important;
+    }
+
+    /* Disable desktop hover behavior completely */
+    .has-dropdown:hover .dropdown-menu {
+        /* Override with mobile behavior */
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    /* Mobile Flattened Sub-Items - Styled as Indented Navigation Items */
+    .nav-links .dropdown-menu li {
+        margin: 0 !important;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        width: 100% !important;
+        display: block !important;
+        border-bottom: none !important;
+    }
+
+    .nav-links .dropdown-menu li a {
+        /* Indented sub-item styling */
+        padding: 0.75rem 1rem 0.75rem 2rem !important;  /* Extra left padding for indentation */
+        margin: 0 0 0.25rem 0 !important;  /* Tighter spacing */
+        
+        /* Sub-item visual design */
+        background: rgba(248, 250, 255, 0.7) !important;
+        color: var(--dark-gray) !important;
+        border: 1px solid rgba(36, 31, 97, 0.08) !important;
+        border-left: 3px solid rgba(36, 31, 97, 0.3) !important;  /* Visual hierarchy indicator */
+        border-radius: var(--border-radius-md) !important;
+        font-size: 0.85rem !important;  /* Slightly smaller for hierarchy */
+        font-weight: 400 !important;  /* Less bold than parent */
+        min-height: 40px !important;  /* Slightly smaller touch target */
+        
+        /* Layout and interaction */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        text-decoration: none !important;
+        transition: all 0.2s var(--mobile-nav-easing) !important;
+        transform: none !important;
+        text-align: left !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03) !important;  /* Subtle shadow */
+        width: 100% !important;
+        
+        /* Text handling */
+        word-wrap: break-word !important;
+        white-space: normal !important;
+        line-height: 1.3 !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        
+        /* Add subtle icon to indicate sub-item */
+        position: relative !important;
+    }
+
+    /* Add visual indicator for sub-items */
+    .nav-links .dropdown-menu li a::before {
+        content: '→' !important;
+        margin-right: 0.5rem !important;
+        color: rgba(36, 31, 97, 0.5) !important;
+        font-size: 0.75rem !important;
+        display: inline-block !important;
+    }
+
+    /* Sub-item hover states */
+    .nav-links .dropdown-menu li a:hover,
+    .nav-links .dropdown-menu li a:focus {
+        background: var(--primary-blue) !important;
+        color: var(--white) !important;
+        border-color: var(--primary-blue) !important;
+        border-left-color: var(--primary-blue) !important;
+        transform: translateX(2px) !important;  /* Subtle right movement */
+        box-shadow: 0 2px 8px rgba(36, 31, 97, 0.15) !important;
+        text-align: left !important;
+    }
+
+    /* Arrow icon color change on hover */
+    .nav-links .dropdown-menu li a:hover::before,
+    .nav-links .dropdown-menu li a:focus::before {
+        color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .nav-links .dropdown-menu li a:active {
+        transform: translateX(1px) scale(0.98) !important;
+        box-shadow: 0 1px 4px rgba(36, 31, 97, 0.15) !important;
+        text-align: left !important;
+    }
+
+    .nav-links .dropdown-menu li:last-child a {
+        margin-bottom: 0 !important;
+    }
+
+    /* Mobile Menu Backdrop - Disabled for better submenu flow */
+    .nav-links.active::before {
+        display: none;
+    }
+
+    /* Navbar Layout Adjustments */
+    .navbar .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .logo {
+        order: 0;
+        flex: 1;
+    }
+
+    .schedule-demo {
+        order: 2;
+        margin-left: 0;
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .schedule-demo span {
+        display: none;
+    }
+
+    .schedule-demo i {
+        font-size: 16px;
+    }
+
+    /* Hide desktop menu on mobile */
+    .nav-links:not(.active) {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        order: 3;
+        width: 100%;
+        max-height: calc(100vh - 100px);
+        padding: 1rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+
+/* ===============================================
+   RESPONSIVE BREAKPOINTS
+   =============================================== */
 
 /* Large screens (default styles are already for desktop) */
 @media screen and (max-width: 1200px) {
@@ -6,7 +388,6 @@
         padding: 0 2rem;
     }
     
-    /* Adjust section padding for large tablets */
     .carousel-section,
     .solutions-showcase,
     .customers-section {
@@ -14,25 +395,22 @@
     }
 }
 
-/* Medium-large screens (small tablets/large phones) */
+/* Medium-large screens */
 @media screen and (max-width: 992px) {
     .container {
         padding: 0 1.5rem;
     }
     
-    /* Hero carousel adjustments */
     .hero-carousel .carousel-content {
         max-width: 700px;
         padding: 0 1.5rem;
     }
     
-    /* Solutions grid responsive */
     .solutions-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
     
-    /* Carousel sections */
     .carousel-section {
         padding: 3rem 0;
     }
@@ -44,460 +422,101 @@
         padding: 0 1rem;
     }
     
-    /* Navigation */
     .navbar {
         padding: 0.75rem 0;
     }
-
-    .logo {
-        font-size: 1.2rem;
-    }
-
-    .nav-links li a {
-        padding: 0.5rem;
-    }
-
-    /* Hero Section */
-    .hero {
-        padding: 5rem 1rem 3rem;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-        line-height: 1.2;
-    }
-
-    .hero p {
-        font-size: 1rem;
-        line-height: 1.5;
+    
+    .hero-carousel {
+        margin-top: 70px;
+        height: 450px;
     }
     
-    /* Hero carousel */
-    .hero-carousel .carousel-content {
-        max-width: 600px;
-        padding: 0 1rem;
-    }
-
-    /* Services Grid */
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    /* Product Grid */
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+    .hero-carousel .carousel-content h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
     }
     
-    /* Solutions grid */
+    .hero-carousel .carousel-content p {
+        font-size: 1.1rem;
+        margin-bottom: 1.8rem;
+    }
+    
     .solutions-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
     
-    /* Section padding adjustments */
-    .carousel-section,
-    .solutions-showcase,
-    .customers-section,
-    .partners-section {
+    .carousel-section {
         padding: 2.5rem 0;
     }
     
-    /* Mobile carousel layout consistency */
     .carousel-wrapper {
-        flex-direction: column !important;
-    }
-    
-    .carousel-info {
-        order: 1 !important;
-        margin-bottom: 1.5rem;
-        text-align: center;
+        flex-direction: column;
+        gap: 2rem;
     }
     
     .carousel-container {
-        order: 2 !important;
+        order: 1;
+    }
+    
+    .carousel-info {
+        order: 2;
+        text-align: center;
     }
 }
 
-/* Small-medium screens (large phones) */
+/* Small screens (mobile phones) */
 @media screen and (max-width: 600px) {
     .container {
         padding: 0 0.75rem;
     }
     
-    /* Hero carousel content */
+    .hero-carousel {
+        margin-top: 60px;
+        height: 400px;
+    }
+    
     .hero-carousel .carousel-content {
-        max-width: 500px;
-        padding: 0 0.75rem;
+        padding: 0 1rem;
     }
     
     .hero-carousel .carousel-content h1 {
-        font-size: 1.8rem;
-        line-height: 1.1;
-    }
-    
-    .hero-carousel .carousel-content p {
-        font-size: 0.95rem;
-        line-height: 1.4;
-    }
-    
-    /* Carousel navigation dots */
-    .hero-carousel .carousel-nav {
-        bottom: 20px;
-    }
-    
-    .hero-carousel .carousel-dot {
-        width: 10px;
-        height: 10px;
-    }
-    
-    /* Section spacing */
-    .carousel-section,
-    .solutions-showcase,
-    .customers-section,
-    .partners-section {
-        padding: 2rem 0;
-    }
-    
-    /* Typography scaling */
-    h2 {
-        font-size: 1.8rem;
-        margin-bottom: 2rem;
-    }
-}
-
-/* Small screens (mobile) */
-@media screen and (max-width: 480px) {
-    .container {
-        padding: 0 0.5rem;
-    }
-    /* Ensure dropdown font size matches menu items */
-    .dropdown-menu li a {
-        font-size: 0.85rem !important;
-        padding: 1rem 1.5rem !important;
-        text-align: center;
-        border-radius: 8px;
-        font-weight: 500;
-    }
-    /* Improved mobile navigation bar */
-    .navbar {
-        padding: 0.5rem 0;
-        background: #fff;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        border-bottom: 1px solid #e5e5e5;
-    }
-    .navbar .container {
-        padding: 0 0.5rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .nav-links {
-        flex-direction: column;
-        text-align: center;
-        width: 100%;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
-    }
-    .nav-links li {
-        margin: 0.5rem 0;
-        width: 100%;
-    }
-    .nav-links li a {
-        display: block;
-        font-size: 0.85rem;
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        font-weight: 500;
-        text-align: center;
-        transition: background 0.2s;
-    }
-    .nav-links li a:active,
-    .nav-links li a:focus,
-    .nav-links li a:hover {
-        background: #f0f5ff;
-    }
-    .mobile-menu-toggle {
-        margin: 0.5rem auto;
-        display: block;
-        width: 40px;
-        height: 40px;
-        background: #f8f9fa;
-        border-radius: 50%;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    }
-    .dropdown-menu {
-        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-        border-radius: 10px;
-        background: #fff;
-        margin-top: 0.5rem;
-        padding: 0.5rem 0;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        text-align: center;
-        width: 100%;
-    }
-
-    .nav-links li {
-        margin: 0.5rem 0;
-    }
-
-    /* Hero Section */
-    .hero {
-        padding: 4rem 0.5rem 2rem;
-    }
-
-    .hero h1 {
-        font-size: 1.6rem;
-        line-height: 1.1;
-    }
-    
-    .hero p {
-        font-size: 0.9rem;
-        line-height: 1.4;
-    }
-
-    .cta-button {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.9rem;
-        min-height: 44px;
-    }
-    
-    /* Hero carousel */
-    .hero-carousel .carousel-content {
-        max-width: 400px;
-        padding: 0 0.5rem;
-    }
-    
-    .hero-carousel .carousel-content h1 {
-        font-size: 1.5rem;
-        line-height: 1.1;
+        font-size: 2rem;
         margin-bottom: 0.75rem;
     }
     
     .hero-carousel .carousel-content p {
-        font-size: 0.85rem;
-        line-height: 1.3;
-        margin-bottom: 1rem;
-    }
-    
-    .hero-carousel .hero-buttons .cta-button {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.85rem;
-    }
-
-    /* Product Grid */
-    .product-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    /* Footer */
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 1.5rem;
-    }
-
-    .footer-section {
-        margin-bottom: 1.5rem;
-    }
-    
-    .footer-section:last-child {
-        margin-bottom: 0;
-    }
-
-    /* Contact Page Responsive */
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .info-card,
-    .contact-form {
-        max-width: 100%;
-        margin: 0 auto;
-        padding: 1.5rem;
-    }
-
-    .contact-details li {
-        margin-bottom: 1rem;
-    }
-
-    .form-group {
-        margin-bottom: 1rem;
-    }
-    
-    /* Section spacing for mobile */
-    .carousel-section,
-    .solutions-showcase,
-    .customers-section,
-    .partners-section {
-        padding: 1.5rem 0;
-    }
-    
-    /* Typography for mobile */
-    h2 {
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    /* Carousel info text */
-    .carousel-info h2 {
-        font-size: 1.4rem;
-        margin-bottom: 1rem;
-    }
-    
-    .carousel-info p {
-        font-size: 0.85rem;
-        line-height: 1.4;
-        margin-bottom: 1rem;
-    }
-}
-
-/* Extra small screens (very small phones) */
-@media screen and (max-width: 360px) {
-    .container {
-        padding: 0 0.25rem;
-    }
-    .dropdown-menu li a {
-        font-size: 0.8rem !important;
-    }
-    
-    /* Enhanced mobile navigation */
-    .navbar .container {
-        padding: 0 0.25rem;
-    }
-    
-    .mobile-menu-toggle {
-        width: 32px;
-        height: 32px;
-        padding: 4px;
-    }
-    
-    .mobile-menu-toggle .menu-icon {
-        width: 16px;
-    }
-    
-    .nav-links {
-        padding: 0.75rem 0.25rem;
-    }
-    
-    .nav-links li a {
-        padding: 0.6rem 0.8rem;
-        font-size: 0.85rem;
-    }
-    
-    .dropdown-menu {
-        margin-top: 0.5rem;
-        padding: 0.5rem;
-    }
-    
-    .dropdown-menu li a {
-        padding: 0.8rem 1rem;
-        font-size: 0.85rem;
-        min-height: 44px;
-    }
-    
-    /* Hero carousel for very small screens */
-    .hero-carousel .carousel-content {
-        max-width: 320px;
-        padding: 0 0.25rem;
-    }
-    
-    .hero-carousel .carousel-content h1 {
-        font-size: 1.3rem;
-    }
-    
-    .hero-carousel .carousel-content p {
-        font-size: 0.8rem;
-    }
-    
-    .hero-carousel .hero-buttons .cta-button {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
-    }
-    
-    /* Typography adjustments */
-    h2 {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
-    }
-    
-    .carousel-info h2 {
-        font-size: 1.2rem;
-    }
-    
-    .carousel-info p {
-        font-size: 0.8rem;
-    }
-    
-    /* Button adjustments */
-    .cta-button,
-    .solution-card .cta-button {
-        padding: 0.5rem 1rem;
-        font-size: 0.75rem;
-        min-height: 44px;
-    }
-    
-    /* Footer adjustments */
-    .footer-section h4 {
         font-size: 1rem;
+        margin-bottom: 1.5rem;
     }
     
-    .footer-section ul li {
-        font-size: 0.85rem;
+    .carousel-section {
+        padding: 2rem 0;
+    }
+    
+    .carousel-info h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .carousel-info p {
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 }
 
-/* Form field focus styles for better mobile usability */
-@media (hover: none) {
-    .form-group input:focus,
-    .form-group textarea:focus {
-        font-size: 16px; /* Prevents iOS zoom */
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 0 0.5rem;
     }
     
-    /* Touch-friendly interactive elements */
-    .cta-button,
-    .solution-card .cta-button,
-    .register-button,
-    .submit-button {
-        min-height: 44px;
-        min-width: 44px;
+    .logo img {
+        height: 55px;
     }
     
-    .social-links a {
-        min-height: 44px;
-        min-width: 44px;
-        padding: 0.5rem;
-    }
-    
-    .carousel-dot,
-    .hero-carousel .carousel-dot {
-        min-height: 44px;
-        min-width: 44px;
-        padding: 0.5rem;
-    }
-}
-
-/* High DPI / Retina display optimizations */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .hero-carousel .carousel-slide img,
-    .carousel-slide img,
-    .customer-logo img,
-    .partner-logo-section img {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-    }
-}
-
-/* Landscape orientation adjustments for mobile */
-@media screen and (max-height: 500px) and (orientation: landscape) {
     .hero-carousel {
-        height: 400px;
+        height: 350px;
     }
     
     .hero-carousel .carousel-content h1 {
@@ -506,15 +525,90 @@
     }
     
     .hero-carousel .carousel-content p {
+        font-size: 0.95rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .hero-carousel .hero-buttons .cta-button {
+        padding: 0.7rem 1.5rem;
         font-size: 0.9rem;
-        margin-bottom: 1rem;
     }
     
-    .hero-carousel .carousel-nav {
-        bottom: 15px;
+    .carousel-section {
+        padding: 1.5rem 0;
     }
     
-    .navbar {
-        padding: 0.5rem 0;
+    .carousel-info h2 {
+        font-size: 1.6rem;
+        margin-bottom: 0.75rem;
     }
+    
+    .carousel-info p {
+        font-size: 0.9rem;
+    }
+
+    /* Mobile submenu responsive adjustments */
+    .nav-links .has-dropdown.active .dropdown-menu {
+        padding: 0.75rem !important;
+    }
+    
+    .nav-links .dropdown-menu li a {
+        padding: 0.75rem 0.75rem !important;
+        font-size: 0.85rem !important;
+        min-height: 40px !important;
+    }
+}
+
+/* Very small screens */
+@media screen and (max-width: 360px) {
+    /* Mobile submenu for very small screens */
+    .nav-links .has-dropdown.active .dropdown-menu {
+        padding: 0.5rem !important;
+    }
+    
+    .nav-links .dropdown-menu li a {
+        padding: 0.6rem 0.6rem !important;
+        font-size: 0.8rem !important;
+        min-height: 36px !important;
+    }
+}
+
+/* Desktop - ensure mobile menu is hidden */
+@media (min-width: 901px) {
+    .mobile-menu-toggle {
+        display: none;
+    }
+    
+    .nav-links {
+        position: static;
+        visibility: visible;
+        opacity: 1;
+        max-height: none;
+        overflow: visible;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        flex-direction: row;
+        pointer-events: auto;
+        padding: 0;
+    }
+    
+    .nav-links li {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        width: auto;
+        margin: 0;
+    }
+    
+    .nav-links li a {
+        margin: 0;
+        min-height: auto;
+        justify-content: center;
+        transform: none;
+        border: none;
+        background: transparent;
+        padding: 0.5rem 1rem;
+    }
+    
 }

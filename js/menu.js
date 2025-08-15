@@ -117,84 +117,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Click handler for mobile
+        // Mobile flattened navigation - disable dropdown toggle behavior
         link.addEventListener('click', (e) => {
             if (window.innerWidth <= 900) {
                 e.preventDefault();
                 e.stopPropagation();
-                
-                const isActive = parentDropdown.classList.contains('active');
-                const isExpanded = link.getAttribute('aria-expanded') === 'true';
-
-                // Close all other dropdowns
-                document.querySelectorAll('.has-dropdown').forEach(otherDropdown => {
-                    if (otherDropdown !== parentDropdown) {
-                        otherDropdown.classList.remove('active');
-                        const otherLink = otherDropdown.querySelector('a');
-                        otherLink.setAttribute('aria-expanded', 'false');
-                        
-                        const otherMenu = otherDropdown.querySelector('.dropdown-menu');
-                        otherMenu.style.maxHeight = '';
-                        otherMenu.style.opacity = '';
-                        otherMenu.style.visibility = '';
-                    }
-                });
-
-                // Toggle current dropdown
-                if (!isActive && !isExpanded) {
-                    parentDropdown.classList.add('active');
-                    link.setAttribute('aria-expanded', 'true');
-                    
-                    // Calculate proper height including padding
-                    const dropdownHeight = dropdown.scrollHeight + 24; // 24px for padding
-                    dropdown.style.maxHeight = dropdownHeight + "px";
-                    dropdown.style.opacity = "1";
-                    dropdown.style.visibility = "visible";
-                    
-                    // Add visual feedback
-                    link.style.background = 'rgba(36, 31, 97, 0.1)';
-                    
-                    // Animate items
-                    dropdownItems.forEach((item, itemIndex) => {
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateY(0)';
-                        }, itemIndex * 50);
-                    });
-                } else {
-                    parentDropdown.classList.remove('active');
-                    link.setAttribute('aria-expanded', 'false');
-                    
-                    dropdown.style.maxHeight = '';
-                    dropdown.style.opacity = '';
-                    dropdown.style.visibility = '';
-                    
-                    // Remove visual feedback
-                    link.style.background = '';
-                    
-                    // Reset item animations
-                    dropdownItems.forEach(item => {
-                        item.style.opacity = '';
-                        item.style.transform = '';
-                    });
-                }
+                // Do nothing - sub-items are always visible in flattened design
+                // Solutions link acts as a visual section header only
             }
         });
         
-        // Keyboard support
+        // Keyboard support for flattened navigation
         link.addEventListener('keydown', (e) => {
             if (window.innerWidth <= 900) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    link.click();
-                } else if (e.key === 'Escape') {
-                    if (parentDropdown.classList.contains('active')) {
-                        parentDropdown.classList.remove('active');
-                        link.setAttribute('aria-expanded', 'false');
-                        dropdown.style.maxHeight = '';
-                        dropdown.style.opacity = '';
-                        dropdown.style.visibility = '';
-                        link.focus();
+                    // Solutions link is non-functional - focus moves to first sub-item
+                    const firstSubItem = parentDropdown.querySelector('.dropdown-menu li:first-child a');
+                    if (firstSubItem) {
+                        firstSubItem.focus();
                     }
                 }
             }
@@ -214,23 +155,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     });
     
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 900) {
-            const openDropdowns = document.querySelectorAll('.has-dropdown.active');
-            openDropdowns.forEach(dropdown => {
-                if (!dropdown.contains(e.target)) {
-                    dropdown.classList.remove('active');
-                    const link = dropdown.querySelector('a');
-                    link.setAttribute('aria-expanded', 'false');
-                    link.style.background = '';
-                    
-                    const menu = dropdown.querySelector('.dropdown-menu');
-                    menu.style.maxHeight = '';
-                    menu.style.opacity = '';
-                    menu.style.visibility = '';
-                }
-            });
-        }
-    });
+    // No need for click outside handler in flattened navigation design
 });
