@@ -117,25 +117,45 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Mobile flattened navigation - disable dropdown toggle behavior
+        // Mobile dropdown toggle behavior
         link.addEventListener('click', (e) => {
             if (window.innerWidth <= 900) {
                 e.preventDefault();
                 e.stopPropagation();
-                // Do nothing - sub-items are always visible in flattened design
-                // Solutions link acts as a visual section header only
+                
+                const isActive = parentDropdown.classList.contains('active');
+
+                // Close all other dropdowns
+                document.querySelectorAll('.has-dropdown').forEach(otherDropdown => {
+                    if (otherDropdown !== parentDropdown) {
+                        otherDropdown.classList.remove('active');
+                        const otherLink = otherDropdown.querySelector('a');
+                        otherLink.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                // Toggle current dropdown
+                if (!isActive) {
+                    parentDropdown.classList.add('active');
+                    link.setAttribute('aria-expanded', 'true');
+                } else {
+                    parentDropdown.classList.remove('active');
+                    link.setAttribute('aria-expanded', 'false');
+                }
             }
         });
         
-        // Keyboard support for flattened navigation
+        // Keyboard support for mobile dropdown
         link.addEventListener('keydown', (e) => {
             if (window.innerWidth <= 900) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    // Solutions link is non-functional - focus moves to first sub-item
-                    const firstSubItem = parentDropdown.querySelector('.dropdown-menu li:first-child a');
-                    if (firstSubItem) {
-                        firstSubItem.focus();
+                    link.click();
+                } else if (e.key === 'Escape') {
+                    if (parentDropdown.classList.contains('active')) {
+                        parentDropdown.classList.remove('active');
+                        link.setAttribute('aria-expanded', 'false');
+                        link.focus();
                     }
                 }
             }
@@ -155,5 +175,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     });
     
-    // No need for click outside handler in flattened navigation design
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 900) {
+            const openDropdowns = document.querySelectorAll('.has-dropdown.active');
+            openDropdowns.forEach(dropdown => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('active');
+                    const link = dropdown.querySelector('a');
+                    link.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+    });
 });

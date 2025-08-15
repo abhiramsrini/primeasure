@@ -182,22 +182,55 @@
         display: none !important;
     }
 
-    /* Solutions Parent Item - Styled as Section Header */
+    /* Mobile Dropdown Trigger Styling - Force left alignment */
     .has-dropdown > a {
-        position: relative;
-        background: rgba(36, 31, 97, 0.08) !important;
-        color: var(--primary-blue) !important;
-        font-weight: 600 !important;
-        border-left: 4px solid var(--primary-blue) !important;
-        margin-bottom: 0.25rem !important;
+        position: relative !important;
+        background: transparent !important;
+        color: var(--dark-gray) !important;
+        font-weight: 500 !important;
+        border-left: none !important;
+        margin-bottom: 0.5rem !important;
+        /* Force same layout as other nav items - no overrides */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important; /* Changed from space-between to flex-start */
+        width: 100% !important;
+        text-align: left !important;
+        padding: 0.75rem 1rem !important; /* Same as regular nav items */
+        min-height: var(--mobile-touch-target) !important;
+        border-radius: var(--border-radius-md) !important;
+        border: 1px solid transparent !important;
+        transition: all 0.2s var(--mobile-nav-easing) !important;
     }
 
-    /* Remove dropdown arrow for flattened design */
+    /* Add dropdown arrow positioned on the right */
     .has-dropdown > a::before {
-        display: none !important;
+        content: '\f107' !important;
+        font-family: 'Font Awesome 5 Free' !important;
+        font-weight: 900 !important;
+        font-size: 0.875rem !important;
+        color: var(--dark-gray) !important;
+        transition: all 0.2s var(--mobile-nav-easing) !important;
+        /* Position arrow at the absolute right */
+        position: absolute !important;
+        right: 1rem !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
     }
 
-    /* Mobile Flattened Submenu - Always Visible as Indented Items */
+    /* Active state styling */
+    .has-dropdown.active > a {
+        background: rgba(36, 31, 97, 0.05) !important;
+        color: var(--primary-blue) !important;
+        border-color: rgba(36, 31, 97, 0.2) !important;
+    }
+
+    .has-dropdown.active > a::before {
+        transform: translateY(-50%) rotate(180deg) !important;
+        color: var(--primary-blue) !important;
+    }
+
+    /* Mobile Dropdown Menu - Collapsible Design */
     .nav-links .dropdown-menu {
         /* Reset all desktop positioning */
         position: static !important;
@@ -206,28 +239,37 @@
         transform: none !important;
         transform-origin: initial !important;
         
-        /* Always visible flattened layout */
+        /* Collapsible dropdown layout */
         width: 100% !important;
-        max-height: none !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        overflow: visible !important;
-        margin: 0 !important;
+        max-height: 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        overflow: hidden !important;
+        margin: 0.75rem 0 0 0 !important;
         padding: 0 !important;
         
-        /* Remove background/borders for seamless integration */
-        background: transparent !important;
-        border: none !important;
-        border-radius: 0 !important;
-        box-shadow: none !important;
-        transition: none !important;
+        /* Mobile dropdown styling */
+        background: rgba(248, 250, 255, 0.95) !important;
+        border: 1px solid rgba(36, 31, 97, 0.15) !important;
+        border-radius: var(--border-radius-lg) !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+        transition: all var(--mobile-nav-timing) var(--mobile-nav-easing) !important;
         
-        /* Display as flex column for proper stacking */
+        /* Display properties */
         z-index: auto !important;
         display: flex !important;
         flex-direction: column !important;
         box-sizing: border-box !important;
         min-width: auto !important;
+    }
+
+    /* Active dropdown state */
+    .nav-links .has-dropdown.active .dropdown-menu {
+        max-height: 300px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        padding: 1rem !important;
+        overflow: visible !important;
     }
 
     /* Reset desktop dropdown pseudo-elements */
@@ -237,37 +279,55 @@
 
     /* Disable desktop hover behavior completely */
     .has-dropdown:hover .dropdown-menu {
-        /* Override with mobile behavior */
+        /* Ensure mobile behavior takes precedence */
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    /* Override hover when active on mobile */
+    .has-dropdown.active:hover .dropdown-menu {
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
     }
 
-    /* Mobile Flattened Sub-Items - Styled as Indented Navigation Items */
+    /* Mobile Dropdown Items with Animation */
     .nav-links .dropdown-menu li {
         margin: 0 !important;
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
+        opacity: 0 !important;
+        transform: translateY(-8px) !important;
+        transition: all 0.2s var(--mobile-nav-easing) !important;
         width: 100% !important;
         display: block !important;
         border-bottom: none !important;
     }
 
+    /* Animated dropdown items when active */
+    .nav-links .has-dropdown.active .dropdown-menu li {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    /* Staggered animation delays for smooth dropdown reveal */
+    .nav-links .has-dropdown.active .dropdown-menu li:nth-child(1) { transition-delay: 0.1s !important; }
+    .nav-links .has-dropdown.active .dropdown-menu li:nth-child(2) { transition-delay: 0.15s !important; }
+    .nav-links .has-dropdown.active .dropdown-menu li:nth-child(3) { transition-delay: 0.2s !important; }
+
+    /* Mobile Dropdown Item Styling */
     .nav-links .dropdown-menu li a {
-        /* Indented sub-item styling */
-        padding: 0.75rem 1rem 0.75rem 2rem !important;  /* Extra left padding for indentation */
-        margin: 0 0 0.25rem 0 !important;  /* Tighter spacing */
+        /* Mobile dropdown item layout */
+        padding: 0.875rem 1rem !important;
+        margin: 0 0 0.5rem 0 !important;
         
-        /* Sub-item visual design */
-        background: rgba(248, 250, 255, 0.7) !important;
+        /* Clean dropdown item design */
+        background: var(--white) !important;
         color: var(--dark-gray) !important;
-        border: 1px solid rgba(36, 31, 97, 0.08) !important;
-        border-left: 3px solid rgba(36, 31, 97, 0.3) !important;  /* Visual hierarchy indicator */
+        border: 1px solid rgba(36, 31, 97, 0.12) !important;
         border-radius: var(--border-radius-md) !important;
-        font-size: 0.85rem !important;  /* Slightly smaller for hierarchy */
-        font-weight: 400 !important;  /* Less bold than parent */
-        min-height: 40px !important;  /* Slightly smaller touch target */
+        font-size: 0.9rem !important;
+        font-weight: 500 !important;
+        min-height: 44px !important;
         
         /* Layout and interaction */
         display: flex !important;
@@ -277,50 +337,32 @@
         transition: all 0.2s var(--mobile-nav-easing) !important;
         transform: none !important;
         text-align: left !important;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03) !important;  /* Subtle shadow */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
         width: 100% !important;
         
-        /* Text handling */
+        /* Text handling for mobile */
         word-wrap: break-word !important;
         white-space: normal !important;
-        line-height: 1.3 !important;
+        line-height: 1.4 !important;
         overflow: hidden !important;
         box-sizing: border-box !important;
-        
-        /* Add subtle icon to indicate sub-item */
         position: relative !important;
     }
 
-    /* Add visual indicator for sub-items */
-    .nav-links .dropdown-menu li a::before {
-        content: '→' !important;
-        margin-right: 0.5rem !important;
-        color: rgba(36, 31, 97, 0.5) !important;
-        font-size: 0.75rem !important;
-        display: inline-block !important;
-    }
-
-    /* Sub-item hover states */
+    /* Mobile dropdown item hover states */
     .nav-links .dropdown-menu li a:hover,
     .nav-links .dropdown-menu li a:focus {
         background: var(--primary-blue) !important;
         color: var(--white) !important;
         border-color: var(--primary-blue) !important;
-        border-left-color: var(--primary-blue) !important;
-        transform: translateX(2px) !important;  /* Subtle right movement */
-        box-shadow: 0 2px 8px rgba(36, 31, 97, 0.15) !important;
+        transform: translateX(4px) !important;
+        box-shadow: 0 4px 12px rgba(36, 31, 97, 0.15) !important;
         text-align: left !important;
     }
 
-    /* Arrow icon color change on hover */
-    .nav-links .dropdown-menu li a:hover::before,
-    .nav-links .dropdown-menu li a:focus::before {
-        color: rgba(255, 255, 255, 0.8) !important;
-    }
-
     .nav-links .dropdown-menu li a:active {
-        transform: translateX(1px) scale(0.98) !important;
-        box-shadow: 0 1px 4px rgba(36, 31, 97, 0.15) !important;
+        transform: translateX(2px) scale(0.98) !important;
+        box-shadow: 0 2px 6px rgba(36, 31, 97, 0.15) !important;
         text-align: left !important;
     }
 
