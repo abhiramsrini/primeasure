@@ -58,10 +58,30 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Consolidated container and utility styles */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+}
+
+/* Shared flex centering utility */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Common card shadow and transition */
+.card-base {
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border-radius: var(--border-radius-lg);
+}
+
+.card-base:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 /* Navigation */
@@ -78,16 +98,12 @@ body {
 .mobile-menu-toggle {
     display: none;
 }
-
-
 .navbar .container {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    /* Inherits container styles above */
 }
 
 .logo {
@@ -101,27 +117,15 @@ body {
     opacity: 0.85;
 }
 
+/* Consolidated logo sizing */
 .logo img {
     height: 90px;
+    transition: var(--transition);
 }
 
-@media (max-width: 900px) {
-    .logo img {
-        height: 70px;
-    }
-}
-
-@media (max-width: 600px) {
-    .logo img {
-        height: 60px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo img {
-        height: 55px;
-    }
-}
+@media (max-width: 900px) { .logo img { height: 70px; } }
+@media (max-width: 600px) { .logo img { height: 60px; } }
+@media (max-width: 480px) { .logo img { height: 55px; } }
 
 .nav-links {
     display: flex;
@@ -388,8 +392,6 @@ body {
     transform: rotate(180deg);
     color: var(--primary-blue);
 }
-
-
 /* Style the underline for Solutions link */
 .has-dropdown > a::after {
     content: '';
@@ -406,9 +408,8 @@ body {
 .has-dropdown > a:hover::after {
     width: calc(100% - 32px); /* Same as regular menu items */
 }
-
-
 /* Hero Carousel */
+/* Consolidated hero carousel responsive heights */
 .hero-carousel {
     margin-top: 92px; /* Height of navbar */
     width: 100%;
@@ -417,38 +418,11 @@ body {
     overflow: hidden;
 }
 
-@media (max-width: 1200px) {
-    .hero-carousel {
-        height: 600px;
-    }
-}
-
-@media (max-width: 900px) {
-    .hero-carousel {
-        margin-top: 70px; /* Adjusted for smaller navbar */
-        height: 500px;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-carousel {
-        height: 450px;
-    }
-}
-
-@media (max-width: 600px) {
-    .hero-carousel {
-        margin-top: 60px;
-        height: 400px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-carousel {
-        margin-top: 55px;
-        height: 350px;
-    }
-}
+@media (max-width: 1200px) { .hero-carousel { height: 600px; } }
+@media (max-width: 900px) { .hero-carousel { margin-top: 70px; height: 500px; } }
+@media (max-width: 768px) { .hero-carousel { height: 450px; } }
+@media (max-width: 600px) { .hero-carousel { margin-top: 60px; height: 400px; } }
+@media (max-width: 480px) { .hero-carousel { margin-top: 55px; height: 350px; } }
 
 .hero-carousel .carousel-track-container {
     position: absolute;
@@ -1109,8 +1083,6 @@ body {
     background-color: #ff4d4f;
     border-color: #ff4d4f;
 }
-
-
 .product-card {
     background: var(--white);
     border-radius: 12px;
@@ -1177,8 +1149,6 @@ body {
 .product-card:hover .product-image img {
     transform: scale(1.05);
 }
-
-
 .product-image i {
     transition: var(--transition);
 }
@@ -1865,12 +1835,7 @@ h2::after {
     margin-top: 2rem;
 }
 
-.product-card {
-    background: var(--white);
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
+/* Duplicate .product-card removed - using definition at line 1086 */
 
 .product-image {
     height: 250px;
@@ -3289,8 +3254,6 @@ h2::after {
     background: #ff4d4f;
     transform: scale(1.05);
 }
-
-
 /* Event Actions */
 .event-actions {
     margin-top: 1rem;
@@ -3367,8 +3330,6 @@ h2::after {
     .event-logo img {
         max-height: 60px;
     }
-
-
     /* Mobile event actions */
     .event-actions {
         margin-top: 0.8rem;
