@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Register for Primeasure events and exhibitions. Get free access to broadcast technology demos, test equipment sessions, and industry expert presentations. Limited seats available.">
     
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFKRS4SNFV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'G-SFKRS4SNFV', {
+        page_title: 'Event Registration - Primeasure',
+        page_location: window.location.href,
+        send_page_view: true
+      });
+    </script>
+    
     <!-- Open Graph Tags -->
     <meta property="og:title" content="Register for Events - Primeasure Technology Exhibitions">
     <meta property="og:description" content="Register for Primeasure events and exhibitions. Get free access to broadcast technology demos, test equipment sessions, and industry expert presentations. Limited seats available.">
@@ -179,5 +193,6 @@
     <script src="../js/EventManager.js"></script>
     <script src="../js/EventRouter.js"></script>
     <script src="../js/FormValidator.js"></script>
+    <script src="../js/analytics.js"></script>
 </body>
 </html>

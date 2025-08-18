@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Contact Primeasure for broadcast and test measurement solutions. Offices in Bangalore & Chennai. Email: sales@primeasure.com, Phone: +91-9884900031. Get expert consultation.">
     
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFKRS4SNFV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'G-SFKRS4SNFV', {
+        page_title: 'Contact Us - Primeasure',
+        page_location: window.location.href,
+        send_page_view: true
+      });
+    </script>
+    
     <!-- Open Graph Tags -->
     <meta property="og:title" content="Contact Primeasure - Broadcast & Test Equipment Solutions India">
     <meta property="og:description" content="Contact Primeasure for broadcast and test measurement solutions. Offices in Bangalore & Chennai. Email: sales@primeasure.com, Phone: +91-9884900031. Get expert consultation.">
@@ -165,6 +179,11 @@
                                 submitBtn.disabled = true;
                                 Array.from(form.elements).forEach(element => element.disabled = true);
 
+                                // Track form submission start
+                                if (window.primeasureAnalytics) {
+                                    window.primeasureAnalytics.trackContactForm('contact');
+                                }
+
                                 try {
                                     // Submit to Google Form
                                     await fetch('https://docs.google.com/forms/d/e/1FAIpQLSeIW33TfPEcvk2BBtVPqb1Tonq3Y8kLGTT6upmz2nAYhObZQA/formResponse', {
@@ -273,5 +292,6 @@
 
     <script src="../js/main.js"></script>
     <script src="../js/menu.js"></script>
+    <script src="../js/analytics.js"></script>
 </body>
 </html>
