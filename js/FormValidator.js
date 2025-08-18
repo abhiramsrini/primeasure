@@ -34,9 +34,9 @@ class FormValidator {
             message: 'Please enter a valid email address'
         });
 
-        // Phone validation
+        // Phone validation (optional)
         this.addValidator('phone', {
-            required: true,
+            required: false,
             pattern: /^[\+]?[\d\s\-\(\)]{10,}$/,
             message: 'Please enter a valid phone number (minimum 10 digits)'
         });
