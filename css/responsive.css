@@ -615,6 +615,112 @@
     }
 }
 
+/* ===============================================
+   CONTACT PAGE RESPONSIVE STYLES
+   =============================================== */
+
+/* Tablet and mobile responsive styles for contact page */
+@media screen and (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    .contact-form {
+        padding: 1.5rem !important;
+        margin-top: 0 !important;
+    }
+    
+    .info-card {
+        padding: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .hero-banner {
+        padding: 1rem 0 !important;
+        text-align: center;
+    }
+    
+    .hero-banner h1 {
+        font-size: 2rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .hero-banner p {
+        font-size: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .hero-buttons {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        align-items: center !important;
+    }
+    
+    .hero-buttons .cta-button {
+        width: 100% !important;
+        max-width: 200px !important;
+        text-align: center !important;
+    }
+}
+
+/* Mobile phone responsive styles */
+@media screen and (max-width: 480px) {
+    .contact-section {
+        padding: 1rem 0 !important;
+    }
+    
+    .contact-grid {
+        gap: 1.5rem !important;
+    }
+    
+    .contact-form {
+        padding: 1rem !important;
+    }
+    
+    .info-card {
+        padding: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .contact-details li {
+        margin-bottom: 1rem !important;
+    }
+    
+    .contact-details p {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem !important;
+    }
+    
+    .form-group label {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.4rem !important;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px !important; /* Prevent zoom on iOS */
+        padding: 12px !important;
+        height: 44px !important;
+    }
+    
+    .form-group textarea {
+        height: auto !important;
+        min-height: 100px !important;
+    }
+    
+    .submit-button {
+        width: 100% !important;
+        height: 44px !important;
+        font-size: 16px !important;
+        padding: 12px 20px !important;
+    }
+}
+
 /* Desktop - ensure mobile menu is hidden */
 @media (min-width: 901px) {
     .mobile-menu-toggle {
