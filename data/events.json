@@ -30,7 +30,7 @@
       "image": "../images/events/ibc.png",
       "imageAlt": "IBC 2025 Logo",
       "registrationEnabled": false,
-      "externalUrl": "https://www.ibc.org/",
+      "externalUrl": "https://show.ibc.org/ibc2025-pass-types",
       "company": "GrassValley",
       "status": "upcoming"
     },
@@ -48,7 +48,7 @@
       "image": "../images/events/bi2025.png",
       "imageAlt": "Broadcast India 2025 Logo",
       "registrationEnabled": false,
-      "externalUrl": "https://www.broadcastindiashow.com/",
+      "externalUrl": "https://n-gage.live/bi2025/visitor/step1",
       "company": "GrassValley",
       "status": "upcoming"
     },
@@ -66,7 +66,7 @@
       "image": "../images/events/auto-ev.png",
       "imageAlt": "AUTO EV BHARAT 2025 Logo",
       "registrationEnabled": false,
-      "externalUrl": "https://www.autoevbharat.com/",
+      "externalUrl": "https://app.warpbay.com/form/67e3cc16bf88b142e8a9fa2b/visitor/67ebc64f7a81308994294e53",
       "company": "Teledyne LeCroy",
       "status": "upcoming"
     },
@@ -75,14 +75,14 @@
       "slug": "oscilloscope-technology-showcase",
       "type": "showcase",
       "title": "Advanced Oscilloscope Technology Showcase",
-      "date": "TBD",
-      "time": "TBD",
+      "date": "2025-12-15",
+      "time": "9:00 AM",
       "location": "Bengaluru, India",
       "description": "Experience hands-on demonstrations of cutting-edge oscilloscopes and explore revolutionary testing solutions across multiple industries.",
       "fullDescription": "Join us for an interactive showcase featuring next-generation oscilloscopes and advanced measurement technologies from Teledyne LeCroy.",
       "image": "../images/logo.png",
       "imageAlt": "Teledyne LeCroy Logo",
-      "registrationEnabled": true,
+      "registrationEnabled": false,
       "company": "Teledyne LeCroy",
       "status": "upcoming"
     }
