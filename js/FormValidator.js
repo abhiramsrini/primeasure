@@ -289,14 +289,14 @@ class FormValidator {
         const closeBtn = overlay.querySelector('.success-button');
         closeBtn.addEventListener('click', () => {
             overlay.remove();
-            window.location.href = 'events.html';
+            window.location.href = '../events';
         });
 
         // Auto-close after 5 seconds
         setTimeout(() => {
             if (overlay.parentNode) {
                 overlay.remove();
-                window.location.href = 'events.html';
+                window.location.href = '../events';
             }
         }, 5000);
     }

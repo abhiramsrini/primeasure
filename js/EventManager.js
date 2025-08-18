@@ -27,7 +27,7 @@ class EventManager {
             console.error('Failed to load events:', error);
             console.error('Error details:', error.message);
             console.error('💡 TIP: Serve the website with: python3 -m http.server 8080');
-            console.error('💡 Then access: http://localhost:8080/pages/events.html');
+            console.error('💡 Then access: http://localhost:8080/events');
             
             // Fallback to hardcoded data if fetch fails
             console.log('Using fallback event data');
@@ -228,7 +228,7 @@ class EventManager {
 
     getActionButton(event) {
         if (event.registrationEnabled) {
-            return `<a href="../pages/register.html#${event.slug}" class="register-button">Register Now</a>`;
+            return `<a href="../register#${event.slug}" class="register-button">Register Now</a>`;
         } else if (event.externalUrl) {
             return `<a href="${event.externalUrl}" target="_blank" rel="noopener noreferrer" class="info-button">Learn More</a>`;
         } else {

@@ -120,7 +120,7 @@ class EventRouter {
             errorDiv.innerHTML = `
                 <h3>Event Not Found</h3>
                 <p>The event you're looking for could not be found.</p>
-                <a href="../pages/events.html" class="register-button">Back to Events</a>
+                <a href="../events" class="register-button">Back to Events</a>
             `;
             errorDiv.style.cssText = `
                 text-align: center;
@@ -142,7 +142,7 @@ class EventRouter {
     }
 
     static createEventUrl(slug) {
-        return `../pages/register.html#${slug}`;
+        return `../register#${slug}`;
     }
 }
 
