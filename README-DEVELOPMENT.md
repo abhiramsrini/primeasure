@@ -66,3 +66,10 @@ If you need to test right now with Python server:
 1. Use the old URLs: `http://localhost:8000/pages/about.html`
 2. Navigation links will redirect to clean URLs
 3. Upload to production server to test clean URLs fully
+
+## Recent Updates
+
+### Form Validation Fix
+- **Issue**: Phone number field was incorrectly marked as required in event registration
+- **Fix**: Updated `js/FormValidator.js` to make phone field optional while maintaining format validation
+- **Impact**: Users can now submit registration forms without providing a phone number

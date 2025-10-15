@@ -50,17 +50,21 @@ primeasure/
 This is a static website - no build tools are required. For development:
 
 ```bash
-# Serve locally using Python (recommended for JSON data loading)
+# Recommended: http-server with proxy support (enables clean URLs)
+npx http-server -p 8000 --proxy http://127.0.0.1:8000?
+
+# Alternative: Python server (use for basic development)
 python3 -m http.server 8000
 
-# Or using Node.js http-server (if installed)
-npx http-server
-
-# Or using PHP
+# Alternative: PHP server
 php -S localhost:8000
 ```
 
-**Important**: Use a local server for development to avoid CORS issues with `events.json` loading.
+**Important Notes:**
+- Use a local server for development to avoid CORS issues with `events.json` loading
+- For testing clean URLs (like `/about` instead of `/pages/about.html`), use http-server with proxy
+- Python server will require .html extensions for direct access: `/pages/about.html`
+- See `README-DEVELOPMENT.md` for detailed local development setup with clean URLs
 
 ## Architecture and Code Organization
 
@@ -200,16 +204,27 @@ Carousels can be configured with options:
 - **Success Handling**: Custom success overlay with redirect
 - **Error Handling**: Graceful error handling with user feedback
 
+### Form Field Configuration
+**Required Fields:**
+- Name (minimum 2 characters, letters and spaces only)
+- Email (valid email format required)
+
+**Optional Fields:**
+- Phone (validates format if provided - minimum 10 digits)
+- Company (minimum 2 characters if provided)
+- Designation (minimum 2 characters if provided)
+- Message (free text)
+
 ### Form Field Mapping
 ```javascript
 // Google Forms entry IDs
 'entry.1287541098': 'event-title-field',
-'entry.908367769': 'name',
-'entry.446693609': 'email',
-'entry.1619260382': 'phone',
-'entry.1308701333': 'company',
-'entry.119358989': 'designation',
-'entry.80917227': 'message'
+'entry.908367769': 'name',          // Required
+'entry.446693609': 'email',         // Required
+'entry.1619260382': 'phone',        // Optional
+'entry.1308701333': 'company',      // Optional
+'entry.119358989': 'designation',   // Optional
+'entry.80917227': 'message'         // Optional
 ```
 
 ## SEO & Performance
@@ -275,6 +290,11 @@ Carousels can be configured with options:
 2. **Customer Logos**: Add new client logos to `images/customers/`
 3. **Analytics Tracking**: Monitor and optimize tracking based on business needs
 4. **Content Updates**: Keep solution pages current with latest offerings
+
+### Recent Updates & Fixes
+- **Form Validation (Latest)**: Phone number field corrected to be optional instead of required
+- **Clean URL Structure**: Implemented across all pages with .htaccess rewrites
+- **Analytics Implementation**: GA4 tracking (G-SFKRS4SNFV) implemented on key pages
 
 ### Monitoring & Analytics
 - **Google Analytics**: Monitor traffic, conversions, and user behavior
