@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Primeasure’s take on Introspect Technology’s guidance for pairing the RSH2 Remote Sampling Head with any 50 Ω oscilloscope when probing modern smartphone cameras.">
+    <link rel="canonical" href="https://primeasure.com/blog/rsh2-oscilloscope-compatibility">
+    <title>Connecting Introspect’s RSH2 Remote Sampling Head to Any Oscilloscope | Primeasure</title>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFKRS4SNFV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'G-SFKRS4SNFV', {
+        page_title: 'RSH2 Remote Sampling Head with Oscilloscopes - Primeasure',
+        page_location: window.location.href,
+        send_page_view: true
+      });
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Connecting Introspect’s RSH2 Remote Sampling Head to Any Oscilloscope">
+    <meta property="og:description" content="Key lessons from Introspect Technology on how the RSH2 remote sampling head delivers clean oscilloscope captures across vendors when probing mobile camera buses.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="../../images/blog/rsh2-oscilloscope-compatibility/hero.png">
+    <meta property="og:site_name" content="Primeasure">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Connecting Introspect’s RSH2 Remote Sampling Head to Any Oscilloscope">
+    <meta name="twitter:description" content="Key lessons from Introspect Technology on how the RSH2 remote sampling head delivers clean oscilloscope captures across vendors when probing mobile camera buses.">
+    <meta name="twitter:image" content="../../images/blog/rsh2-oscilloscope-compatibility/hero.png">
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Connecting Introspect’s RSH2 Remote Sampling Head to Any Oscilloscope",
+      "description": "Primeasure’s perspective on Introspect Technology’s RSH2 Remote Sampling Head guidance, including probe configuration, oscilloscope connectivity, and smartphone camera measurements.",
+      "image": "https://primeasure.com/images/blog/rsh2-oscilloscope-compatibility/hero.png",
+      "author": {
+        "@type": "Organization",
+        "name": "Primeasure Test & Measurement Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Primeasure",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://primeasure.com/images/logo.png"
+        }
+      },
+      "datePublished": "2025-03-18",
+      "dateModified": "2025-03-18",
+      "mainEntityOfPage": "https://primeasure.com/blog/rsh2-oscilloscope-compatibility"
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
+            <a href="../../" class="logo">
+                <img src="../../images/logo.png" alt="Primeasure Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../">Home</a></li>
+                <li><a href="../../about">About</a></li>
+                <li><a href="../../events">Events</a></li>
+                <li><a href="../../blog" class="active">Blog</a></li>
+                <li class="has-dropdown">
+                    <a href="#solutions">Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../solutions/test-measurement">Test & Measurement</a></li>
+                        <li><a href="../../solutions/broadcast">Broadcast</a></li>
+                        <li><a href="../../solutions/software">Software</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="../../contact" class="schedule-demo">
+                <i class="fas fa-user"></i>
+                <span>Contact Us</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="blog-article">
+        <article>
+            <header class="article-hero">
+                <div class="container">
+                    <a href="../" class="breadcrumb">&larr; Back to Blog</a>
+                    <span class="article-topic-chip">Test & Measurement</span>
+                    <h1>Connecting Introspect’s RSH2 Remote Sampling Head to Any Oscilloscope</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> 18 March 2025</span>
+                        <span><i class="far fa-clock"></i> 5 min read</span>
+                        <span><i class="far fa-user"></i> Primeasure Test &amp; Measurement Team</span>
+                    </div>
+                </div>
+        <div class="article-hero-image">
+            <img src="../../images/blog/rsh2-oscilloscope-compatibility/hero.png" alt="Engineer using oscilloscope and remote sampling accessories">
+                </div>
+            </header>
+
+            <div class="container article-content">
+                <section>
+                    <h2>Why This Matters for Lab Teams</h2>
+                    <p>Introspect Technology recently revisited one of the most common questions their applications engineers receive: “Can the <a href="https://introspect.ca/product/rsh2-remote-sampling-head/" target="_blank" rel="noopener noreferrer">RSH2 Remote Sampling Head</a> plug into any oscilloscope?” Their answer is an enthusiastic yes—the RSH2 mates with any 50 Ω instrument—making it a clever way to extend the reach of your existing scopes without adding boutique probe heads for every vendor.</p>
+                    <p>For Primeasure customers running Teledyne LeCroy, Keysight, Rohde &amp; Schwarz, or Tektronix platforms side by side, this compatibility story is powerful. A single remote head can live near the device under test while long, lossy probe leads disappear. Introspect’s write-up inspired us to capture the key takeaways along with a few extra notes from the field.</p>
+                </section>
+
+                <section>
+                    <h2>What Makes the RSH2 Different</h2>
+                    <ul class="article-checklist">
+                        <li><strong>Twelve active probes in one chassis:</strong> The RSH2 brings enough channels to fan across parallel buses such as MIPI CSI-2 or D-PHY while keeping the bench uncluttered.</li>
+                        <li><strong>Minimal loading on the DUT:</strong> Each probe is buffered, so sensitive, low-voltage lanes are preserved even when the scope input is a 50 Ω termination.</li>
+                        <li><strong>Universal 50 Ω output:</strong> A standard coax or SMPM cable does the final hop into whatever oscilloscope is free—no adapter forests or vendor lock-in.</li>
+                        <li><strong>Compact remote head:</strong> Sitting the head on the DUT keeps high-speed runs short and controlled, while the heavier oscilloscope remains on the cart.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Recreating Introspect’s Smartphone Camera Demo</h2>
+                    <p>Introspect demonstrated the RSH2 by probing a live smartphone camera link. Probe tips were soldered directly onto the application processor and camera interface, then routed through an SMPM adapter into the remote head. From there, a 50 Ω cable carried each lane to the oscilloscope.</p>
+                    <p>The screenshots they shared highlight:</p>
+                    <ul class="article-checklist">
+                        <li><strong>Figure 1:</strong> A tidy bench setup with the handset on a fixture, the RSH2 close to the target, and only coax cables looping back to the oscilloscope.</li>
+                        <li><strong>Figure 2:</strong> A clean D-PHY eye diagram captured in real time, demonstrating that the active probes preserve rise-time fidelity.</li>
+                        <li><strong>Figure 3:</strong> An oscilloscope overlay of the data lanes showing minimal crosstalk even with two channels instrumented simultaneously.</li>
+                    </ul>
+                    <p>While we can’t redistribute their imagery here, the original article is worth a read for visuals and additional commentary. The workflow echoes what our automotive and handset customers are doing day to day.</p>
+                </section>
+
+                <section>
+                    <h2>Checklist for Your Own Lab</h2>
+                    <ol>
+                        <li><strong>Plan probe points early:</strong> Layout pads or flying leads that will accept the RSH2’s solder-in tips without crowding adjacent components.</li>
+                        <li><strong>Use quality coax:</strong> Keep the run between the RSH2 and the oscilloscope short and rated to the bandwidth you expect to measure.</li>
+                        <li><strong>Terminate correctly:</strong> Leave the scope in 50 Ω mode to maintain signal integrity; the RSH2 is already conditioned for that impedance.</li>
+                        <li><strong>Correlate with protocol tools:</strong> Pair the scope view with protocol decodes or traffic captures so you can tie waveform shape to packet context.</li>
+                        <li><strong>Document fixture settings:</strong> Capture probe placement, cable lengths, and any deskew operations so the setup is repeatable across shifts.</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h2>Source Inspiration</h2>
+                    <p>This article was informed by Introspect Technology’s post, <a href="https://introspect.ca/blog/can-i-use-the-rsh2-with-an-oscilloscope/" target="_blank" rel="noopener noreferrer">“Can I Use the RSH2 with an Oscilloscope?”</a>. We recommend reviewing their original piece for the latest product imagery and specifications.</p>
+                </section>
+
+                <section class="article-cta">
+                    <h2>Need Help Integrating Remote Sampling in Your Lab?</h2>
+                    <p>Primeasure supports Introspect Technology solutions across India. We can assist with probe planning, oscilloscope selection, and automated analysis workflows tailored to your validation program.</p>
+                    <a href="../../contact" class="cta-button">Talk to Our Test Team</a>
+                </section>
+
+                <section class="related-articles">
+                    <h2>Related Articles</h2>
+                    <div class="related-grid">
+                        <article>
+                            <h3><a href="../probing-ddr-lpddr-signals">Probing DDR and LPDDR Signals with Confidence</a></h3>
+                            <p>Key lessons from Introspect Technology on fixtures, remote heads, and oscilloscope setup for DDR probing.</p>
+                        </article>
+                        <article>
+                            <h3><a href="../debugging-edp-power-saving">Debugging eDP Power Saving Features</a></h3>
+                            <p>Explore Introspect SV5C workflows for verifying embedded display power modes.</p>
+                        </article>
+                        <article>
+                            <h3><a href="../pcie-6-transmitter-testing">PCIe 6.0 Transmitter Testing Essentials</a></h3>
+                            <p>Extend high-speed validation techniques to next-generation PCIe links.</p>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: sales@primeasure.com</p>
+                    <p>Phone: +91-9884900031</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../about">About Us</a></li>
+                        <li><a href="../../events">Events</a></li>
+                        <li><a href="../../blog">Blog</a></li>
+                        <li><a href="../../contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/primeasure-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61572242886713" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                </div>
+                <p>&copy; 2025 Primeasure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/menu.js"></script>
+    <script src="../../js/analytics.js"></script>
+</body>
+</html>

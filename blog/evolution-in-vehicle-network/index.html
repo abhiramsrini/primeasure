@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Primeasure’s perspective on Teledyne LeCroy’s look at the evolution of in-vehicle networks—covering CAN, LIN, Automotive Ethernet, and future zonal architectures.">
+    <link rel="canonical" href="https://primeasure.com/blog/evolution-in-vehicle-network">
+    <title>The Evolution of In-Vehicle Networking | Primeasure</title>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFKRS4SNFV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SFKRS4SNFV', {
+        page_title: 'The Evolution of In-Vehicle Networking - Primeasure',
+        page_location: window.location.href,
+        send_page_view: true
+      });
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="The Evolution of In-Vehicle Networking">
+    <meta property="og:description" content="Key milestones and future trends in automotive networking, with takeaways from Teledyne LeCroy for Indian OEMs and Tier-1s.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="../../images/blog/evolution-in-vehicle-network/hero.png">
+    <meta property="og:site_name" content="Primeasure">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Evolution of In-Vehicle Networking">
+    <meta name="twitter:description" content="Primeasure distills Teledyne LeCroy’s insights on the past, present, and future of automotive networking technologies.">
+    <meta name="twitter:image" content="../../images/blog/evolution-in-vehicle-network/hero.png">
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "The Evolution of In-Vehicle Networking",
+      "description": "Primeasure summarizes Teledyne LeCroy’s view of legacy CAN/LIN, today’s Automotive Ethernet, and the path to zonal architectures.",
+      "image": "https://primeasure.com/images/blog/evolution-in-vehicle-network/hero.png",
+      "author": {
+        "@type": "Organization",
+        "name": "Primeasure Automotive Solutions"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Primeasure",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://primeasure.com/images/logo.png"
+        }
+      },
+      "datePublished": "2025-03-22",
+      "dateModified": "2025-03-22",
+      "mainEntityOfPage": "https://primeasure.com/blog/evolution-in-vehicle-network"
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
+            <a href="../../" class="logo">
+                <img src="../../images/logo.png" alt="Primeasure Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../">Home</a></li>
+                <li><a href="../../about">About</a></li>
+                <li><a href="../../events">Events</a></li>
+                <li><a href="../../blog" class="active">Blog</a></li>
+                <li class="has-dropdown">
+                    <a href="#solutions">Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../solutions/test-measurement">Test &amp; Measurement</a></li>
+                        <li><a href="../../solutions/broadcast">Broadcast</a></li>
+                        <li><a href="../../solutions/software">Software</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="../../contact" class="schedule-demo">
+                <i class="fas fa-user"></i>
+                <span>Contact Us</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="blog-article">
+        <article>
+            <header class="article-hero">
+                <div class="container">
+                    <a href="../" class="breadcrumb">&larr; Back to Blog</a>
+                    <span class="article-topic-chip">Automotive</span>
+                    <span class="article-topic-chip">Test &amp; Measurement</span>
+                    <h1>The Evolution of In-Vehicle Networking</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> 22 March 2025</span>
+                        <span><i class="far fa-clock"></i> 6 min read</span>
+                        <span><i class="far fa-user"></i> Primeasure Automotive Solutions</span>
+                    </div>
+                </div>
+                <div class="article-hero-image">
+                    <img src="../../images/blog/evolution-in-vehicle-network/hero.png" alt="Engineer monitoring automotive network analysis tools">
+                </div>
+            </header>
+
+            <div class="container article-content">
+                <section>
+                    <h2>From CAN to High-Speed Ethernet</h2>
+                    <p>Teledyne LeCroy’s post <a href="https://blog.teledynelecroy.com/2023/02/the-evolution-of-in-vehicle-network.html" target="_blank" rel="noopener noreferrer">“The Evolution of In-Vehicle Network Protocols”</a> traces how automotive networks moved from CAN/LIN to Automotive Ethernet. Primeasure works with OEMs and Tier-1s across India who face the same transition, especially as ADAS and infotainment bandwidth explode. Here’s what stood out to us.</p>
+                </section>
+
+                <section>
+                    <h2>Legacy Buses Still Matter</h2>
+                    <ul class="article-checklist">
+                        <li><strong>CAN &amp; LIN remain the backbone:</strong> Body control, powertrain, and HVAC still depend on these robust protocols. We encourage customers to maintain CAN monitoring even while rolling out Ethernet backbones.</li>
+                        <li><strong>Gateway complexity grows:</strong> With more domains, gateway ECUs must translate signals between CAN, LIN, FlexRay, and Ethernet. Logging tools need synchronized time-stamps to make sense of the traffic.</li>
+                        <li><strong>Diagnostic coverage is critical:</strong> Use protocol analyzers to make sure software updates don’t break legacy behaviors while enabling new features.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Automotive Ethernet and Zonal Architectures</h2>
+                    <p>According to Teledyne LeCroy, Automotive Ethernet is the only path to support high-resolution cameras, RADAR, and consolidated compute domains. Primeasure agrees—and adds a few recommendations:</p>
+                    <ol>
+                        <li><strong>Validate PHY and protocol layers together.</strong> Combine oscilloscopes with LeCroy’s protocol tools to capture both eye diagrams and packet behavior during stress testing.</li>
+                        <li><strong>Plan for zonal architectures.</strong> Future vehicles will rely on zonal controllers linked via Ethernet, reducing wiring weight but increasing the need for robust timing analysis.</li>
+                        <li><strong>Adopt secure OTA workflows.</strong> Networking and cybersecurity are intertwined; verify that Ethernet gateways enforce authentication and encryption even during development.</li>
+                    </ol>
+                </section>
+
+                <section class="article-highlight">
+                    <h3>Primeasure Automotive Checklist</h3>
+                    <p>When we deploy Teledyne LeCroy tools in India, we focus on:</p>
+                    <ul class="article-checklist">
+                        <li>Time-synchronized captures across CAN, LIN, and Ethernet for cross-domain debug.</li>
+                        <li>Automated compliance tests for 100BASE-T1/1000BASE-T1 PHYs.</li>
+                        <li>Pre-configured triggers for ADAS sensor bursts and autonomous driving scenarios.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Source Inspiration</h2>
+                    <p>Read Teledyne LeCroy’s original article, <a href="https://blog.teledynelecroy.com/2023/02/the-evolution-of-in-vehicle-network.html" target="_blank" rel="noopener noreferrer">“The Evolution of In-Vehicle Network Protocols,”</a> for additional historical context and future predictions. Primeasure can help you evaluate the right mix of analyzers, oscilloscopes, and logging software for your platform.</p>
+                </section>
+
+                <section class="article-cta">
+                    <h2>Modernize Your Automotive Network Lab</h2>
+                    <p>Ready to instrument CAN, LIN, FlexRay, and Automotive Ethernet with one partner? Primeasure delivers Teledyne LeCroy solutions, training, and integration services tailored to Indian OEMs and Tier-1 suppliers.</p>
+                    <a href="../../contact" class="cta-button">Connect with Our Automotive Team</a>
+                </section>
+
+                <section class="related-articles">
+                    <h2>Related Articles</h2>
+                    <div class="related-grid">
+                        <article>
+                            <h3><a href="../debugging-edp-power-saving">Debugging eDP Power Saving Features</a></h3>
+                            <p>Learn how we automate display validation—another key system inside connected vehicles.</p>
+                        </article>
+                        <article>
+                            <h3><a href="../pcie-6-transmitter-testing">PCIe 6.0 Transmitter Testing Essentials</a></h3>
+                            <p>See how high-speed compute buses are evolving in parallel with automotive backbones.</p>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: sales@primeasure.com</p>
+                    <p>Phone: +91-9884900031</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../about">About Us</a></li>
+                        <li><a href="../../events">Events</a></li>
+                        <li><a href="../../blog">Blog</a></li>
+                        <li><a href="../../contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/primeasure-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61572242886713" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                </div>
+                <p>&copy; 2025 Primeasure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/menu.js"></script>
+    <script src="../../js/analytics.js"></script>
+</body>
+</html>

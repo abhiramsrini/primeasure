@@ -4,7 +4,7 @@
   <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://primeasure.com/</loc>
-    <lastmod>2025-01-16</lastmod>
+    <lastmod>2025-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,7 +12,7 @@
   <!-- About Page -->
   <url>
     <loc>https://primeasure.com/about</loc>
-    <lastmod>2025-01-16</lastmod>
+    <lastmod>2025-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -20,7 +20,7 @@
   <!-- Contact Page -->
   <url>
     <loc>https://primeasure.com/contact</loc>
-    <lastmod>2025-01-16</lastmod>
+    <lastmod>2025-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -28,15 +28,66 @@
   <!-- Events Page -->
   <url>
     <loc>https://primeasure.com/events</loc>
-    <lastmod>2025-01-16</lastmod>
+    <lastmod>2025-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Listing -->
+  <url>
+    <loc>https://primeasure.com/blog</loc>
+    <lastmod>2025-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Articles -->
+  <url>
+    <loc>https://primeasure.com/blog/debugging-edp-power-saving</loc>
+    <lastmod>2025-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://primeasure.com/blog/rsh2-oscilloscope-compatibility</loc>
+    <lastmod>2025-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://primeasure.com/blog/probing-ddr-lpddr-signals</loc>
+    <lastmod>2025-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://primeasure.com/blog/pcie-6-transmitter-testing</loc>
+    <lastmod>2025-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://primeasure.com/blog/cloud-production-sports-broadcasting</loc>
+    <lastmod>2025-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://primeasure.com/blog/evolution-in-vehicle-network</loc>
+    <lastmod>2025-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <!-- Event Registration -->
   <url>
     <loc>https://primeasure.com/register</loc>
-    <lastmod>2025-01-16</lastmod>
+    <lastmod>2025-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -44,21 +95,21 @@
   <!-- Solution Pages - High Priority -->
   <url>
     <loc>https://primeasure.com/solutions/broadcast</loc>
-    <lastmod>2025-01-16</lastmod>
+    <lastmod>2025-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://primeasure.com/solutions/test-measurement</loc>
-    <lastmod>2025-01-16</lastmod>
+    <lastmod>2025-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://primeasure.com/solutions/software</loc>
-    <lastmod>2025-01-16</lastmod>
+    <lastmod>2025-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -66,9 +117,16 @@
   <!-- Privacy Policy -->
   <url>
     <loc>https://primeasure.com/privacy-policy</loc>
-    <lastmod>2025-01-16</lastmod>
+    <lastmod>2025-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
 </urlset>
+
+  <url>
+    <loc>https://primeasure.com/blog/ampp-platform-updates</loc>
+    <lastmod>2025-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>

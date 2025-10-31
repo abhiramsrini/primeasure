@@ -121,6 +121,68 @@ class PrimeasureAnalytics {
         this.log('Solution view tracked:', solutionType);
     }
 
+    // Track blog topic filters
+    trackBlogFilter(topics) {
+        const topicArray = Array.isArray(topics)
+            ? topics
+            : (typeof topics === 'string' && topics ? [topics] : []);
+
+        const eventLabel = topicArray.length ? topicArray.join(', ') : 'all topics';
+
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'blog_filter', {
+                event_category: 'Blog',
+                event_label: eventLabel,
+                blog_topics: topicArray,
+                topic_count: topicArray.length,
+                page_location: window.location.href
+            });
+        }
+        this.log('Blog filter tracked:', topicArray);
+    }
+
+    // Track blog article views
+    trackBlogArticleView(articleTitle, topics = []) {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'blog_article_view', {
+                event_category: 'Blog',
+                event_label: articleTitle,
+                article_title: articleTitle,
+                article_topics: topics.join(', '),
+                page_location: window.location.href
+            });
+        }
+        this.log('Blog article view tracked:', articleTitle, topics);
+    }
+
+    // Track blog CTA interactions
+    trackBlogCta(ctaText, articleTitle) {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'blog_cta_click', {
+                event_category: 'Blog',
+                event_label: ctaText,
+                article_title: articleTitle,
+                cta_text: ctaText,
+                page_location: window.location.href
+            });
+        }
+        this.log('Blog CTA click tracked:', ctaText, articleTitle);
+    }
+
+    // Track related article navigation
+    trackBlogRelatedClick(articleTitle, targetTitle) {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'blog_related_click', {
+                event_category: 'Blog',
+                event_label: targetTitle,
+                article_title: articleTitle,
+                related_article_title: targetTitle,
+                page_location: window.location.href
+            });
+        }
+        this.log('Blog related article click tracked:', articleTitle, targetTitle);
+    }
+
     // Track carousel interactions
     trackCarouselInteraction(action, slideIndex) {
         if (typeof gtag !== 'undefined') {
@@ -188,6 +250,9 @@ class PrimeasureAnalytics {
 
         // Track solution page views
         this.trackSolutionPageView();
+
+        // Track blog interactions
+        this.setupBlogTracking();
     }
 
     // Setup scroll depth tracking
@@ -224,6 +289,36 @@ class PrimeasureAnalytics {
         }
     }
 
+    // Detect and track blog-specific interactions
+    setupBlogTracking() {
+        const articleContainer = document.querySelector('.blog-article');
+        if (articleContainer) {
+            const titleElement = articleContainer.querySelector('.article-hero h1');
+            const topicChips = Array.from(articleContainer.querySelectorAll('.article-topic-chip'))
+                .map(chip => chip.textContent.trim());
+            
+            if (titleElement) {
+                this.trackBlogArticleView(titleElement.textContent.trim(), topicChips);
+            }
+
+            const ctaButton = articleContainer.querySelector('.article-cta .cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', () => {
+                    const articleTitle = titleElement ? titleElement.textContent.trim() : 'Unknown Article';
+                    this.trackBlogCta(ctaButton.textContent.trim(), articleTitle);
+                });
+            }
+
+            articleContainer.querySelectorAll('.related-grid a').forEach(link => {
+                link.addEventListener('click', () => {
+                    const articleTitle = titleElement ? titleElement.textContent.trim() : 'Unknown Article';
+                    const targetTitle = link.textContent.trim();
+                    this.trackBlogRelatedClick(articleTitle, targetTitle);
+                });
+            });
+        }
+    }
+
     // Debug logging
     log(...args) {
         if (ANALYTICS_CONFIG.enableDebug) {
@@ -236,6 +331,7 @@ class PrimeasureAnalytics {
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize custom analytics tracking
     window.primeasureAnalytics = new PrimeasureAnalytics();
+    window.PrimeasureAnalyticsInstance = window.primeasureAnalytics;
     
     // Track initial page load
     if (typeof gtag !== 'undefined') {

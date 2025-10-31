@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Primeasure’s highlights from Teledyne LeCroy on preparing PCIe 6.0 transmitter compliance tests using SDA/TDME workflows, calibrated fixtures, and margin analysis.">
+    <link rel="canonical" href="https://primeasure.com/blog/pcie-6-transmitter-testing">
+    <title>PCIe 6.0 Transmitter Testing Essentials | Primeasure</title>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFKRS4SNFV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SFKRS4SNFV', {
+        page_title: 'PCIe 6.0 Transmitter Testing Essentials - Primeasure',
+        page_location: window.location.href,
+        send_page_view: true
+      });
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="PCIe 6.0 Transmitter Testing Essentials">
+    <meta property="og:description" content="Key steps from Teledyne LeCroy and Primeasure for validating next-generation PCIe 6.0 transmitters with confidence.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="../../images/blog/pcie-6-transmitter-testing/hero.png">
+    <meta property="og:site_name" content="Primeasure">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PCIe 6.0 Transmitter Testing Essentials">
+    <meta name="twitter:description" content="Primeasure’s perspective on fixtures, calibrations, and margin analysis for PCIe 6.0 transmitter validation.">
+    <meta name="twitter:image" content="../../images/blog/pcie-6-transmitter-testing/hero.png">
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "PCIe 6.0 Transmitter Testing Essentials",
+      "description": "Primeasure’s summary of Teledyne LeCroy guidance for PCIe 6.0 transmitter testing, including SDAs, TDME calibrations, and margin analysis.",
+      "image": "https://primeasure.com/images/blog/pcie-6-transmitter-testing/hero.png",
+      "author": {
+        "@type": "Organization",
+        "name": "Primeasure High-Speed Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Primeasure",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://primeasure.com/images/logo.png"
+        }
+      },
+      "datePublished": "2025-03-21",
+      "dateModified": "2025-03-21",
+      "mainEntityOfPage": "https://primeasure.com/blog/pcie-6-transmitter-testing"
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
+            <a href="../../" class="logo">
+                <img src="../../images/logo.png" alt="Primeasure Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../">Home</a></li>
+                <li><a href="../../about">About</a></li>
+                <li><a href="../../events">Events</a></li>
+                <li><a href="../../blog" class="active">Blog</a></li>
+                <li class="has-dropdown">
+                    <a href="#solutions">Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../solutions/test-measurement">Test &amp; Measurement</a></li>
+                        <li><a href="../../solutions/broadcast">Broadcast</a></li>
+                        <li><a href="../../solutions/software">Software</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="../../contact" class="schedule-demo">
+                <i class="fas fa-user"></i>
+                <span>Contact Us</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="blog-article">
+        <article>
+            <header class="article-hero">
+                <div class="container">
+                    <a href="../" class="breadcrumb">&larr; Back to Blog</a>
+                    <span class="article-topic-chip">Test &amp; Measurement</span>
+                    <h1>PCIe 6.0 Transmitter Testing Essentials</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> 21 March 2025</span>
+                        <span><i class="far fa-clock"></i> 7 min read</span>
+                        <span><i class="far fa-user"></i> Primeasure High-Speed Team</span>
+                    </div>
+                </div>
+                <div class="article-hero-image">
+                    <img src="../../images/blog/pcie-6-transmitter-testing/hero.png" alt="Oscilloscope verifying PCIe transmitter eye diagram">
+                </div>
+            </header>
+
+            <div class="container article-content">
+                <section>
+                    <h2>Why PCIe 6.0 Demands a Fresh Look</h2>
+                    <p>Teledyne LeCroy recently highlighted the challenges of qualifying PCIe 6.0 transmitters at 64 GT/s. PAM4 encoding, new equalization schemes, and tighter voltage margins mean that the test setup you used for Gen5 must evolve. At Primeasure, we see the same concerns when supporting semiconductor customers across India. Below is our summary of the article <a href="https://blog.teledynelecroy.com/2023/02/making-new-pcie-60-transmitter.html" target="_blank" rel="noopener noreferrer">“Making the New PCIe 6.0 Transmitter Compliance Tests Simple”</a> with practical tips for local labs.</p>
+                </section>
+
+                <section>
+                    <h2>Build a Calibrated Test Chain</h2>
+                    <ul class="article-checklist">
+                        <li><strong>Use compliant fixtures:</strong> Channel loss must match PCI-SIG templates. We recommend purchasing or fabricating fixtures with S-parameter reports and verifying them with a VNA before testing.</li>
+                        <li><strong>Leverage SDA/TDME automation:</strong> Teledyne LeCroy’s tools streamline pre-emphasis and equalization sweeps. Automating these steps reduces manual mistakes and keeps logs consistent.</li>
+                        <li><strong>Run frequent calibrations:</strong> Daily TDR/TDT checks ensure the oscilloscope, cables, and filters still meet amplitude and timing tolerances.</li>
+                        <li><strong>Capture reference waveforms:</strong> Save the “golden” eye diagram for each DUT and fixture so you can track drift across firmware iterations.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Exercise New Compliance Tests</h2>
+                    <p>The PCI-SIG added several transmitter tests for Gen6, including precursor/postcursor crosstalk, transmitter offset, and multi-lane skew. Primeasure recommends:</p>
+                    <ol>
+                        <li><strong>Automate preset sweeps.</strong> Use the TDME application to run all presets and capture pass/fail status. This is faster than manual knob turning and produces consistent reports.</li>
+                        <li><strong>Monitor BER while tuning.</strong> Combine bit-error-rate instrumentation with SDA traces to understand whether equalization changes improve both signal quality and protocol reliability.</li>
+                        <li><strong>Document margin analysis.</strong> Store SDA eye masks, jitter breakdowns, and compliance margins for each board. When a customer RMA arrives, you can compare results instantly.</li>
+                    </ol>
+                </section>
+
+                <section class="article-highlight">
+                    <h3>Primeasure Field Tip</h3>
+                    <p>We always include a second oscilloscope channel to monitor a reference clock or power rail. Many “transmitter” failures turn out to be clock jitter or supply droop. Catching those early saves days on the debug bench.</p>
+                </section>
+
+                <section>
+                    <h2>Source Inspiration</h2>
+                    <p>For deeper detail, review Teledyne LeCroy’s original post, <a href="https://blog.teledynelecroy.com/2023/02/making-new-pcie-60-transmitter.html" target="_blank" rel="noopener noreferrer">“Making the New PCIe 6.0 Transmitter Compliance Tests Simple.”</a> Contact Primeasure if you need help configuring SDA/TDME solutions or acquiring calibrated fixtures in India.</p>
+                </section>
+
+                <section class="article-cta">
+                    <h2>Need Help with PCIe 6.0 Validation?</h2>
+                    <p>Primeasure supplies Teledyne LeCroy oscilloscopes, automation software, and calibration services across India. We can tailor a complete compliance setup and train your engineering team.</p>
+                    <a href="../../contact" class="cta-button">Speak with Our High-Speed Experts</a>
+                </section>
+
+                <section class="related-articles">
+                    <h2>Related Articles</h2>
+                    <div class="related-grid">
+                        <article>
+                            <h3><a href="../probing-ddr-lpddr-signals">Probing DDR and LPDDR Signals with Confidence</a></h3>
+                            <p>Transfer best practices from memory validation into your PCIe workflows.</p>
+                        </article>
+                        <article>
+                            <h3><a href="../debugging-edp-power-saving">Debugging eDP Power Saving Features</a></h3>
+                            <p>See how we apply automation to embedded display validation using Introspect SV5C.</p>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: sales@primeasure.com</p>
+                    <p>Phone: +91-9884900031</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../about">About Us</a></li>
+                        <li><a href="../../events">Events</a></li>
+                        <li><a href="../../blog">Blog</a></li>
+                        <li><a href="../../contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/primeasure-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61572242886713" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                </div>
+                <p>&copy; 2025 Primeasure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/menu.js"></script>
+    <script src="../../js/analytics.js"></script>
+</body>
+</html>

@@ -10,39 +10,64 @@ This is a static website for Primeasure Technologies, a company providing test &
 
 ```
 primeasure/
-├── index.html                 # Main homepage
+├── index.html                          # Main homepage
+├── about/
+│   └── index.html                      # Company overview
+├── contact/
+│   └── index.html                      # Contact details & form
+├── events/
+│   └── index.html                      # Dynamic events listing
+├── register/
+│   └── index.html                      # Event registration workflow
+├── blog/
+│   ├── index.html                      # Blog listing with topic filters
+│   ├── rsh2-oscilloscope-compatibility/
+│   │   └── index.html
+│   ├── cloud-production-sports-broadcasting/
+│   │   └── index.html
+│   ├── probing-ddr-lpddr-signals/
+│   │   └── index.html
+│   ├── debugging-edp-power-saving/
+│   │   └── index.html
+│   ├── pcie-6-transmitter-testing/
+│   │   └── index.html
+│   ├── ampp-platform-updates/
+│   │   └── index.html
+│   └── evolution-in-vehicle-network/
+        └── index.html
+├── solutions/
+│   ├── broadcast/
+│   │   └── index.html
+│   ├── software/
+│   │   └── index.html
+│   └── test-measurement/
+│       └── index.html
+├── privacy-policy/
+│   └── index.html
 ├── css/
-│   ├── style.css             # Main stylesheet with CSS variables & Ant Design-inspired system
-│   └── responsive.css        # Mobile/responsive styles
+│   ├── style.css                       # Main stylesheet with CSS variables & Ant Design-inspired system
+│   └── responsive.css                  # Mobile/responsive styles
 ├── js/
-│   ├── main.js              # Scroll animations and navbar behavior
-│   ├── carousel.js          # Advanced carousel component system
-│   ├── menu.js              # Mobile navigation and dropdown handling
-│   ├── analytics.js         # Google Analytics enhanced tracking system
-│   ├── EventManager.js      # Dynamic events data management
-│   ├── EventRouter.js       # Event registration URL routing
-│   ├── FormValidator.js     # Advanced form validation and submission
-│   └── SmoothInfiniteScroll.js # Customer logos infinite scroll animation
+│   ├── analytics.js                    # Google Analytics enhanced tracking system
+│   ├── BlogManager.js                  # Blog data loading and filtering
+│   ├── EventManager.js                 # Dynamic events data management
+│   ├── EventRouter.js                  # Event registration URL routing
+│   ├── FormValidator.js                # Advanced form validation and submission
+│   ├── carousel.js                     # Advanced carousel component system
+│   ├── main.js                         # Scroll animations and navbar behavior
+│   ├── menu.js                         # Mobile navigation and dropdown handling
+│   └── SmoothInfiniteScroll.js         # Customer logos infinite scroll animation
 ├── data/
-│   └── events.json          # Centralized events database
-├── images/                   # All static assets organized by category
-│   ├── home/                # Homepage images
-│   ├── customers/           # Customer/partner logos (40+ companies)
-│   ├── events/              # Event-related images
-│   ├── partners/            # Partner logos
-│   └── solutions/           # Solution page images
-├── sitemap.xml              # SEO sitemap
-├── robots.txt               # Search engine directives
-└── pages/
-    ├── about.html
-    ├── contact.html
-    ├── events.html           # Dynamic events listing page
-    ├── register.html         # Event registration with routing
-    ├── privacy-policy.html   # GDPR-compliant privacy policy
-    └── solutions/
-        ├── broadcast.html
-        ├── software.html
-        └── test-measurement.html
+│   ├── events.json                     # Centralized events database
+│   └── blog.json                       # Blog metadata powering the listing page
+├── images/                             # Static assets organized by category
+│   ├── home/
+│   ├── customers/
+│   ├── events/
+│   ├── partners/
+│   └── solutions/
+├── sitemap.xml                         # SEO sitemap
+└── robots.txt                          # Search engine directives
 ```
 
 ## Development Commands
@@ -62,8 +87,8 @@ php -S localhost:8000
 
 **Important Notes:**
 - Use a local server for development to avoid CORS issues with `events.json` loading
-- For testing clean URLs (like `/about` instead of `/pages/about.html`), use http-server with proxy
-- Python server will require .html extensions for direct access: `/pages/about.html`
+- For testing clean URLs (like `/about` instead of `/about/index.html`), use http-server with proxy
+- Python server will require .html extensions for direct access: `/about/index.html`
 - See `README-DEVELOPMENT.md` for detailed local development setup with clean URLs
 
 ## Architecture and Code Organization
