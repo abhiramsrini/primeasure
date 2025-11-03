@@ -6,7 +6,7 @@
       "title": "Is Cloud Production the Sports Broadcasting Game Changer?",
       "excerpt": "Primeasure\u2019s take on Grass Valley\u2019s perspective for moving live sports production to cloud workflows, including the benefits and readiness checklist.",
       "publishDate": "2025-03-23",
-      "readingTime": 6,
+      "readingTime": 2,
       "topics": [
         "broadcast"
       ],
@@ -20,7 +20,7 @@
       "title": "What\u2019s New in Grass Valley AMPP",
       "excerpt": "Primeasure recaps the latest AMPP platform enhancements from Grass Valley and what they mean for cloud-first broadcast teams.",
       "publishDate": "2025-03-23",
-      "readingTime": 5,
+      "readingTime": 3,
       "topics": [
         "broadcast"
       ],
@@ -34,7 +34,7 @@
       "title": "The Evolution of In-Vehicle Networking",
       "excerpt": "A Primeasure summary of Teledyne LeCroy\u2019s perspective on the past, present, and future of automotive networking standards.",
       "publishDate": "2025-03-22",
-      "readingTime": 6,
+      "readingTime": 3,
       "topics": [
         "automotive",
         "test-measurement"
@@ -49,7 +49,7 @@
       "title": "PCIe 6.0 Transmitter Testing Essentials",
       "excerpt": "Key takeaways from Teledyne LeCroy on preparing fixtures, calibrations, and measurements for next-generation PCIe 6.0 transmitters.",
       "publishDate": "2025-03-21",
-      "readingTime": 7,
+      "readingTime": 3,
       "topics": [
         "test-measurement"
       ],
@@ -63,7 +63,7 @@
       "title": "Debugging eDP Power Saving Features with Introspect SV5C",
       "excerpt": "How we adapt Introspect Technology\u2019s eDP power-management workflow to validate Panel Self Refresh, ALPM, and sleep states on modern displays.",
       "publishDate": "2025-03-20",
-      "readingTime": 6,
+      "readingTime": 4,
       "topics": [
         "test-measurement"
       ],
@@ -77,7 +77,7 @@
       "title": "Probing DDR and LPDDR Signals with Confidence",
       "excerpt": "Key lessons from Introspect Technology on preparing probing plans, fixtures, and measurement strategies for next-generation DDR and LPDDR devices.",
       "publishDate": "2025-03-20",
-      "readingTime": 6,
+      "readingTime": 4,
       "topics": [
         "memory",
         "test-measurement"
@@ -92,7 +92,7 @@
       "title": "Connecting Introspect\u2019s RSH2 Remote Sampling Head to Any Oscilloscope",
       "excerpt": "A practical walkthrough inspired by Introspect Technology on pairing the RSH2 remote sampling head with 50 \u03a9 lab instruments for clean smartphone camera probing.",
       "publishDate": "2025-03-18",
-      "readingTime": 5,
+      "readingTime": 2,
       "topics": [
         "test-measurement"
       ],
