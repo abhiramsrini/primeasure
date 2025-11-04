@@ -9,6 +9,13 @@ class EventManager {
             return this.events;
         }
 
+        const inlineEvents = this.loadInlineEvents();
+        if (inlineEvents) {
+            this.events = this.sortEventsByDate(inlineEvents);
+            this.loaded = true;
+            return this.events;
+        }
+
         try {
             console.log('Attempting to load events from:', '../data/events.json');
             const response = await fetch('../data/events.json');
@@ -20,7 +27,7 @@ class EventManager {
             const data = await response.json();
             console.log('Loaded events data:', data);
             
-            this.events = data.events;
+            this.events = this.sortEventsByDate(data.events || []);
             this.loaded = true;
             return this.events;
         } catch (error) {
@@ -31,10 +38,64 @@ class EventManager {
             
             // Fallback to hardcoded data if fetch fails
             console.log('Using fallback event data');
-            this.events = this.getFallbackEvents();
+            this.events = this.sortEventsByDate(this.getFallbackEvents());
             this.loaded = true;
             return this.events;
         }
+    }
+
+    loadInlineEvents() {
+        if (typeof window !== 'undefined') {
+            const globalEvents = window.__EVENTS__;
+            if (Array.isArray(globalEvents)) {
+                return globalEvents;
+            }
+            if (globalEvents && Array.isArray(globalEvents.events)) {
+                return globalEvents.events;
+            }
+        }
+
+        if (typeof document === 'undefined') {
+            return null;
+        }
+
+        const inlineScript = document.getElementById('events-data');
+        if (!inlineScript) {
+            return null;
+        }
+
+        try {
+            const parsed = JSON.parse(inlineScript.textContent);
+            if (Array.isArray(parsed)) {
+                return parsed;
+            }
+            if (parsed && Array.isArray(parsed.events)) {
+                return parsed.events;
+            }
+        } catch (error) {
+            console.warn('EventManager: failed to parse inline events data', error);
+        }
+
+        return null;
+    }
+
+    sortEventsByDate(events = []) {
+        return [...events].sort((a, b) => {
+            const aDate = this.parseEventDate(a?.date);
+            const bDate = this.parseEventDate(b?.date);
+            return aDate - bDate;
+        });
+    }
+
+    parseEventDate(dateString) {
+        if (!dateString || dateString.toUpperCase() === 'TBD') {
+            return Number.POSITIVE_INFINITY;
+        }
+        const parsed = Date.parse(dateString);
+        if (Number.isNaN(parsed)) {
+            return Number.POSITIVE_INFINITY;
+        }
+        return parsed;
     }
 
     getFallbackEvents() {
@@ -141,7 +202,13 @@ class EventManager {
     }
 
     getUpcomingEvents() {
-        return this.events.filter(event => event.status === 'upcoming');
+        return this.events.filter(event => this.normalizeStatus(event.status) !== 'completed');
+    }
+
+    getCompletedEvents() {
+        return [...this.events]
+            .filter(event => this.normalizeStatus(event.status) === 'completed')
+            .sort((a, b) => this.parseEventDate(b?.date) - this.parseEventDate(a?.date));
     }
 
     getRegistrableEvents() {
@@ -198,6 +265,7 @@ class EventManager {
     renderEventCard(event) {
         const dateInfo = this.formatEventDate(event);
         const actionButton = this.getActionButton(event);
+        const statusTag = this.getStatusTag(event);
 
         return `
             <div class="event-card">
@@ -209,7 +277,10 @@ class EventManager {
                     <span class="time">${dateInfo.time}</span>
                 </div>
                 <div class="event-main">
-                    <h3>${event.title}</h3>
+                    <div class="event-main__header">
+                        <h3>${event.title}</h3>
+                        ${statusTag}
+                    </div>
                     <div class="event-location">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>${event.location}</span>
@@ -227,18 +298,65 @@ class EventManager {
     }
 
     getActionButton(event) {
+        const status = this.normalizeStatus(event.status);
+        const recapUrl = event.recapUrl || event.recordingUrl || event.slidesUrl;
+        const recapLabel = event.recapLabel || 'View Recap';
+
+        if (status === 'completed') {
+            if (recapUrl) {
+                return `<a href="${recapUrl}" target="_blank" rel="noopener noreferrer" class="info-button recap-button">${recapLabel}</a>`;
+            }
+            return '<span class="event-status-note">Thanks for joining</span>';
+        }
+
         if (event.registrationEnabled) {
             return `<a href="../register#${event.slug}" class="register-button">Register Now</a>`;
         } else if (event.externalUrl) {
             return `<a href="${event.externalUrl}" target="_blank" rel="noopener noreferrer" class="info-button">Learn More</a>`;
         } else {
-            return `<a href="#" class="info-button">Learn More</a>`;
+            return '';
         }
     }
 
-    renderEventsGrid(events = null) {
+    getStatusTag(event) {
+        const status = this.normalizeStatus(event.status);
+        if (status === 'completed') {
+            return '<span class="event-status-tag event-status-tag--completed">Event Completed</span>';
+        }
+        return '';
+    }
+
+    normalizeStatus(value) {
+        if (!value) return 'upcoming';
+        return String(value).trim().toLowerCase();
+    }
+
+    renderEventsGrid(events = null, emptyMessage = 'More events will be announced soon. Stay tuned!') {
         const eventsToRender = events || this.getAllEvents();
+        if (!eventsToRender.length) {
+            return `
+                <div class="events-empty-state">
+                    ${emptyMessage}
+                </div>
+            `;
+        }
         return eventsToRender.map(event => this.renderEventCard(event)).join('');
+    }
+
+    renderSections({ upcomingContainer, completedContainer } = {}) {
+        if (upcomingContainer) {
+            upcomingContainer.innerHTML = this.renderEventsGrid(
+                this.getUpcomingEvents(),
+                'New events will be announced soon. Stay tuned!'
+            );
+        }
+
+        if (completedContainer) {
+            completedContainer.innerHTML = this.renderEventsGrid(
+                this.getCompletedEvents(),
+                'No completed events to show yet.'
+            );
+        }
     }
 }
 

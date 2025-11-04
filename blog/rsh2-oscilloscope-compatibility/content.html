@@ -1,0 +1,69 @@
+<div class="container article-content">
+    <section>
+        <h2>Why This Matters for Lab Teams</h2>
+        <p>Introspect Technology recently revisited one of the most common questions their applications engineers receive: “Can the <a href="https://introspect.ca/product/rsh2-remote-sampling-head/" target="_blank" rel="noopener noreferrer">RSH2 Remote Sampling Head</a> plug into any oscilloscope?” Their answer is an enthusiastic yes—the RSH2 mates with any 50 Ω instrument—making it a clever way to extend the reach of your existing scopes without adding boutique probe heads for every vendor.</p>
+        <p>For Primeasure customers running Teledyne LeCroy, Keysight, Rohde &amp; Schwarz, or Tektronix platforms side by side, this compatibility story is powerful. A single remote head can live near the device under test while long, lossy probe leads disappear. Introspect’s write-up inspired us to capture the key takeaways along with a few extra notes from the field.</p>
+    </section>
+
+    <section>
+        <h2>What Makes the RSH2 Different</h2>
+        <ul class="article-checklist">
+            <li><strong>Twelve active probes in one chassis:</strong> The RSH2 brings enough channels to fan across parallel buses such as MIPI CSI-2 or D-PHY while keeping the bench uncluttered.</li>
+            <li><strong>Minimal loading on the DUT:</strong> Each probe is buffered, so sensitive, low-voltage lanes are preserved even when the scope input is a 50 Ω termination.</li>
+            <li><strong>Universal 50 Ω output:</strong> A standard coax or SMPM cable does the final hop into whatever oscilloscope is free—no adapter forests or vendor lock-in.</li>
+            <li><strong>Compact remote head:</strong> Sitting the head on the DUT keeps high-speed runs short and controlled, while the heavier oscilloscope remains on the cart.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Recreating Introspect’s Smartphone Camera Demo</h2>
+        <p>Introspect demonstrated the RSH2 by probing a live smartphone camera link. Probe tips were soldered directly onto the application processor and camera interface, then routed through an SMPM adapter into the remote head. From there, a 50 Ω cable carried each lane to the oscilloscope.</p>
+        <p>The screenshots they shared highlight:</p>
+        <ul class="article-checklist">
+            <li><strong>Figure 1:</strong> A tidy bench setup with the handset on a fixture, the RSH2 close to the target, and only coax cables looping back to the oscilloscope.</li>
+            <li><strong>Figure 2:</strong> A clean D-PHY eye diagram captured in real time, demonstrating that the active probes preserve rise-time fidelity.</li>
+            <li><strong>Figure 3:</strong> An oscilloscope overlay of the data lanes showing minimal crosstalk even with two channels instrumented simultaneously.</li>
+        </ul>
+        <p>While we can’t redistribute their imagery here, the original article is worth a read for visuals and additional commentary. The workflow echoes what our automotive and handset customers are doing day to day.</p>
+    </section>
+
+    <section>
+        <h2>Checklist for Your Own Lab</h2>
+        <ol>
+            <li><strong>Plan probe points early:</strong> Layout pads or flying leads that will accept the RSH2’s solder-in tips without crowding adjacent components.</li>
+            <li><strong>Use quality coax:</strong> Keep the run between the RSH2 and the oscilloscope short and rated to the bandwidth you expect to measure.</li>
+            <li><strong>Terminate correctly:</strong> Leave the scope in 50 Ω mode to maintain signal integrity; the RSH2 is already conditioned for that impedance.</li>
+            <li><strong>Correlate with protocol tools:</strong> Pair the scope view with protocol decodes or traffic captures so you can tie waveform shape to packet context.</li>
+            <li><strong>Document fixture settings:</strong> Capture probe placement, cable lengths, and any deskew operations so the setup is repeatable across shifts.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Source Inspiration</h2>
+        <p>This article was informed by Introspect Technology’s post, <a href="https://introspect.ca/blog/can-i-use-the-rsh2-with-an-oscilloscope/" target="_blank" rel="noopener noreferrer">“Can I Use the RSH2 with an Oscilloscope?”</a>. We recommend reviewing their original piece for the latest product imagery and specifications.</p>
+    </section>
+
+    <section class="article-cta">
+        <h2>Need Help Integrating Remote Sampling in Your Lab?</h2>
+        <p>Primeasure supports Introspect Technology solutions across India. We can assist with probe planning, oscilloscope selection, and automated analysis workflows tailored to your validation program.</p>
+        <a href="../../contact" class="cta-button">Talk to Our Test Team</a>
+    </section>
+
+    <section class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <article>
+                <h3><a href="../probing-ddr-lpddr-signals">Probing DDR and LPDDR Signals with Confidence</a></h3>
+                <p>Key lessons from Introspect Technology on fixtures, remote heads, and oscilloscope setup for DDR probing.</p>
+            </article>
+            <article>
+                <h3><a href="../debugging-edp-power-saving">Debugging eDP Power Saving Features</a></h3>
+                <p>Explore Introspect SV5C workflows for verifying embedded display power modes.</p>
+            </article>
+            <article>
+                <h3><a href="../pcie-6-transmitter-testing">PCIe 6.0 Transmitter Testing Essentials</a></h3>
+                <p>Extend high-speed validation techniques to next-generation PCIe links.</p>
+            </article>
+        </div>
+    </section>
+</div>

@@ -12,9 +12,9 @@
       "fullDescription": "Join industry professionals for in-depth technical discussions and demonstrations.",
       "image": "../images/logo.png",
       "imageAlt": "Primeasure Logo",
-      "registrationEnabled": true,
+      "registrationEnabled": false,
       "company": "Primeasure",
-      "status": "upcoming"
+      "status": "completed"
     },
     {
       "id": "ibc-2025-09-12",
@@ -32,7 +32,7 @@
       "registrationEnabled": false,
       "externalUrl": "https://show.ibc.org/ibc2025-pass-types",
       "company": "GrassValley",
-      "status": "upcoming"
+      "status": "completed"
     },
     {
       "id": "broadcast-india-2025-10-14",
@@ -50,7 +50,7 @@
       "registrationEnabled": false,
       "externalUrl": "https://n-gage.live/bi2025/visitor/step1",
       "company": "GrassValley",
-      "status": "upcoming"
+      "status": "completed"
     },
     {
       "id": "auto-ev-bharat-2025-11-19",
@@ -85,6 +85,24 @@
       "registrationEnabled": false,
       "company": "Teledyne LeCroy",
       "status": "upcoming"
+    },
+    {
+      "id": "pcie-lab-days-2024-02-10",
+      "slug": "pcie-lab-days-2024",
+      "type": "workshop",
+      "title": "PCIe Lab Days 2024 Recap",
+      "date": "2024-02-10",
+      "time": "10:00 AM",
+      "location": "Chennai, India",
+      "description": "Our engineering teams hosted deep-dive sessions on PCIe compliance workflows, fixture selection, and automation best practices.",
+      "fullDescription": "Hands-on lab demos covering SDA/TDME automation, high-speed probing, and compliance debugging. Reach out for the slides or to schedule a private workshop.",
+      "image": "../images/logo.png",
+      "imageAlt": "Primeasure PCIe Workshop",
+      "registrationEnabled": true,
+      "recapUrl": "https://primeasure.com/resources/pcie-lab-days-2024.pdf",
+      "recapLabel": "View Slides",
+      "company": "Primeasure",
+      "status": "completed"
     }
   ]
 }

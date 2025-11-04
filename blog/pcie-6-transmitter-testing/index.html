@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Primeasure’s highlights from Teledyne LeCroy on preparing PCIe 6.0 transmitter compliance tests using SDA/TDME workflows, calibrated fixtures, and margin analysis.">
+    <meta name="description" content="Key takeaways from Teledyne LeCroy on preparing fixtures, calibrations, and measurements for next-generation PCIe 6.0 transmitters.">
     <link rel="canonical" href="https://primeasure.com/blog/pcie-6-transmitter-testing">
     <title>PCIe 6.0 Transmitter Testing Essentials | Primeasure</title>
 
@@ -22,17 +22,17 @@
 
     <!-- Open Graph -->
     <meta property="og:title" content="PCIe 6.0 Transmitter Testing Essentials">
-    <meta property="og:description" content="Key steps from Teledyne LeCroy and Primeasure for validating next-generation PCIe 6.0 transmitters with confidence.">
+    <meta property="og:description" content="Key takeaways from Teledyne LeCroy on preparing fixtures, calibrations, and measurements for next-generation PCIe 6.0 transmitters.">
     <meta property="og:type" content="article">
-    <meta property="og:image" content="../../images/blog/pcie-6-transmitter-testing/hero.png">
+    <meta property="og:image" content="https://primeasure.com/images/blog/pcie-6-transmitter-testing/hero.png">
     <meta property="og:site_name" content="Primeasure">
     <meta property="og:locale" content="en_IN">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="PCIe 6.0 Transmitter Testing Essentials">
-    <meta name="twitter:description" content="Primeasure’s perspective on fixtures, calibrations, and margin analysis for PCIe 6.0 transmitter validation.">
-    <meta name="twitter:image" content="../../images/blog/pcie-6-transmitter-testing/hero.png">
+    <meta name="twitter:description" content="Key takeaways from Teledyne LeCroy on preparing fixtures, calibrations, and measurements for next-generation PCIe 6.0 transmitters.">
+    <meta name="twitter:image" content="https://primeasure.com/images/blog/pcie-6-transmitter-testing/hero.png">
 
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/responsive.css">
@@ -43,7 +43,7 @@
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": "PCIe 6.0 Transmitter Testing Essentials",
-      "description": "Primeasure’s summary of Teledyne LeCroy guidance for PCIe 6.0 transmitter testing, including SDAs, TDME calibrations, and margin analysis.",
+      "description": "Key takeaways from Teledyne LeCroy on preparing fixtures, calibrations, and measurements for next-generation PCIe 6.0 transmitters.",
       "image": "https://primeasure.com/images/blog/pcie-6-transmitter-testing/hero.png",
       "author": {
         "@type": "Organization",
@@ -98,12 +98,14 @@
             <header class="article-hero">
                 <div class="container">
                     <a href="../" class="breadcrumb">&larr; Back to Blog</a>
-                    <span class="article-topic-chip">Test &amp; Measurement</span>
+                    <div class="article-topic-chips">
+                        <span class="article-topic-chip">Test &amp; Measurement</span>
+                    </div>
                     <h1>PCIe 6.0 Transmitter Testing Essentials</h1>
                     <div class="article-meta">
                         <span><i class="far fa-calendar"></i> 21 March 2025</span>
-                        <span><i class="far fa-clock"></i> 7 min read</span>
-                        <span><i class="far fa-user"></i> Primeasure High-Speed Team</span>
+                        <span><i class="far fa-clock"></i> 3 min read</span>
+                        <span><i class="far fa-user"></i> Primeasure Interpretation</span>
                     </div>
                 </div>
                 <div class="article-hero-image">
@@ -112,61 +114,61 @@
             </header>
 
             <div class="container article-content">
-                <section>
-                    <h2>Why PCIe 6.0 Demands a Fresh Look</h2>
-                    <p>Teledyne LeCroy recently highlighted the challenges of qualifying PCIe 6.0 transmitters at 64 GT/s. PAM4 encoding, new equalization schemes, and tighter voltage margins mean that the test setup you used for Gen5 must evolve. At Primeasure, we see the same concerns when supporting semiconductor customers across India. Below is our summary of the article <a href="https://blog.teledynelecroy.com/2023/02/making-new-pcie-60-transmitter.html" target="_blank" rel="noopener noreferrer">“Making the New PCIe 6.0 Transmitter Compliance Tests Simple”</a> with practical tips for local labs.</p>
-                </section>
+    <section>
+        <h2>Why PCIe 6.0 Demands a Fresh Look</h2>
+        <p>Teledyne LeCroy recently highlighted the challenges of qualifying PCIe 6.0 transmitters at 64 GT/s. PAM4 encoding, new equalization schemes, and tighter voltage margins mean that the test setup you used for Gen5 must evolve. At Primeasure, we see the same concerns when supporting semiconductor customers across India. Below is our summary of the article <a href="https://blog.teledynelecroy.com/2023/02/making-new-pcie-60-transmitter.html" target="_blank" rel="noopener noreferrer">“Making the New PCIe 6.0 Transmitter Compliance Tests Simple”</a> with practical tips for local labs.</p>
+    </section>
 
-                <section>
-                    <h2>Build a Calibrated Test Chain</h2>
-                    <ul class="article-checklist">
-                        <li><strong>Use compliant fixtures:</strong> Channel loss must match PCI-SIG templates. We recommend purchasing or fabricating fixtures with S-parameter reports and verifying them with a VNA before testing.</li>
-                        <li><strong>Leverage SDA/TDME automation:</strong> Teledyne LeCroy’s tools streamline pre-emphasis and equalization sweeps. Automating these steps reduces manual mistakes and keeps logs consistent.</li>
-                        <li><strong>Run frequent calibrations:</strong> Daily TDR/TDT checks ensure the oscilloscope, cables, and filters still meet amplitude and timing tolerances.</li>
-                        <li><strong>Capture reference waveforms:</strong> Save the “golden” eye diagram for each DUT and fixture so you can track drift across firmware iterations.</li>
-                    </ul>
-                </section>
+    <section>
+        <h2>Build a Calibrated Test Chain</h2>
+        <ul class="article-checklist">
+            <li><strong>Use compliant fixtures:</strong> Channel loss must match PCI-SIG templates. We recommend purchasing or fabricating fixtures with S-parameter reports and verifying them with a VNA before testing.</li>
+            <li><strong>Leverage SDA/TDME automation:</strong> Teledyne LeCroy’s tools streamline pre-emphasis and equalization sweeps. Automating these steps reduces manual mistakes and keeps logs consistent.</li>
+            <li><strong>Run frequent calibrations:</strong> Daily TDR/TDT checks ensure the oscilloscope, cables, and filters still meet amplitude and timing tolerances.</li>
+            <li><strong>Capture reference waveforms:</strong> Save the “golden” eye diagram for each DUT and fixture so you can track drift across firmware iterations.</li>
+        </ul>
+    </section>
 
-                <section>
-                    <h2>Exercise New Compliance Tests</h2>
-                    <p>The PCI-SIG added several transmitter tests for Gen6, including precursor/postcursor crosstalk, transmitter offset, and multi-lane skew. Primeasure recommends:</p>
-                    <ol>
-                        <li><strong>Automate preset sweeps.</strong> Use the TDME application to run all presets and capture pass/fail status. This is faster than manual knob turning and produces consistent reports.</li>
-                        <li><strong>Monitor BER while tuning.</strong> Combine bit-error-rate instrumentation with SDA traces to understand whether equalization changes improve both signal quality and protocol reliability.</li>
-                        <li><strong>Document margin analysis.</strong> Store SDA eye masks, jitter breakdowns, and compliance margins for each board. When a customer RMA arrives, you can compare results instantly.</li>
-                    </ol>
-                </section>
+    <section>
+        <h2>Exercise New Compliance Tests</h2>
+        <p>The PCI-SIG added several transmitter tests for Gen6, including precursor/postcursor crosstalk, transmitter offset, and multi-lane skew. Primeasure recommends:</p>
+        <ol>
+            <li><strong>Automate preset sweeps.</strong> Use the TDME application to run all presets and capture pass/fail status. This is faster than manual knob turning and produces consistent reports.</li>
+            <li><strong>Monitor BER while tuning.</strong> Combine bit-error-rate instrumentation with SDA traces to understand whether equalization changes improve both signal quality and protocol reliability.</li>
+            <li><strong>Document margin analysis.</strong> Store SDA eye masks, jitter breakdowns, and compliance margins for each board. When a customer RMA arrives, you can compare results instantly.</li>
+        </ol>
+    </section>
 
-                <section class="article-highlight">
-                    <h3>Primeasure Field Tip</h3>
-                    <p>We always include a second oscilloscope channel to monitor a reference clock or power rail. Many “transmitter” failures turn out to be clock jitter or supply droop. Catching those early saves days on the debug bench.</p>
-                </section>
+    <section class="article-highlight">
+        <h3>Primeasure Field Tip</h3>
+        <p>We always include a second oscilloscope channel to monitor a reference clock or power rail. Many “transmitter” failures turn out to be clock jitter or supply droop. Catching those early saves days on the debug bench.</p>
+    </section>
 
-                <section>
-                    <h2>Source Inspiration</h2>
-                    <p>For deeper detail, review Teledyne LeCroy’s original post, <a href="https://blog.teledynelecroy.com/2023/02/making-new-pcie-60-transmitter.html" target="_blank" rel="noopener noreferrer">“Making the New PCIe 6.0 Transmitter Compliance Tests Simple.”</a> Contact Primeasure if you need help configuring SDA/TDME solutions or acquiring calibrated fixtures in India.</p>
-                </section>
+    <section>
+        <h2>Source Inspiration</h2>
+        <p>For deeper detail, review Teledyne LeCroy’s original post, <a href="https://blog.teledynelecroy.com/2023/02/making-new-pcie-60-transmitter.html" target="_blank" rel="noopener noreferrer">“Making the New PCIe 6.0 Transmitter Compliance Tests Simple.”</a> Contact Primeasure if you need help configuring SDA/TDME solutions or acquiring calibrated fixtures in India.</p>
+    </section>
 
-                <section class="article-cta">
-                    <h2>Need Help with PCIe 6.0 Validation?</h2>
-                    <p>Primeasure supplies Teledyne LeCroy oscilloscopes, automation software, and calibration services across India. We can tailor a complete compliance setup and train your engineering team.</p>
-                    <a href="../../contact" class="cta-button">Speak with Our High-Speed Experts</a>
-                </section>
+    <section class="article-cta">
+        <h2>Need Help with PCIe 6.0 Validation?</h2>
+        <p>Primeasure supplies Teledyne LeCroy oscilloscopes, automation software, and calibration services across India. We can tailor a complete compliance setup and train your engineering team.</p>
+        <a href="../../contact" class="cta-button">Speak with Our High-Speed Experts</a>
+    </section>
 
-                <section class="related-articles">
-                    <h2>Related Articles</h2>
-                    <div class="related-grid">
-                        <article>
-                            <h3><a href="../probing-ddr-lpddr-signals">Probing DDR and LPDDR Signals with Confidence</a></h3>
-                            <p>Transfer best practices from memory validation into your PCIe workflows.</p>
-                        </article>
-                        <article>
-                            <h3><a href="../debugging-edp-power-saving">Debugging eDP Power Saving Features</a></h3>
-                            <p>See how we apply automation to embedded display validation using Introspect SV5C.</p>
-                        </article>
-                    </div>
-                </section>
-            </div>
+    <section class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <article>
+                <h3><a href="../probing-ddr-lpddr-signals">Probing DDR and LPDDR Signals with Confidence</a></h3>
+                <p>Transfer best practices from memory validation into your PCIe workflows.</p>
+            </article>
+            <article>
+                <h3><a href="../debugging-edp-power-saving">Debugging eDP Power Saving Features</a></h3>
+                <p>See how we apply automation to embedded display validation using Introspect SV5C.</p>
+            </article>
+        </div>
+    </section>
+</div>
         </article>
     </main>
 

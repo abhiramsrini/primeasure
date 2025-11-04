@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Primeasure insights on test & measurement, broadcast, memory, power, and software solutions. Read engineering guides, ROI frameworks, and technology deep dives.">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFKRS4SNFV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SFKRS4SNFV', {
+        page_title: 'Blog - Primeasure Insights',
+        page_location: window.location.href,
+        send_page_view: true
+      });
+    </script>
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Primeasure Insights Blog">
+    <meta property="og:description" content="Engineering articles covering test & measurement, broadcast and software-driven test automation.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../images/blog/cloud-production-sports-broadcasting/hero.png">
+    <meta property="og:site_name" content="Primeasure">
+    <meta property="og:locale" content="en_IN">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Primeasure Insights Blog">
+    <meta name="twitter:description" content="Engineering articles covering test & measurement, broadcast and software-driven test automation.">
+    <meta name="twitter:image" content="../images/blog/cloud-production-sports-broadcasting/hero.png">
+    
+    <link rel="canonical" href="https://primeasure.com/blog">
+    <title>Primeasure Insights Blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
+            <a href="../" class="logo">
+                <img src="../images/logo.png" alt="Primeasure Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../">Home</a></li>
+                <li><a href="../about">About</a></li>
+                <li><a href="../events">Events</a></li>
+                <li><a href="../blog" class="active">Blog</a></li>
+                <li class="has-dropdown">
+                    <a href="#solutions">Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../solutions/test-measurement">Test &amp; Measurement</a></li>
+                        <li><a href="../solutions/broadcast">Broadcast</a></li>
+                        <li><a href="../solutions/software">Software</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="../contact" class="schedule-demo">
+                <i class="fas fa-user"></i>
+                <span>Contact Us</span>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-banner blog-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Primeasure Insights</h1>
+                    <p>Engineering knowledge from Primeasure experts covering test &amp; measurement, broadcast and software automation.</p>
+                    <div class="hero-buttons">
+                        <a href="#blog-topics" class="cta-button">Browse Articles</a>
+                        <a href="../contact" class="cta-button outline">Talk to an Expert</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-topics" id="blog-topics">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Explore by Topic</h2>
+                    <p>Filter by the engineering discipline you care about.</p>
+                </div>
+                <div class="topic-filter-group">
+                    <button type="button" class="topic-filter-toggle" id="topic-filter-toggle" aria-expanded="false" aria-controls="topic-dropdown">
+                        <i class="fas fa-filter"></i>
+                        <span>Filter Topics</span>
+                        <i class="fas fa-chevron-down toggle-icon" aria-hidden="true"></i>
+                    </button>
+                    <div class="topic-dropdown" id="topic-dropdown" hidden>
+                        <div class="topic-checkbox-list" id="topic-checkbox-list">
+                            <!-- Topic checkboxes injected -->
+                        </div>
+                        <div class="topic-dropdown__actions">
+                            <button type="button" class="clear-topic-filters" id="clear-topic-filters">
+                                Clear All
+                            </button>
+                        </div>
+                    </div>
+                    <div class="active-topic-summary" id="active-topic-filters" aria-live="polite">
+                        <span class="active-topic-chip active-topic-chip--neutral">
+                            Showing all topics
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-listing">
+            <div class="container">
+                <div class="blog-grid" id="blog-posts-container">
+                    {{BLOG_CARDS}}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: sales@primeasure.com</p>
+                    <p>Phone: +91-9884900031</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../about">About Us</a></li>
+                        <li><a href="../events">Events</a></li>
+                        <li><a href="../blog">Blog</a></li>
+                        <li><a href="../contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/primeasure-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61572242886713" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                </div>
+                <p>&copy; 2025 Primeasure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="application/json" id="blog-data">
+{{BLOG_JSON}}
+    </script>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/BlogManager.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const postsContainer = document.getElementById('blog-posts-container');
+            try {
+                await window.blogManager.loadPosts();
+                const initialized = window.blogManager.initializeTopicControls({
+                    toggleId: 'topic-filter-toggle',
+                    dropdownId: 'topic-dropdown',
+                    listId: 'topic-checkbox-list',
+                    activeFiltersId: 'active-topic-filters',
+                    clearButtonId: 'clear-topic-filters'
+                });
+                if (!initialized) {
+                    window.blogManager.applyTopicFilter();
+                }
+            } catch (error) {
+                console.error('Failed to render blog posts:', error);
+                postsContainer.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Unable to load articles at the moment. Please refresh or try again later.</p>
+                    </div>
+                `;
+            }
+        });
+    </script>
+    <script src="../js/analytics.js"></script>
+</body>
+</html>

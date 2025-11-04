@@ -1,0 +1,60 @@
+<div class="container article-content">
+                <section>
+                    <h2>From CAN to High-Speed Ethernet</h2>
+                    <p>Teledyne LeCroy’s post <a href="https://blog.teledynelecroy.com/2023/02/the-evolution-of-in-vehicle-network.html" target="_blank" rel="noopener noreferrer">“The Evolution of In-Vehicle Network Protocols”</a> traces how automotive networks moved from CAN/LIN to Automotive Ethernet. Primeasure works with OEMs and Tier-1s across India who face the same transition, especially as ADAS and infotainment bandwidth explode. Here’s what stood out to us.</p>
+                </section>
+
+                <section>
+                    <h2>Legacy Buses Still Matter</h2>
+                    <ul class="article-checklist">
+                        <li><strong>CAN &amp; LIN remain the backbone:</strong> Body control, powertrain, and HVAC still depend on these robust protocols. We encourage customers to maintain CAN monitoring even while rolling out Ethernet backbones.</li>
+                        <li><strong>Gateway complexity grows:</strong> With more domains, gateway ECUs must translate signals between CAN, LIN, FlexRay, and Ethernet. Logging tools need synchronized time-stamps to make sense of the traffic.</li>
+                        <li><strong>Diagnostic coverage is critical:</strong> Use protocol analyzers to make sure software updates don’t break legacy behaviors while enabling new features.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Automotive Ethernet and Zonal Architectures</h2>
+                    <p>According to Teledyne LeCroy, Automotive Ethernet is the only path to support high-resolution cameras, RADAR, and consolidated compute domains. Primeasure agrees—and adds a few recommendations:</p>
+                    <ol>
+                        <li><strong>Validate PHY and protocol layers together.</strong> Combine oscilloscopes with LeCroy’s protocol tools to capture both eye diagrams and packet behavior during stress testing.</li>
+                        <li><strong>Plan for zonal architectures.</strong> Future vehicles will rely on zonal controllers linked via Ethernet, reducing wiring weight but increasing the need for robust timing analysis.</li>
+                        <li><strong>Adopt secure OTA workflows.</strong> Networking and cybersecurity are intertwined; verify that Ethernet gateways enforce authentication and encryption even during development.</li>
+                    </ol>
+                </section>
+
+                <section class="article-highlight">
+                    <h3>Primeasure Automotive Checklist</h3>
+                    <p>When we deploy Teledyne LeCroy tools in India, we focus on:</p>
+                    <ul class="article-checklist">
+                        <li>Time-synchronized captures across CAN, LIN, and Ethernet for cross-domain debug.</li>
+                        <li>Automated compliance tests for 100BASE-T1/1000BASE-T1 PHYs.</li>
+                        <li>Pre-configured triggers for ADAS sensor bursts and autonomous driving scenarios.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Source Inspiration</h2>
+                    <p>Read Teledyne LeCroy’s original article, <a href="https://blog.teledynelecroy.com/2023/02/the-evolution-of-in-vehicle-network.html" target="_blank" rel="noopener noreferrer">“The Evolution of In-Vehicle Network Protocols,”</a> for additional historical context and future predictions. Primeasure can help you evaluate the right mix of analyzers, oscilloscopes, and logging software for your platform.</p>
+                </section>
+
+                <section class="article-cta">
+                    <h2>Modernize Your Automotive Network Lab</h2>
+                    <p>Ready to instrument CAN, LIN, FlexRay, and Automotive Ethernet with one partner? Primeasure delivers Teledyne LeCroy solutions, training, and integration services tailored to Indian OEMs and Tier-1 suppliers.</p>
+                    <a href="../../contact" class="cta-button">Connect with Our Automotive Team</a>
+                </section>
+
+                <section class="related-articles">
+                    <h2>Related Articles</h2>
+                    <div class="related-grid">
+                        <article>
+                            <h3><a href="../debugging-edp-power-saving">Debugging eDP Power Saving Features</a></h3>
+                            <p>Learn how we automate display validation—another key system inside connected vehicles.</p>
+                        </article>
+                        <article>
+                            <h3><a href="../pcie-6-transmitter-testing">PCIe 6.0 Transmitter Testing Essentials</a></h3>
+                            <p>See how high-speed compute buses are evolving in parallel with automotive backbones.</p>
+                        </article>
+                    </div>
+                </section>
+            </div>

@@ -1,0 +1,68 @@
+<div class="container article-content">
+    <section>
+        <h2>Why eDP Power Saving Features Matter</h2>
+        <p>Embedded DisplayPort panels rely on advanced power modes—Panel Self Refresh (PSR), Autonomous Low Power Mode (ALPM), and sleep states—to squeeze every milliamp out of notebooks, tablets, and automotive displays. Introspect Technology’s engineering team recently shared their approach to validating these features with the <a href="https://introspect.ca/product/sv5c-series/" target="_blank" rel="noopener noreferrer">SV5C eDP Compliance and Debug Platform</a>. Their guidance maps perfectly to the projects Primeasure supports across India, so we distilled the highlights and added a few lessons from the field.</p>
+    </section>
+
+    <section>
+        <h2>Set Up the Right Instrument Stack</h2>
+        <p>Like in their RSH2 smartphone example, Introspect shows how remote heads keep the active circuitry at the DUT and send conditioned signals back to the oscilloscope. On memory buses this delivers two big wins:</p>
+        <ul class="article-checklist">
+            <li><strong>Lower loading:</strong> Active probes present high impedance, letting you observe command/address swings as JEDEC intended.</li>
+            <li><strong>Cleaner fixtures:</strong> The remote head clamps near the package, so you only route short SMPM or coax jumpers to the scope.</li>
+        </ul>
+        <p>Primeasure often pairs Introspect heads with Teledyne LeCroy oscilloscopes and protocol analyzers so engineers can correlate signal integrity and JEDEC compliance captures in the same run.</p>
+    </section>
+
+    <section>
+        <h2>Workflow for Debugging ALPM and PSR</h2>
+        <p>Building on Introspect’s article, we recommend this repeatable sequence for every new panel or driver release:</p>
+        <ol>
+            <li><strong>Baseline active mode.</strong> Capture a known-good frame stream and record rail currents for comparison.</li>
+            <li><strong>Trigger the power state.</strong> Use SV5C to request ALPM or PSR; monitor AUX channel transactions to confirm the handshake.</li>
+            <li><strong>Validate wake-up timing.</strong> Exercise bursts of user input or video refresh to ensure the sink exits the power state inside spec.</li>
+            <li><strong>Stress with corner patterns.</strong> Combine reduced refresh rates, panel self refresh updates, and link training retries to expose firmware bugs.</li>
+            <li><strong>Correlate measurements.</strong> Overlay oscilloscope captures with SV5C logs so designers can tie power savings to specific AUX messages or panel frames.</li>
+        </ol>
+    </section>
+
+    <section class="article-highlight">
+        <h3>Primeasure Checklist</h3>
+        <p>Every debug session we run includes these quick checks:</p>
+        <ul class="article-checklist">
+            <li>Validate AUX channel decoding before entering low-power modes.</li>
+            <li>Log rail currents at the source and sink to catch mismatched expectations.</li>
+            <li>Capture screen anomalies using SV5C’s pattern generator so firmware teams have concrete evidence.</li>
+            <li>Version-control every SV5C script and oscilloscope setup to keep regressions repeatable.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Source Inspiration</h2>
+        <p>This summary is based on Introspect Technology’s post, <a href="https://introspect.ca/blog/how-we-debug-edps-power-saving-features/" target="_blank" rel="noopener noreferrer">“How We Debug eDP’s Power Saving Features.”</a> Review their original article for screenshots, waveforms, and deeper dives on SV5C capabilities.</p>
+    </section>
+
+    <section class="article-cta">
+        <h2>Need Help Validating eDP Power Modes?</h2>
+        <p>Primeasure supports embedded display teams across India with Introspect SV5C deployments, scripting, and onsite training. We can help you characterise PSR, ALPM, and sleep states before your next product milestone.</p>
+        <a href="../../contact" class="cta-button">Talk to Our Display Experts</a>
+    </section>
+
+    <section class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <article>
+                <h3><a href="../rsh2-oscilloscope-compatibility">Connecting Introspect’s RSH2 Remote Sampling Head to Any Oscilloscope</a></h3>
+                <p>See how remote sampling heads keep high-speed probing clean and reliable.</p>
+            </article>
+            <article>
+                <h3><a href="../probing-ddr-lpddr-signals">Probing DDR and LPDDR Signals with Confidence</a></h3>
+                <p>Capture additional tips from Introspect on fixtures, automation, and analysis.</p>
+            </article>
+            <article>
+                <h3><a href="../pcie-6-transmitter-testing">PCIe 6.0 Transmitter Testing Essentials</a></h3>
+                <p>Translate high-speed validation workflows to other demanding serial buses.</p>
+            </article>
+        </div>
+    </section>
+</div>

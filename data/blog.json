@@ -62,7 +62,7 @@
       "slug": "debugging-edp-power-saving",
       "title": "Debugging eDP Power Saving Features with Introspect SV5C",
       "excerpt": "How we adapt Introspect Technology\u2019s eDP power-management workflow to validate Panel Self Refresh, ALPM, and sleep states on modern displays.",
-      "publishDate": "2025-03-20",
+      "publishDate": "2025-07-04",
       "readingTime": 4,
       "topics": [
         "test-measurement"

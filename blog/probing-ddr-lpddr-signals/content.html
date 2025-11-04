@@ -1,0 +1,75 @@
+<div class="container article-content">
+                <section>
+                    <h2>Why This Matters for DDR Labs</h2>
+                    <p>Introspect Technology recently outlined the core steps they follow to probe DDR and LPDDR signals reliably—especially with LPDDR6 on the horizon. Their article reinforces what we see across Indian memory validation programs: clean probing dictates whether you meet timing margins and qualify modules on schedule. Below is our condensed take on their guidance, plus a few lessons from working alongside Teledyne LeCroy and Introspect deployments in production labs.</p>
+                </section>
+
+                <section>
+                    <h2>Plan the Interface Before Soldering</h2>
+                    <ul class="article-checklist">
+                        <li><strong>Pick accessible lanes:</strong> Identify the byte lanes and command/address nets you must monitor. Introspect stresses adding breakout pads during PCB design so you can solder high-bandwidth tips without cutting traces later.</li>
+                        <li><strong>Budget for length matching:</strong> Keep probe lead length to a minimum and match coax runs to avoid skew. For LPDDR6 rates, every millimetre of mismatch adds jitter that eats into noise margins.</li>
+                        <li><strong>Document your reference points:</strong> Track which pads correspond to DQ, DQS, CA, and CK so future technicians can rebuild the setup without trial and error.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Use Remote Sampling Heads Wisely</h2>
+                    <p>Like in their RSH2 smartphone example, Introspect shows how remote heads keep the active circuitry at the DUT and send conditioned signals back to the oscilloscope. On memory buses this delivers two big wins:</p>
+                    <ul class="article-checklist">
+                        <li><strong>Lower loading:</strong> Active probes present high impedance, letting you observe command/address swings as JEDEC intended.</li>
+                        <li><strong>Cleaner fixtures:</strong> The remote head clamps near the package, so you only route short SMPM or coax jumpers to the scope.</li>
+                    </ul>
+                    <p>Primeasure often pairs Introspect heads with Teledyne LeCroy oscilloscopes and protocol analyzers so engineers can correlate signal integrity and JEDEC compliance captures in the same run.</p>
+                </section>
+
+                <section>
+                    <h2>Oscilloscope Setup Checklist</h2>
+                    <ol>
+                        <li><strong>Deskew DQ and DQS:</strong> Always run the oscilloscope’s deskew routine after repositioning the probes. This ensures precise timing for eye diagrams and jitter analysis.</li>
+                        <li><strong>Trigger on training patterns:</strong> Capture read/write levelling or training bursts to validate initialization before hitting full-speed traffic.</li>
+                        <li><strong>Log reference captures:</strong> Save golden waveform overlays for each board revision. Introspect recommends these for spotting drifts caused by rework or new memory vendors.</li>
+                        <li><strong>Automate reporting:</strong> Generate template-driven PDFs/CSV outputs so memory teams and OEM customers share a common view of pass/fail results.</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h2>Troubleshooting Tips from the Field</h2>
+                    <p>Introspect highlights that probing issues often masquerade as timing violations. When we see unexpected eye closure, we run through this triage list:</p>
+                    <ul class="article-checklist">
+                        <li>Inspect solder joints for lifted pads or excess solder that adds inductance.</li>
+                        <li>Validate ground returns—LPDDR routing is dense, so neglected grounds introduce crosstalk quickly.</li>
+                        <li>Swap probe heads across channels to rule out damaged tips or cables.</li>
+                        <li>Capture power rail noise; many “mystery” DDR problems track back to PDN dips during bursts.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Source Inspiration</h2>
+                    <p>This summary draws on Introspect Technology’s post, <a href="https://introspect.ca/blog/probing-ddr-and-lpddr-signals/" target="_blank" rel="noopener noreferrer">“Probing DDR and LPDDR Signals”</a>. Review their original article for imagery, fixture photos, and the latest LPDDR6 roadmap insights.</p>
+                </section>
+
+                <section class="article-cta">
+                    <h2>Need Help Instrumenting DDR or LPDDR Labs?</h2>
+                    <p>Primeasure supplies Introspect probing solutions and Teledyne LeCroy oscilloscopes across India. We can help design fixtures, automate compliance runs, and train teams on next-gen JEDEC standards.</p>
+                    <a href="../../contact" class="cta-button">Connect with Our Memory Experts</a>
+                </section>
+
+                <section class="related-articles">
+                    <h2>Related Articles</h2>
+                    <div class="related-grid">
+                        <article>
+                            <h3><a href="../rsh2-oscilloscope-compatibility">Connecting Introspect’s RSH2 Remote Sampling Head to Any Oscilloscope</a></h3>
+                            <p>Keep probing clean while you capture next-generation LPDDR buses.</p>
+                        </article>
+                        <article>
+                            <h3><a href="../pcie-6-transmitter-testing">PCIe 6.0 Transmitter Testing Essentials</a></h3>
+                            <p>Apply similar high-speed measurement principles to PCIe compliance.</p>
+                        </article>
+                        <article>
+                            <h3><a href="../debugging-edp-power-saving">Debugging eDP Power Saving Features</a></h3>
+                            <p>See how automation and remote probes support other high-speed interfaces.</p>
+                        </article>
+                    </div>
+                </section>
+            </div>

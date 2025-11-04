@@ -12,6 +12,14 @@ class BlogManager {
             return this.posts;
         }
 
+        const inlinePosts = this.loadInlinePosts();
+        if (inlinePosts) {
+            this.posts = this.sortPostsByDate(inlinePosts);
+            this.buildTopicsIndex();
+            this.loaded = true;
+            return this.posts;
+        }
+
         try {
             const response = await fetch('../data/blog.json');
 
@@ -31,6 +39,41 @@ class BlogManager {
             this.loaded = true;
             return this.posts;
         }
+    }
+
+    loadInlinePosts() {
+        if (typeof window !== 'undefined') {
+            const globalPosts = window.__BLOG_POSTS__;
+            if (Array.isArray(globalPosts)) {
+                return globalPosts;
+            }
+            if (globalPosts && Array.isArray(globalPosts.posts)) {
+                return globalPosts.posts;
+            }
+        }
+
+        if (typeof document === 'undefined') {
+            return null;
+        }
+
+        const inlineScript = document.getElementById('blog-data');
+        if (!inlineScript) {
+            return null;
+        }
+
+        try {
+            const parsed = JSON.parse(inlineScript.textContent);
+            if (Array.isArray(parsed)) {
+                return parsed;
+            }
+            if (parsed && Array.isArray(parsed.posts)) {
+                return parsed.posts;
+            }
+        } catch (error) {
+            console.warn('BlogManager: failed to parse inline blog data', error);
+        }
+
+        return null;
     }
 
     sortPostsByDate(posts) {

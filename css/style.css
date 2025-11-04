@@ -3175,6 +3175,31 @@ h2::after {
     line-height: 1.4;
 }
 
+.event-main__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+
+.event-status-tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    padding: 0.2rem 0.85rem;
+    border: 1px solid var(--border-color);
+    color: var(--dark-gray);
+    background: var(--light-gray);
+}
+
+.event-status-tag--completed {
+    color: #6f3c00;
+    background: #fff4e6;
+    border-color: #ffd9b5;
+}
+
 .event-main .event-location {
     display: flex;
     align-items: center;
@@ -3286,6 +3311,16 @@ h2::after {
     background: var(--primary-blue);
 }
 
+.event-actions .recap-button {
+    background: var(--secondary-blue, #2c3e8c);
+}
+
+.event-status-note {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
 .event-actions .register-button:hover {
     background: #ff4d4f;
     transform: translateY(-2px);
@@ -3294,6 +3329,16 @@ h2::after {
 .event-actions .info-button:hover {
     background: #1a1a5c;
     transform: translateY(-2px);
+}
+
+.events-empty-state {
+    border: 1px dashed var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    color: var(--dark-gray);
+    background: var(--light-gray);
+    font-weight: 500;
 }
 
 /* Remove hover overlay styles since buttons are now always visible */

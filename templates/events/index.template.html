@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{META_DESCRIPTION}}">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFKRS4SNFV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'G-SFKRS4SNFV', {
+        page_title: 'Events - Primeasure Technology',
+        page_location: window.location.href,
+        send_page_view: true
+      });
+    </script>
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="{{OG_TITLE}}">
+    <meta property="og:description" content="{{META_DESCRIPTION}}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{OG_IMAGE}}">
+    <meta property="og:site_name" content="Primeasure">
+    <meta property="og:locale" content="en_IN">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{OG_TITLE}}">
+    <meta name="twitter:description" content="{{META_DESCRIPTION}}">
+    <meta name="twitter:image" content="{{OG_IMAGE}}">
+    
+    <title>{{PAGE_TITLE}}</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
+            <a href="../" class="logo">
+                <img src="../images/logo.png" alt="Primeasure Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../">Home</a></li>
+                <li><a href="../about">About</a></li>
+                <li><a href="../events" class="active">Events</a></li>
+                <li><a href="../blog">Blog</a></li>
+                <li class="has-dropdown">
+                    <a href="#solutions">Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../solutions/test-measurement">Test & Measurement</a></li>
+                        <li><a href="../solutions/broadcast">Broadcast</a></li>
+                        <li><a href="../solutions/software">Software</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="../contact" class="schedule-demo">
+                <i class="fas fa-user"></i>
+                <span>Contact Us</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-banner">
+        <div class="hero-content">
+            <h1>Events</h1>
+            <p>Join us at industry-leading events and discover the latest in broadcast and test measurement solutions.</p>
+        </div>
+    </div>
+
+    <!-- Events Grid -->
+    <section class="events-section">
+        <div class="container">
+            <h2>Upcoming Events</h2>
+            <div class="events-grid" id="events-upcoming">
+{{UPCOMING_CARDS}}
+            </div>
+        </div>
+    </section>
+
+{{COMPLETED_SECTION}}
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: sales@primeasure.com</p>
+                    <p>Phone: +91-9884900031</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../about">About Us</a></li>
+                        <li><a href="../events">Events</a></li>
+                        <li><a href="../blog">Blog</a></li>
+                        <li><a href="../contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/primeasure-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61572242886713" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                </div>
+                <p>&copy; 2025 Primeasure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="application/json" id="events-data">
+{{EVENTS_JSON}}
+    </script>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/EventManager.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const upcomingContainer = document.getElementById('events-upcoming');
+            const completedContainer = document.getElementById('events-completed');
+            
+            try {
+                await window.eventManager.loadEvents();
+                window.eventManager.renderSections({
+                    upcomingContainer,
+                    completedContainer
+                });
+            } catch (error) {
+                console.error('Failed to load events:', error);
+                const fallback = `
+                    <div class="error-message" style="text-align: center; padding: 2rem; color: #666;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Failed to load events. Please refresh the page or try again later.</p>
+                    </div>
+                `;
+                if (upcomingContainer) upcomingContainer.innerHTML = fallback;
+                if (completedContainer) completedContainer.innerHTML = fallback;
+            }
+        });
+    </script>
+    <script src="../js/analytics.js"></script>
+</body>
+</html>

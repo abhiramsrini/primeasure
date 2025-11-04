@@ -11,7 +11,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      
       gtag('config', 'G-SFKRS4SNFV', {
         page_title: 'Blog - Primeasure Insights',
         page_location: window.location.href,
@@ -56,7 +55,7 @@
                 <li class="has-dropdown">
                     <a href="#solutions">Solutions</a>
                     <ul class="dropdown-menu">
-                        <li><a href="../solutions/test-measurement">Test & Measurement</a></li>
+                        <li><a href="../solutions/test-measurement">Test &amp; Measurement</a></li>
                         <li><a href="../solutions/broadcast">Broadcast</a></li>
                         <li><a href="../solutions/software">Software</a></li>
                     </ul>
@@ -74,7 +73,7 @@
             <div class="container">
                 <div class="hero-content">
                     <h1>Primeasure Insights</h1>
-                    <p>Engineering knowledge from Primeasure experts covering test & measurement, broadcast and software automation.</p>
+                    <p>Engineering knowledge from Primeasure experts covering test &amp; measurement, broadcast and software automation.</p>
                     <div class="hero-buttons">
                         <a href="#blog-topics" class="cta-button">Browse Articles</a>
                         <a href="../contact" class="cta-button outline">Talk to an Expert</a>
@@ -106,7 +105,9 @@
                         </div>
                     </div>
                     <div class="active-topic-summary" id="active-topic-filters" aria-live="polite">
-                        <!-- Active filters appear here -->
+                        <span class="active-topic-chip active-topic-chip--neutral">
+                            Showing all topics
+                        </span>
                     </div>
                 </div>
             </div>
@@ -115,10 +116,139 @@
         <section class="blog-listing">
             <div class="container">
                 <div class="blog-grid" id="blog-posts-container">
-                    <div class="loading-message">
-                        <i class="fas fa-spinner fa-spin"></i>
-                        <p>Loading articles...</p>
-                    </div>
+                    
+        <article class="blog-card">
+            <a href="debugging-edp-power-saving" class="blog-card__image-link">
+                <img src="../images/blog/debugging-edp-power-saving/hero.png" alt="Engineer analyzing embedded DisplayPort power management signals">
+            </a>
+            <div class="blog-card__content">
+                <div class="blog-card__meta">
+                    <span class="blog-card__date">4 July 2025</span>
+                    <span class="blog-card__reading-time">4 min read</span>
+                </div>
+                <h3 class="blog-card__title"><a href="debugging-edp-power-saving">Debugging eDP Power Saving Features with Introspect SV5C</a></h3>
+                <p class="blog-card__excerpt">How we adapt Introspect Technology’s eDP power-management workflow to validate Panel Self Refresh, ALPM, and sleep states on modern displays.</p>
+                <div class="blog-card__topics">
+                    <span class="topic-chip" data-topic="test-measurement">Test &amp; Measurement</span>
+                </div>
+                <a href="debugging-edp-power-saving" class="blog-card__cta">Read Article <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </article>
+    
+
+        <article class="blog-card">
+            <a href="cloud-production-sports-broadcasting" class="blog-card__image-link">
+                <img src="../images/blog/cloud-production-sports-broadcasting/hero.png" alt="Sports production team monitoring cloud-based broadcast feeds">
+            </a>
+            <div class="blog-card__content">
+                <div class="blog-card__meta">
+                    <span class="blog-card__date">23 March 2025</span>
+                    <span class="blog-card__reading-time">2 min read</span>
+                </div>
+                <h3 class="blog-card__title"><a href="cloud-production-sports-broadcasting">Is Cloud Production the Sports Broadcasting Game Changer?</a></h3>
+                <p class="blog-card__excerpt">Primeasure’s take on Grass Valley’s perspective for moving live sports production to cloud workflows, including the benefits and readiness checklist.</p>
+                <div class="blog-card__topics">
+                    <span class="topic-chip" data-topic="broadcast">Broadcast</span>
+                </div>
+                <a href="cloud-production-sports-broadcasting" class="blog-card__cta">Read Article <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </article>
+    
+
+        <article class="blog-card">
+            <a href="ampp-platform-updates" class="blog-card__image-link">
+                <img src="../images/blog/ampp-platform-updates/hero.png" alt="Control room operators managing cloud production dashboards">
+            </a>
+            <div class="blog-card__content">
+                <div class="blog-card__meta">
+                    <span class="blog-card__date">23 March 2025</span>
+                    <span class="blog-card__reading-time">3 min read</span>
+                </div>
+                <h3 class="blog-card__title"><a href="ampp-platform-updates">What’s New in Grass Valley AMPP</a></h3>
+                <p class="blog-card__excerpt">Primeasure recaps the latest AMPP platform enhancements from Grass Valley and what they mean for cloud-first broadcast teams.</p>
+                <div class="blog-card__topics">
+                    <span class="topic-chip" data-topic="broadcast">Broadcast</span>
+                </div>
+                <a href="ampp-platform-updates" class="blog-card__cta">Read Article <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </article>
+    
+
+        <article class="blog-card">
+            <a href="evolution-in-vehicle-network" class="blog-card__image-link">
+                <img src="../images/blog/evolution-in-vehicle-network/hero.png" alt="Engineer monitoring automotive network analysis tools">
+            </a>
+            <div class="blog-card__content">
+                <div class="blog-card__meta">
+                    <span class="blog-card__date">22 March 2025</span>
+                    <span class="blog-card__reading-time">3 min read</span>
+                </div>
+                <h3 class="blog-card__title"><a href="evolution-in-vehicle-network">The Evolution of In-Vehicle Networking</a></h3>
+                <p class="blog-card__excerpt">A Primeasure summary of Teledyne LeCroy’s perspective on the past, present, and future of automotive networking standards.</p>
+                <div class="blog-card__topics">
+                    <span class="topic-chip" data-topic="automotive">Automotive</span><span class="topic-chip" data-topic="test-measurement">Test &amp; Measurement</span>
+                </div>
+                <a href="evolution-in-vehicle-network" class="blog-card__cta">Read Article <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </article>
+    
+
+        <article class="blog-card">
+            <a href="pcie-6-transmitter-testing" class="blog-card__image-link">
+                <img src="../images/blog/pcie-6-transmitter-testing/hero.png" alt="Oscilloscope verifying PCIe transmitter eye diagram">
+            </a>
+            <div class="blog-card__content">
+                <div class="blog-card__meta">
+                    <span class="blog-card__date">21 March 2025</span>
+                    <span class="blog-card__reading-time">3 min read</span>
+                </div>
+                <h3 class="blog-card__title"><a href="pcie-6-transmitter-testing">PCIe 6.0 Transmitter Testing Essentials</a></h3>
+                <p class="blog-card__excerpt">Key takeaways from Teledyne LeCroy on preparing fixtures, calibrations, and measurements for next-generation PCIe 6.0 transmitters.</p>
+                <div class="blog-card__topics">
+                    <span class="topic-chip" data-topic="test-measurement">Test &amp; Measurement</span>
+                </div>
+                <a href="pcie-6-transmitter-testing" class="blog-card__cta">Read Article <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </article>
+    
+
+        <article class="blog-card">
+            <a href="probing-ddr-lpddr-signals" class="blog-card__image-link">
+                <img src="../images/blog/probing-ddr-lpddr-signals/hero.png" alt="Oscilloscope probing DDR memory interfaces">
+            </a>
+            <div class="blog-card__content">
+                <div class="blog-card__meta">
+                    <span class="blog-card__date">20 March 2025</span>
+                    <span class="blog-card__reading-time">4 min read</span>
+                </div>
+                <h3 class="blog-card__title"><a href="probing-ddr-lpddr-signals">Probing DDR and LPDDR Signals with Confidence</a></h3>
+                <p class="blog-card__excerpt">Key lessons from Introspect Technology on preparing probing plans, fixtures, and measurement strategies for next-generation DDR and LPDDR devices.</p>
+                <div class="blog-card__topics">
+                    <span class="topic-chip" data-topic="memory">Memory</span><span class="topic-chip" data-topic="test-measurement">Test &amp; Measurement</span>
+                </div>
+                <a href="probing-ddr-lpddr-signals" class="blog-card__cta">Read Article <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </article>
+    
+
+        <article class="blog-card">
+            <a href="rsh2-oscilloscope-compatibility" class="blog-card__image-link">
+                <img src="../images/blog/rsh2-oscilloscope-compatibility/hero.png" alt="Engineer preparing oscilloscopes and probes in a lab">
+            </a>
+            <div class="blog-card__content">
+                <div class="blog-card__meta">
+                    <span class="blog-card__date">18 March 2025</span>
+                    <span class="blog-card__reading-time">2 min read</span>
+                </div>
+                <h3 class="blog-card__title"><a href="rsh2-oscilloscope-compatibility">Connecting Introspect’s RSH2 Remote Sampling Head to Any Oscilloscope</a></h3>
+                <p class="blog-card__excerpt">A practical walkthrough inspired by Introspect Technology on pairing the RSH2 remote sampling head with 50 Ω lab instruments for clean smartphone camera probing.</p>
+                <div class="blog-card__topics">
+                    <span class="topic-chip" data-topic="test-measurement">Test &amp; Measurement</span>
+                </div>
+                <a href="rsh2-oscilloscope-compatibility" class="blog-card__cta">Read Article <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </article>
+    
                 </div>
             </div>
         </section>
@@ -155,6 +285,113 @@
             </div>
         </div>
     </footer>
+
+    <script type="application/json" id="blog-data">
+    {
+      "posts": [
+        {
+          "id": "debugging-edp-power-saving-2025-03",
+          "slug": "debugging-edp-power-saving",
+          "title": "Debugging eDP Power Saving Features with Introspect SV5C",
+          "excerpt": "How we adapt Introspect Technology’s eDP power-management workflow to validate Panel Self Refresh, ALPM, and sleep states on modern displays.",
+          "publishDate": "2025-07-04",
+          "readingTime": 4,
+          "topics": [
+            "test-measurement"
+          ],
+          "heroImage": "../images/blog/debugging-edp-power-saving/hero.png",
+          "heroAlt": "Engineer analyzing embedded DisplayPort power management signals",
+          "author": "Primeasure Interpretation"
+        },
+        {
+          "id": "cloud-production-sports-broadcasting-2025-03",
+          "slug": "cloud-production-sports-broadcasting",
+          "title": "Is Cloud Production the Sports Broadcasting Game Changer?",
+          "excerpt": "Primeasure’s take on Grass Valley’s perspective for moving live sports production to cloud workflows, including the benefits and readiness checklist.",
+          "publishDate": "2025-03-23",
+          "readingTime": 2,
+          "topics": [
+            "broadcast"
+          ],
+          "heroImage": "../images/blog/cloud-production-sports-broadcasting/hero.png",
+          "heroAlt": "Sports production team monitoring cloud-based broadcast feeds",
+          "author": "Primeasure Interpretation"
+        },
+        {
+          "id": "ampp-platform-updates-2025-03",
+          "slug": "ampp-platform-updates",
+          "title": "What’s New in Grass Valley AMPP",
+          "excerpt": "Primeasure recaps the latest AMPP platform enhancements from Grass Valley and what they mean for cloud-first broadcast teams.",
+          "publishDate": "2025-03-23",
+          "readingTime": 3,
+          "topics": [
+            "broadcast"
+          ],
+          "heroImage": "../images/blog/ampp-platform-updates/hero.png",
+          "heroAlt": "Control room operators managing cloud production dashboards",
+          "author": "Primeasure Interpretation"
+        },
+        {
+          "id": "evolution-in-vehicle-network-2025-03",
+          "slug": "evolution-in-vehicle-network",
+          "title": "The Evolution of In-Vehicle Networking",
+          "excerpt": "A Primeasure summary of Teledyne LeCroy’s perspective on the past, present, and future of automotive networking standards.",
+          "publishDate": "2025-03-22",
+          "readingTime": 3,
+          "topics": [
+            "automotive",
+            "test-measurement"
+          ],
+          "heroImage": "../images/blog/evolution-in-vehicle-network/hero.png",
+          "heroAlt": "Engineer monitoring automotive network analysis tools",
+          "author": "Primeasure Interpretation"
+        },
+        {
+          "id": "pcie-6-transmitter-testing-2025-03",
+          "slug": "pcie-6-transmitter-testing",
+          "title": "PCIe 6.0 Transmitter Testing Essentials",
+          "excerpt": "Key takeaways from Teledyne LeCroy on preparing fixtures, calibrations, and measurements for next-generation PCIe 6.0 transmitters.",
+          "publishDate": "2025-03-21",
+          "readingTime": 3,
+          "topics": [
+            "test-measurement"
+          ],
+          "heroImage": "../images/blog/pcie-6-transmitter-testing/hero.png",
+          "heroAlt": "Oscilloscope verifying PCIe transmitter eye diagram",
+          "author": "Primeasure Interpretation"
+        },
+        {
+          "id": "probing-ddr-lpddr-signals-2025-03",
+          "slug": "probing-ddr-lpddr-signals",
+          "title": "Probing DDR and LPDDR Signals with Confidence",
+          "excerpt": "Key lessons from Introspect Technology on preparing probing plans, fixtures, and measurement strategies for next-generation DDR and LPDDR devices.",
+          "publishDate": "2025-03-20",
+          "readingTime": 4,
+          "topics": [
+            "memory",
+            "test-measurement"
+          ],
+          "heroImage": "../images/blog/probing-ddr-lpddr-signals/hero.png",
+          "heroAlt": "Oscilloscope probing DDR memory interfaces",
+          "author": "Primeasure Interpretation"
+        },
+        {
+          "id": "rsh2-oscilloscope-compatibility-2025-03",
+          "slug": "rsh2-oscilloscope-compatibility",
+          "title": "Connecting Introspect’s RSH2 Remote Sampling Head to Any Oscilloscope",
+          "excerpt": "A practical walkthrough inspired by Introspect Technology on pairing the RSH2 remote sampling head with 50 Ω lab instruments for clean smartphone camera probing.",
+          "publishDate": "2025-03-18",
+          "readingTime": 2,
+          "topics": [
+            "test-measurement"
+          ],
+          "heroImage": "../images/blog/rsh2-oscilloscope-compatibility/hero.png",
+          "heroAlt": "Engineer preparing oscilloscopes and probes in a lab",
+          "author": "Primeasure Interpretation"
+        }
+      ]
+    }
+    </script>
 
     <script src="../js/main.js"></script>
     <script src="../js/menu.js"></script>
