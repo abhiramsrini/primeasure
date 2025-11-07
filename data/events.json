@@ -71,6 +71,24 @@
       "status": "upcoming"
     },
     {
+      "id": "pcie-devcon-2025-11-10",
+      "slug": "pcie-devcon-2025",
+      "type": "conference",
+      "title": "PCIE Devcon 2025",
+      "date": "2025-11-10",
+      "dateEnd": "2025-11-11",
+      "time": "9:00 AM",
+      "location": "Radisson Blu ORR, Bangalore",
+      "description": "Meet the PCIe community in Bangalore for two days of deep dives on compliance, testing, and interoperability.",
+      "fullDescription": "Join PCI-SIG members, partners, and industry experts at Radisson Blu ORR for technical presentations, interoperability labs, and roadmaps covering PCIe technologies.",
+      "image": "../images/events/PCI-SIG.png",
+      "imageAlt": "PCIE Devcon 2025",
+      "registrationEnabled": false,
+      "externalUrl": "https://pcisig.com/events/pci-sig-developers-conference-india-2025",
+      "company": "PCI-SIG",
+      "status": "Registrations Closed"
+    },
+    {
       "id": "oscilloscope-showcase-2025-12",
       "slug": "oscilloscope-technology-showcase",
       "type": "showcase",
@@ -98,9 +116,7 @@
       "fullDescription": "Hands-on lab demos covering SDA/TDME automation, high-speed probing, and compliance debugging. Reach out for the slides or to schedule a private workshop.",
       "image": "../images/logo.png",
       "imageAlt": "Primeasure PCIe Workshop",
-      "registrationEnabled": true,
-      "recapUrl": "https://primeasure.com/resources/pcie-lab-days-2024.pdf",
-      "recapLabel": "View Slides",
+      "registrationEnabled": false,
       "company": "Primeasure",
       "status": "completed"
     }

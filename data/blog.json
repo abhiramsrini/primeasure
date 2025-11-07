@@ -1,6 +1,34 @@
 {
   "posts": [
     {
+      "id": "panel-self-refresh-testing-2025-03",
+      "slug": "panel-self-refresh-testing",
+      "title": "Testing Panel Self Refresh with Introspect’s SV5C-eDP",
+      "excerpt": "Primeasure recaps Introspect Technology’s guidance on validating Panel Self Refresh (PSR1 and PSR2) with the SV5C-eDP generator/analyzer workflow for eDP v1.5 devices.",
+      "publishDate": "2025-03-25",
+      "readingTime": 4,
+      "topics": [
+        "test-measurement"
+      ],
+      "heroImage": "../images/blog/panel-self-refresh-testing/hero.png",
+      "heroAlt": "Engineer validating embedded DisplayPort panel self refresh sequences",
+      "author": "Primeasure Interpretation"
+    },
+    {
+      "id": "choosing-oscilloscope-basics-2025-03",
+      "slug": "choosing-oscilloscope-basics",
+      "title": "Oscilloscope Basics: Choosing the Right Scope",
+      "excerpt": "Primeasure distills Teledyne LeCroy's checklist for scoping out bandwidth, rise time, sampling rate, memory depth, and usability features before purchasing your next oscilloscope.",
+      "publishDate": "2025-03-24",
+      "readingTime": 4,
+      "topics": [
+        "test-measurement"
+      ],
+      "heroImage": "../images/blog/choosing-oscilloscope-basics/hero.png",
+      "heroAlt": "Engineer reviewing oscilloscope bandwidth and sampling charts",
+      "author": "Primeasure Interpretation"
+    },
+    {
       "id": "cloud-production-sports-broadcasting-2025-03",
       "slug": "cloud-production-sports-broadcasting",
       "title": "Is Cloud Production the Sports Broadcasting Game Changer?",
@@ -36,7 +64,6 @@
       "publishDate": "2025-03-22",
       "readingTime": 3,
       "topics": [
-        "automotive",
         "test-measurement"
       ],
       "heroImage": "../images/blog/evolution-in-vehicle-network/hero.png",

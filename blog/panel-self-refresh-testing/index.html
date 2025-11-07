@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Primeasure recaps Introspect Technology’s guidance on validating Panel Self Refresh (PSR1 and PSR2) with the SV5C-eDP generator/analyzer workflow for eDP v1.5 devices.">
+    <link rel="canonical" href="https://primeasure.com/blog/panel-self-refresh-testing">
+    <title>Testing Panel Self Refresh with Introspect’s SV5C-eDP | Primeasure</title>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFKRS4SNFV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SFKRS4SNFV', {
+        page_title: 'Testing Panel Self Refresh with Introspect’s SV5C-eDP - Primeasure',
+        page_location: window.location.href,
+        send_page_view: true
+      });
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Testing Panel Self Refresh with Introspect’s SV5C-eDP">
+    <meta property="og:description" content="Primeasure recaps Introspect Technology’s guidance on validating Panel Self Refresh (PSR1 and PSR2) with the SV5C-eDP generator/analyzer workflow for eDP v1.5 devices.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://primeasure.com/images/blog/panel-self-refresh-testing/hero.png">
+    <meta property="og:site_name" content="Primeasure">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Testing Panel Self Refresh with Introspect’s SV5C-eDP">
+    <meta name="twitter:description" content="Primeasure recaps Introspect Technology’s guidance on validating Panel Self Refresh (PSR1 and PSR2) with the SV5C-eDP generator/analyzer workflow for eDP v1.5 devices.">
+    <meta name="twitter:image" content="https://primeasure.com/images/blog/panel-self-refresh-testing/hero.png">
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Testing Panel Self Refresh with Introspect’s SV5C-eDP",
+      "description": "Primeasure recaps Introspect Technology’s guidance on validating Panel Self Refresh (PSR1 and PSR2) with the SV5C-eDP generator/analyzer workflow for eDP v1.5 devices.",
+      "image": "https://primeasure.com/images/blog/panel-self-refresh-testing/hero.png",
+      "author": {
+        "@type": "Organization",
+        "name": "Primeasure Interpretation"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Primeasure",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://primeasure.com/images/logo.png"
+        }
+      },
+      "datePublished": "2025-03-25",
+      "dateModified": "2025-03-25",
+      "mainEntityOfPage": "https://primeasure.com/blog/panel-self-refresh-testing"
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
+            <a href="../../" class="logo">
+                <img src="../../images/logo.png" alt="Primeasure Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../">Home</a></li>
+                <li><a href="../../about">About</a></li>
+                <li><a href="../../events">Events</a></li>
+                <li><a href="../../blog" class="active">Blog</a></li>
+                <li class="has-dropdown">
+                    <a href="#solutions">Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../solutions/test-measurement">Test &amp; Measurement</a></li>
+                        <li><a href="../../solutions/broadcast">Broadcast</a></li>
+                        <li><a href="../../solutions/software">Software</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="../../contact" class="schedule-demo">
+                <i class="fas fa-user"></i>
+                <span>Contact Us</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="blog-article">
+        <article>
+            <header class="article-hero">
+                <div class="container">
+                    <a href="../" class="breadcrumb">&larr; Back to Blog</a>
+                    <div class="article-topic-chips">
+                        <span class="article-topic-chip">Test &amp; Measurement</span>
+                    </div>
+                    <h1>Testing Panel Self Refresh with Introspect’s SV5C-eDP</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> 25 March 2025</span>
+                        <span><i class="far fa-clock"></i> 4 min read</span>
+                        <span><i class="far fa-user"></i> Primeasure Interpretation</span>
+                    </div>
+                </div>
+                <div class="article-hero-image">
+                    <img src="../../images/blog/panel-self-refresh-testing/hero.png" alt="Engineer validating embedded DisplayPort panel self refresh sequences">
+                </div>
+            </header>
+
+            <div class="container article-content">
+    <section>
+        <h2>Why Panel Self Refresh Matters Now</h2>
+        <p>Introspect Technology recently walked through the power-saving promise of Panel Self Refresh (PSR) inside <a href="https://introspect.ca/blog/testing-panel-self-refresh-with-the-sv5c-edp-series/" target="_blank" rel="noopener noreferrer">their SV5C-eDP application note</a>. Embedded DisplayPort 1.5 panels rely on PSR to keep a static frame alive without hammering the GPU or SoC with redundant traffic. With every OEM chasing lower idle power, verifying PSR handshakes has become just as essential as link training or color depth tests.</p>
+        <p>Primeasure helps Indian notebook and tablet teams recreate the same workflows Introspect outlined, so we captured the distilled takeaways below.</p>
+    </section>
+
+    <section>
+        <h2>PSR1 vs. PSR2 in Plain Terms</h2>
+        <ul class="article-checklist">
+            <li><strong>PSR1:</strong> The panel buffers a single frame. When the host signals that content is static, the sink loops that stored image locally and the eDP link idles. Any frame update breaks the loop and resumes the stream.</li>
+            <li><strong>PSR2:</strong> Adds selective refresh. Instead of blasting full frames, the source can ship only the changed regions while the panel handles the rest, driving even lower power for UI workflows.</li>
+            <li><strong>State awareness:</strong> SV5C captures the transitions between “Active,” “Request,” “Armed,” and “In Self Refresh,” exposing the AUX transactions that often get overlooked until compliance day.</li>
+        </ul>
+        <p>Being able to see which state you are in—and how long you dwell there—is the fastest way to debug PSR timeouts or choppy wake-ups.</p>
+    </section>
+
+    <section>
+        <h2>Testing Workflow with the SV5C-eDP Generator/Analyzer</h2>
+        <ol>
+            <li><strong>Drive realistic frames.</strong> Use the generator to stream representative UI scenes, then issue the PSR entry command over AUX exactly as the host firmware would.</li>
+            <li><strong>Monitor AUX traffic.</strong> The analyzer side captures the DPCD register writes acknowledging PSR requests, confirming that the sink accepted the command and latched the frame.</li>
+            <li><strong>Validate recovery.</strong> Trigger deliberate changes (scroll, cursor move) and ensure the panel exits PSR within the budget spelled out in eDP 1.5. SV5C plots the time between wake request and link-active state.</li>
+            <li><strong>Stress selective refresh.</strong> For PSR2, script partial updates to guarantee that only dirty rectangles travel over the link and that no unexpected full-frame updates creep back in.</li>
+        </ol>
+        <p>Introspect emphasizes that the SV5C-eDP generator/analyzer combo is currently the only commercially available solution that can both stimulate and observe these PSR behaviors at compliance depth.</p>
+    </section>
+
+    <section class="article-highlight">
+        <h3>Primeasure Lab Notes</h3>
+        <ul>
+            <li><strong>Correlate with power rails:</strong> Log panel and SoC current draw while SV5C reports PSR states to prove that firmware tweaks actually save watts.</li>
+            <li><strong>Automate AUX scripts:</strong> Keep canned PSR entry/exit routines checked into version control so validation and manufacturing run the same procedure.</li>
+            <li><strong>Capture failing frames:</strong> When a sink refuses PSR, SV5C can replay the last good frame—grab that evidence for firmware teams.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Checklist Before You Sign Off</h2>
+        <ul class="article-checklist">
+            <li><strong>Entry timing:</strong> Measure the delay between host request and panel acknowledgment across temperature corners.</li>
+            <li><strong>Exit timing:</strong> Confirm PSR exit meets worst-case requirements when the display is busy with DSC, HDR, or panel self tests.</li>
+            <li><strong>DPCD coverage:</strong> Read/verify every PSR-related register (0x070-0x07F) to ensure firmware populates capabilities correctly.</li>
+            <li><strong>Link stability:</strong> Keep an eye on link training status while looping PSR; marginal channels often retrain unexpectedly after repeated entries.</li>
+            <li><strong>Error logging:</strong> Capture AUX retries or NACKs so they can be correlated with field returns later.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Source Inspiration</h2>
+        <p>This summary is based on Introspect Technology’s article, <a href="https://introspect.ca/blog/testing-panel-self-refresh-with-the-sv5c-edp-series/" target="_blank" rel="noopener noreferrer">“Testing Panel Self Refresh with the SV5C-eDP Series.”</a> Read their post for the full diagrams and product screenshots.</p>
+    </section>
+
+    <section class="article-cta">
+        <h2>Need Help Exercising PSR in Your Lab?</h2>
+        <p>Primeasure deploys Introspect SV5C platforms across India, pairing them with remote sensing, thermal chambers, and automated AUX scripting.</p>
+        <a href="../../contact" class="cta-button">Talk to Our Display Team</a>
+    </section>
+
+    <section class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <article>
+                <h3><a href="../debugging-edp-power-saving">Debugging eDP Power Saving Features with Introspect SV5C</a></h3>
+                <p>Dive deeper into SV5C-based workflows for ALPM, PSR, and sleep states.</p>
+            </article>
+            <article>
+                <h3><a href="../probing-ddr-lpddr-signals">Probing DDR and LPDDR Signals with Confidence</a></h3>
+                <p>Apply similar fixture discipline to memory subsystems when chasing low power.</p>
+            </article>
+            <article>
+                <h3><a href="../rsh2-oscilloscope-compatibility">Connecting Introspect's RSH2 Remote Sampling Head to Any Oscilloscope</a></h3>
+                <p>Extend your measurement chain with remote sampling when correlating panel behavior.</p>
+            </article>
+        </div>
+    </section>
+</div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: sales@primeasure.com</p>
+                    <p>Phone: +91-9884900031</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../about">About Us</a></li>
+                        <li><a href="../../events">Events</a></li>
+                        <li><a href="../../blog">Blog</a></li>
+                        <li><a href="../../contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/primeasure-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61572242886713" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                </div>
+                <p>&copy; 2025 Primeasure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/menu.js"></script>
+    <script src="../../js/analytics.js"></script>
+</body>
+</html>

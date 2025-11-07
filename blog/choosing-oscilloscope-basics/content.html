@@ -1,0 +1,81 @@
+<div class="container article-content">
+    <section>
+        <h2>Why Revisit Oscilloscope Selection?</h2>
+        <p>Teledyne LeCroy recently refreshed the fundamentals of scope selection in their post “<a href="https://blog.teledynelecroy.com/2015/03/back-to-basics-choosing-oscilloscope.html" target="_blank" rel="noopener noreferrer">Oscilloscope Basics: Choosing an Oscilloscope</a>.” They remind us that shopping for a scope is easiest when you translate every application, signal class, and workflow into measurable requirements. General lab scopes are especially tricky because they must cover compliance testing on Monday, embedded debug on Tuesday, and power integrity on Wednesday.</p>
+        <p>Primeasure pulled the highlights most relevant to design and validation teams in India, adding the context we use when speccing Teledyne LeCroy, Keysight, and Rohde &amp; Schwarz platforms for mixed teams.</p>
+    </section>
+
+    <section>
+        <h2>Start With the Measurement Outcomes</h2>
+        <ol>
+            <li><strong>List your use cases.</strong> Capture everything from serial link eye openings to switching converter ripple. Even if you cannot predict every job, writing down the top demand signals frames the rest of the process.</li>
+            <li><strong>Document signal characteristics.</strong> For each use case, note the max frequency component, expected voltage range, and edge rates. These three numbers drive bandwidth, vertical range, and sampling needs.</li>
+            <li><strong>Prioritize duration and correlation.</strong> Decide if you need long captures for protocol correlation, burst captures for sporadic faults, or single-shot accuracy for power-stage steps.</li>
+        </ol>
+        <p>Once you have this short list, the remainder of the Teledyne LeCroy flow becomes a series of engineering tradeoffs instead of guesswork.</p>
+    </section>
+
+    <section>
+        <h2>Spec-by-Spec Guidance from Teledyne LeCroy</h2>
+        <ul class="article-checklist">
+            <li><strong>Bandwidth:</strong> Treat five times your highest frequency component as the target. For digital links, the rule of thumb is 2.5 times the bit rate so the first five harmonics fit inside the scope.</li>
+            <li><strong>Rise time:</strong> The post reminds us of the 0.35/BW conversion (for instruments under 2 GHz). Quick edges demand scopes with corresponding rise time so transitions are not distorted.</li>
+            <li><strong>Sampling rate:</strong> The theoretical minimum is twice the bandwidth, yet practical accuracy improves closer to 2.5–5x. Plan for the extra acquisition memory those higher rates consume.</li>
+            <li><strong>Memory depth:</strong> Duration equals memory divided by sample rate. Long run captures of 200 MHz signals easily require megasamples of storage, so confirm the scope can scale beyond default memory.</li>
+            <li><strong>Vertical resolution:</strong> Jumping from 8-bit to 12-bit ADCs improves the smallest resolvable level from millivolts down to hundreds of microvolts—critical when monitoring low-voltage events next to 500 V swings.</li>
+            <li><strong>Triggering:</strong> SmartTriggers, qualified triggers, and multi-stage triggers turn bursty or complex patterns into stable traces. Make sure the trigger catalog matches the types of serial buses or pulse trains you analyze.</li>
+            <li><strong>User interface:</strong> Touch-first layouts, external mice, or traditional knobs all exist. Select what your operators will actually use; otherwise productivity gains never materialize.</li>
+            <li><strong>Connectivity:</strong> Remote control via LAN/LXI/USB/GPIB plus modern driver stacks keeps scopes relevant inside automated systems.</li>
+        </ul>
+    </section>
+
+    <section class="article-highlight">
+        <h3>Rule-of-Thumb Cheat Sheet</h3>
+        <ul>
+            <li><strong>Amplitude accuracy:</strong> Keep your highest signal component under 20% of the scope bandwidth to hold amplitude uncertainty near 2%.</li>
+            <li><strong>Digital signals:</strong> Bandwidth ≥ 2.5 × bit rate catches the fifth harmonic and preserves eye height.</li>
+            <li><strong>Sampling plan:</strong> Sampling at ≥ 2.5 × bandwidth balances timing resolution with manageable memory depth; above 5× brings diminishing returns.</li>
+            <li><strong>Memory math:</strong> Required memory (points) = sampling rate × capture duration. For 500 MS/s during 2 ms captures, order scopes with at least 1 Mpoints.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Primeasure Field Notes</h2>
+        <p>When we guide teams through procurements, we pair the Teledyne LeCroy steps with a few pragmatic checks:</p>
+        <ol>
+            <li><strong>Validate accessories.</strong> Spec the probes, remote heads, and interposers that meet the same bandwidth and loading requirements as the mainframe.</li>
+            <li><strong>Model automation early.</strong> If you plan to run scopes inside automated regression labs, test the vendor's remote-control APIs and driver stability before freezing the BOM.</li>
+            <li><strong>Plan UX consistency.</strong> Mixed-vendor benches are common in India. Decide whether the UI conventions and shortcut mappings align with operator experience.</li>
+            <li><strong>Document trigger presets.</strong> Save labelled trigger setups for recurring events (for example spread-spectrum clock recovery) so teams can get repeatable captures weeks later.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Source Inspiration</h2>
+        <p>This recap is based on Teledyne LeCroy's article, <a href="https://blog.teledynelecroy.com/2015/03/back-to-basics-choosing-oscilloscope.html" target="_blank" rel="noopener noreferrer">“Back to Basics: Choosing an Oscilloscope.”</a> Consult their original post for full imagery, equations, and downloadable resources.</p>
+    </section>
+
+    <section class="article-cta">
+        <h2>Need Help Speccing Your Next Scope?</h2>
+        <p>Primeasure helps labs across India size oscilloscopes, fixtures, and automation stacks for memory, power, and high-speed serial validation.</p>
+        <a href="../../contact" class="cta-button">Talk to Our Test Team</a>
+    </section>
+
+    <section class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <article>
+                <h3><a href="../pcie-6-transmitter-testing">PCIe 6.0 Transmitter Testing Essentials</a></h3>
+                <p>Translate next-gen PCIe requirements into fixture, bandwidth, and automation plans.</p>
+            </article>
+            <article>
+                <h3><a href="../probing-ddr-lpddr-signals">Probing DDR and LPDDR Signals with Confidence</a></h3>
+                <p>Apply oscilloscope and probe selection techniques to advanced memory buses.</p>
+            </article>
+            <article>
+                <h3><a href="../rsh2-oscilloscope-compatibility">Connecting Introspect's RSH2 Remote Sampling Head to Any Oscilloscope</a></h3>
+                <p>Extend your lab hardware with remote sampling strategies that complement new scopes.</p>
+            </article>
+        </div>
+    </section>
+</div>
