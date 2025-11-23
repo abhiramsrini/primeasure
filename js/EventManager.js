@@ -112,9 +112,9 @@ class EventManager {
                 "fullDescription": "Join industry professionals for in-depth technical discussions and demonstrations.",
                 "image": "../images/logo.png",
                 "imageAlt": "Primeasure Logo",
-                "registrationEnabled": true,
+                "registrationEnabled": false,
                 "company": "Primeasure",
-                "status": "upcoming"
+                "status": "completed"
             },
             {
                 "id": "ibc-2025-09-12",
@@ -132,7 +132,7 @@ class EventManager {
                 "registrationEnabled": false,
                 "externalUrl": "https://www.ibc.org/",
                 "company": "GrassValley",
-                "status": "upcoming"
+                "status": "completed"
             },
             {
                 "id": "broadcast-india-2025-10-14",
@@ -150,7 +150,7 @@ class EventManager {
                 "registrationEnabled": false,
                 "externalUrl": "https://www.broadcastindiashow.com/",
                 "company": "GrassValley",
-                "status": "upcoming"
+                "status": "completed"
             },
             {
                 "id": "auto-ev-bharat-2025-11-19",
@@ -168,22 +168,38 @@ class EventManager {
                 "registrationEnabled": false,
                 "externalUrl": "https://www.autoevbharat.com/",
                 "company": "Teledyne LeCroy",
+                "status": "completed"
+            },
+            {
+                "id": "scopes-power-2026-01-21",
+                "slug": "scopes-for-power-applications",
+                "type": "showcase",
+                "title": "Scopes for Power Applications: A Teledyne LeCroy Showcase",
+                "date": "2026-01-21",
+                "time": "9:00 AM",
+                "location": "Bengaluru, India",
+                "description": "Hands-on demos of Teledyne LeCroy oscilloscopes for power electronics, power integrity, and high-voltage validation.",
+                "fullDescription": "Explore how Teledyne LeCroy scopes accelerate power design—from efficiency measurements to switching analysis and EMI troubleshooting—guided by Primeasure experts.",
+                "image": "../images/logo.png",
+                "imageAlt": "Teledyne LeCroy Power Scopes Showcase",
+                "registrationEnabled": true,
+                "company": "Primeasure",
                 "status": "upcoming"
             },
             {
-                "id": "oscilloscope-showcase-2025-12",
-                "slug": "oscilloscope-technology-showcase",
-                "type": "showcase",
-                "title": "Advanced Oscilloscope Technology Showcase",
-                "date": "TBD",
+                "id": "edp-unlocked-2026-01-22",
+                "slug": "edp-unlocked-2026",
+                "type": "webinar",
+                "title": "eDP Unlocked",
+                "date": "2026-01-22",
                 "time": "TBD",
-                "location": "Bengaluru, India",
-                "description": "Experience hands-on demonstrations of cutting-edge oscilloscopes and explore revolutionary testing solutions across multiple industries.",
-                "fullDescription": "Join us for an interactive showcase featuring next-generation oscilloscopes and advanced measurement technologies from Teledyne LeCroy.",
+                "location": "Webinar",
+                "description": "A practical deep dive into eDP testing, validation, and interoperability workflows with Primeasure engineers.",
+                "fullDescription": "Learn how to validate embedded DisplayPort links, debug signal integrity issues, and streamline compliance using modern test automation techniques in this live session.",
                 "image": "../images/logo.png",
-                "imageAlt": "Teledyne LeCroy Logo",
+                "imageAlt": "eDP Unlocked Webinar",
                 "registrationEnabled": true,
-                "company": "Teledyne LeCroy",
+                "company": "Primeasure",
                 "status": "upcoming"
             }
         ];

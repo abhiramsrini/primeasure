@@ -68,7 +68,7 @@
       "registrationEnabled": false,
       "externalUrl": "https://app.warpbay.com/form/67e3cc16bf88b142e8a9fa2b/visitor/67ebc64f7a81308994294e53",
       "company": "Teledyne LeCroy",
-      "status": "upcoming"
+      "status": "completed"
     },
     {
       "id": "pcie-devcon-2025-11-10",
@@ -86,22 +86,38 @@
       "registrationEnabled": false,
       "externalUrl": "https://pcisig.com/events/pci-sig-developers-conference-india-2025",
       "company": "PCI-SIG",
-      "status": "Registrations Closed"
+      "status": "completed"
     },
     {
-      "id": "oscilloscope-showcase-2025-12",
-      "slug": "oscilloscope-technology-showcase",
+      "id": "scopes-power-2026-01-21",
+      "slug": "scopes-for-power-applications",
       "type": "showcase",
-      "title": "Advanced Oscilloscope Technology Showcase",
-      "date": "2025-12-15",
+      "title": "Scopes for Power Applications: A Teledyne LeCroy Showcase",
+      "date": "2026-01-21",
       "time": "9:00 AM",
       "location": "Bengaluru, India",
-      "description": "Experience hands-on demonstrations of cutting-edge oscilloscopes and explore revolutionary testing solutions across multiple industries.",
-      "fullDescription": "Join us for an interactive showcase featuring next-generation oscilloscopes and advanced measurement technologies from Teledyne LeCroy.",
+      "description": "Hands-on demos of Teledyne LeCroy oscilloscopes for power electronics, power integrity, and high-voltage validation.",
+      "fullDescription": "Explore how Teledyne LeCroy scopes accelerate power design—from efficiency measurements to switching analysis and EMI troubleshooting—guided by Primeasure experts.",
       "image": "../images/logo.png",
-      "imageAlt": "Teledyne LeCroy Logo",
-      "registrationEnabled": false,
-      "company": "Teledyne LeCroy",
+      "imageAlt": "Teledyne LeCroy Power Scopes Showcase",
+      "registrationEnabled": true,
+      "company": "Primeasure",
+      "status": "upcoming"
+    },
+    {
+      "id": "edp-unlocked-2026-01-22",
+      "slug": "edp-unlocked-2026",
+      "type": "webinar",
+      "title": "eDP Unlocked",
+      "date": "2026-01-22",
+      "time": "TBD",
+      "location": "Webinar",
+      "description": "A practical deep dive into eDP testing, validation, and interoperability workflows with Primeasure engineers.",
+      "fullDescription": "Learn how to validate embedded DisplayPort links, debug signal integrity issues, and streamline compliance using modern test automation techniques in this live session.",
+      "image": "../images/logo.png",
+      "imageAlt": "eDP Unlocked Webinar",
+      "registrationEnabled": true,
+      "company": "Primeasure",
       "status": "upcoming"
     },
     {
