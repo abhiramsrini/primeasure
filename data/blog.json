@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "id": "oscilloscope-network-security-2026-01",
+      "slug": "oscilloscope-network-security",
+      "title": "Four Essential Oscilloscope Network Security Practices",
+      "excerpt": "Primeasure distills Teledyne LeCroy’s guidance on hardening oscilloscopes on the lab network: align with IT policy, patch regularly, run antivirus, and scan/update definitions.",
+      "publishDate": "2026-01-05",
+      "readingTime": 2,
+      "topics": [
+        "test-measurement"
+      ],
+      "heroImage": "../images/solutions/WaveSurfer3034z-front_7133.jpg",
+      "heroAlt": "Teledyne LeCroy WaveSurfer oscilloscope front panel and network ports",
+      "author": "Primeasure Interpretation"
+    },
+    {
       "id": "panel-self-refresh-testing-2025-03",
       "slug": "panel-self-refresh-testing",
       "title": "Testing Panel Self Refresh with Introspect’s SV5C-eDP",

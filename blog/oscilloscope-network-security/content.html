@@ -1,0 +1,51 @@
+<div class="container article-content">
+                <section>
+                    <h2>Why Scope Network Hygiene Matters</h2>
+                    <p>Teledyne LeCroy’s article, <a href="https://blog.teledynelecroy.com/2022/05/four-essential-oscilloscope-network.html" target="_blank" rel="noopener noreferrer">“Four Essential Oscilloscope Network Security Practices,”</a> explains how connected scopes can be entry points if they are left unpatched or unmanaged. Primeasure fields similar questions across R&amp;D labs in India, so we summarised the guidance and added our own guardrails.</p>
+                </section>
+
+                <section>
+                    <h2>Four Essential Practices</h2>
+                    <ul class="article-checklist">
+                        <li><strong>Align with IT security policy.</strong> Treat oscilloscopes as endpoints on the corporate LAN; document who can remote in, and restrict services to what IT approves.</li>
+                        <li><strong>Patch OS and application software.</strong> Keep Windows updates and oscilloscope application releases current to close known vulnerabilities and improve stability.</li>
+                        <li><strong>Install trusted antivirus.</strong> Run an IT-approved AV agent on scopes used for remote file transfers or automation, and validate that performance impact is acceptable.</li>
+                        <li><strong>Run scans and update definitions.</strong> Schedule periodic scans and keep virus signatures fresh so new malware is caught even on lightly used lab instruments.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Primeasure Lab Checklist</h2>
+                    <ol>
+                        <li><strong>Segment test gear.</strong> Place scopes on a lab VLAN with firewall rules limiting inbound ports to remote UI/control tools your team actually uses.</li>
+                        <li><strong>Standardise images.</strong> Build a known-good Golden Image per scope family (e.g., WaveSurfer 3000z, WaveMaster) with approved patches and AV, then clone to keep fleets consistent.</li>
+                        <li><strong>Automate upkeep.</strong> Use Windows Update rings and AV policy to push patches and definitions during maintenance windows to avoid surprising operators mid-measurement.</li>
+                        <li><strong>Document remote workflows.</strong> Write runbooks for remote operation (VNC/RDP/MAUI automation), including who can enable services and how to disable them after a session.</li>
+                    </ol>
+                </section>
+
+                <section class="article-highlight">
+                    <h3>Primeasure Field Insight</h3>
+                    <p>Teams often enable remote access during a debug sprint and forget to lock it down afterward. Add a weekly “scope hardening” task to your lab checklist: verify services, users, and AV status before the next round of captures.</p>
+                </section>
+
+                <section class="article-cta">
+                    <h2>Need Help Hardening Your Scopes?</h2>
+                    <p>Primeasure can assist with lab network design, remote-control runbooks, and fleet patching plans for Teledyne LeCroy oscilloscopes.</p>
+                    <a href="../../contact" class="cta-button">Talk to Primeasure</a>
+                </section>
+
+                <section class="related-articles">
+                    <h2>Related Articles</h2>
+                    <div class="related-grid">
+                        <article>
+                            <h3><a href="../choosing-oscilloscope-basics">Oscilloscope Basics: Choosing the Right Scope</a></h3>
+                            <p>Check the bandwidth and usability factors that matter before you buy.</p>
+                        </article>
+                        <article>
+                            <h3><a href="../pcie-6-transmitter-testing">PCIe 6.0 Transmitter Testing Essentials</a></h3>
+                            <p>Prep fixtures and calibrations to keep next-gen measurements repeatable.</p>
+                        </article>
+                    </div>
+                </section>
+            </div>
