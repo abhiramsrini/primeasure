@@ -89,7 +89,7 @@ php -S localhost:8000
 - Use a local server for development to avoid CORS issues with `events.json` loading
 - For testing clean URLs (like `/about` instead of `/about/index.html`), use http-server with proxy
 - Python server will require .html extensions for direct access: `/about/index.html`
-- See `README-DEVELOPMENT.md` for detailed local development setup with clean URLs
+- See `../development-setup.md` for detailed local development setup with clean URLs
 
 ## Architecture and Code Organization
 
