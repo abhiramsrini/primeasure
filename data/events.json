@@ -100,9 +100,10 @@
       "fullDescription": "Master advanced oscilloscope techniques for power electronics: decode motor drive waveforms, capture switching anomalies, measure efficiency, and debug EMI with Teledyne LeCroy tools and Primeasure experts.",
       "image": "../images/logo.png",
       "imageAlt": "Teledyne LeCroy Power Scopes Showcase",
-      "registrationEnabled": true,
+      "registrationEnabled": false,
       "company": "Primeasure",
-      "status": "upcoming"
+      "status": "completed",
+      "recapLabel": "View Recap"
     },
     {
       "id": "primeasure-sales-kickoff-2026-01-20",
@@ -116,25 +117,10 @@
       "fullDescription": "Join Primeasure leadership and channel partners as we align on the FY 2026 sales strategy, launch priorities, and field enablement plans.",
       "image": "../images/logo.png",
       "imageAlt": "Primeasure Logo",
-      "registrationEnabled": true,
+      "registrationEnabled": false,
       "company": "Primeasure",
-      "status": "upcoming"
-    },
-    {
-      "id": "edp-unlocked-2026-01-22",
-      "slug": "edp-unlocked-2026",
-      "type": "webinar",
-      "title": "eDP Unlocked",
-      "date": "2026-02-10",
-      "time": "TBD",
-      "location": "Webinar",
-      "description": "A practical deep dive into eDP testing, validation, and interoperability workflows with Primeasure engineers.",
-      "fullDescription": "Learn how to validate embedded DisplayPort links, debug signal integrity issues, and streamline compliance using modern test automation techniques in this live session.",
-      "image": "../images/logo.png",
-      "imageAlt": "eDP Unlocked Webinar",
-      "registrationEnabled": true,
-      "company": "Primeasure",
-      "status": "upcoming"
+      "status": "completed",
+      "recapLabel": "View Recap"
     },
     {
       "id": "clock-expert-2026-03-04",
