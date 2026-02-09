@@ -1,0 +1,42 @@
+<div class="container article-content">
+  <section>
+    <p><strong>Why it matters:</strong> PCIe 6.0’s PAM4 signaling raises the bar for compliance. New patterns and measurement rules reduce ambiguity, but only if labs generate, capture, and analyze them correctly.</p>
+  </section>
+
+  <section>
+    <h2>What’s new in the compliance patterns</h2>
+    <ul class="article-checklist">
+      <li><strong>CP0/CP1 for PAM4:</strong> Updated symbols and transition densities stress equalization and clock recovery differently than NRZ-era patterns.</li>
+      <li><strong>Link training awareness:</strong> Patterns assume proper LTSSM behavior; mis-sequenced training can skew eye openings and BER results.</li>
+      <li><strong>Scrambling and de-emphasis:</strong> Specs clarify when scrambling is disabled and how preset/de-emphasis settings apply during testing.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Measurement reminders</h2>
+    <ul class="article-checklist">
+      <li>Use scopes/analyzers that support PAM4-specific eye masks and jitter decomposition (Rj/Dj, SNDR).</li>
+      <li>Deskew fixtures, cables, and probes before captures; small skews matter more with 64 GT/s PAM4.</li>
+      <li>Validate preset levels against DUT TX EQ; capture both prescribed pattern and live training sequences for correlation.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Primeasure POV</h2>
+    <ul class="article-checklist">
+      <li>Preload new CP0/CP1 into automation scripts so engineers can A/B old vs. new sequences quickly.</li>
+      <li>Add guardrails: block runs if link training state isn’t confirmed, and log preset/de-emphasis values with each acquisition.</li>
+      <li>Pair protocol analyzer traces with oscilloscope eye/jitter captures to root-cause mask hits vs. LTSSM behavior.</li>
+    </ul>
+  </section>
+
+  <section class="article-cta">
+    <h2>Need a PCIe 6.0 sanity check?</h2>
+    <p>Primeasure can help tune de-embed files, rebuild automation for CP0/CP1, and prep your lab for upcoming plugfests.</p>
+    <a href="../../contact" class="cta-button">Talk to Primeasure</a>
+  </section>
+
+  <section class="article-source">
+    <p><em>Source: <a href="https://blog.teledynelecroy.com/2023/02/new-pcie-60-compliance-pattern.html" target="_blank" rel="noopener noreferrer">Teledyne LeCroy — New PCIe 6.0 Compliance Pattern</a></em></p>
+  </section>
+</div>

@@ -1,0 +1,49 @@
+<div class="container article-content">
+  <section>
+    <p><strong>Why it matters:</strong> A high-voltage probe that’s under-rated, noisy, or too capacitive can distort waveforms or destroy a scope. Teledyne LeCroy’s framework keeps measurements safe and accurate for power electronics, EV inverters, motor drives, and grid gear.</p>
+  </section>
+
+  <section>
+    <h2>1) Match voltage rating and derating</h2>
+    <p>Pick a probe whose DC and peak ratings exceed the highest expected waveform with margin. Watch the fine print: some ratings are only at 50/60 Hz. Use generous headroom for fast edges on SiC/GaN switching.</p>
+  </section>
+
+  <section>
+    <h2>2) Choose attenuation for dynamic range</h2>
+    <p>Higher attenuation (e.g., 100:1) protects the scope and widens input range but reduces sensitivity. Select the lowest ratio that keeps peaks within the probe’s linear region and the scope’s full scale.</p>
+  </section>
+
+  <section>
+    <h2>3) Mind bandwidth and rise time</h2>
+    <p>Bandwidth must cover the fastest edge rates you need to see. As a rule of thumb, probe bandwidth ≥ 5× the signal’s highest significant harmonic; otherwise overshoot and dv/dt will be misread.</p>
+  </section>
+
+  <section>
+    <h2>4) Control capacitive loading</h2>
+    <p>High-voltage probes add capacitance that can reshape switching transitions. Compare input capacitance specs and use the shortest ground return possible to reduce ringing.</p>
+  </section>
+
+  <section>
+    <h2>5) Verify common-mode limits</h2>
+    <p>For floating or half-bridge nodes, check common-mode voltage ratings and isolation category. Differential HV probes help reject common-mode noise and keep both inputs within safe limits.</p>
+  </section>
+
+  <section>
+    <h2>Primeasure POV</h2>
+    <ul class="article-checklist">
+      <li>For SiC/GaN measurements, prioritize probes with low capacitance and ample bandwidth; pair with scopes that support deskew to align voltage/current waveforms.</li>
+      <li>Standardize test benches with documented derating rules and probe-to-scope attenuation presets to avoid misconfiguration.</li>
+      <li>Add a quick pre-test checklist (ratings, attenuation, bandwidth, CMV) to every power lab station.</li>
+    </ul>
+  </section>
+
+  <section class="article-cta">
+    <h2>Need HV probing guidance?</h2>
+    <p>Primeasure can help choose probes, set derating rules, and deskew voltage/current pairs for power labs.</p>
+    <a href="../../contact" class="cta-button">Talk to Primeasure</a>
+  </section>
+
+  <section class="article-source">
+    <p><em>Source: <a href="https://blog.teledynelecroy.com/2022/09/choosing-high-voltage-oscilloscope.html" target="_blank" rel="noopener noreferrer">Teledyne LeCroy — Choosing the Best High Voltage Oscilloscope Probe</a></em></p>
+  </section>
+</div>

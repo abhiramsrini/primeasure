@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Primeasure distills Teledyne LeCroy’s guidance: match voltage rating and bandwidth, pick the right attenuation, minimize capacitive loading, and verify common-mode limits before connecting to high-voltage nodes.">
+    <link rel="canonical" href="https://primeasure.com/blog/high-voltage-probe-selection">
+    <title>Choosing the Right High-Voltage Probe for Accurate Measurements | Primeasure</title>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFKRS4SNFV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SFKRS4SNFV', {
+        page_title: 'Choosing the Right High-Voltage Probe for Accurate Measurements - Primeasure',
+        page_location: window.location.href,
+        send_page_view: true
+      });
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Choosing the Right High-Voltage Probe for Accurate Measurements">
+    <meta property="og:description" content="Primeasure distills Teledyne LeCroy’s guidance: match voltage rating and bandwidth, pick the right attenuation, minimize capacitive loading, and verify common-mode limits before connecting to high-voltage nodes.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://primeasure.com/images/blog/high-voltage-probe-selection/hero.png">
+    <meta property="og:site_name" content="Primeasure">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Choosing the Right High-Voltage Probe for Accurate Measurements">
+    <meta name="twitter:description" content="Primeasure distills Teledyne LeCroy’s guidance: match voltage rating and bandwidth, pick the right attenuation, minimize capacitive loading, and verify common-mode limits before connecting to high-voltage nodes.">
+    <meta name="twitter:image" content="https://primeasure.com/images/blog/high-voltage-probe-selection/hero.png">
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Choosing the Right High-Voltage Probe for Accurate Measurements",
+      "description": "Primeasure distills Teledyne LeCroy’s guidance: match voltage rating and bandwidth, pick the right attenuation, minimize capacitive loading, and verify common-mode limits before connecting to high-voltage nodes.",
+      "image": "https://primeasure.com/images/blog/high-voltage-probe-selection/hero.png",
+      "author": {
+        "@type": "Organization",
+        "name": "Primeasure Interpretation"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Primeasure",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://primeasure.com/images/logo.png"
+        }
+      },
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "mainEntityOfPage": "https://primeasure.com/blog/high-voltage-probe-selection"
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
+            <a href="../../" class="logo">
+                <img src="../../images/logo.png" alt="Primeasure Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../">Home</a></li>
+                <li><a href="../../about">About</a></li>
+                <li><a href="../../events">Events</a></li>
+                <li><a href="../../blog" class="active">Blog</a></li>
+                <li class="has-dropdown">
+                    <a href="#solutions">Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../solutions/test-measurement">Test &amp; Measurement</a></li>
+                        <li><a href="../../solutions/broadcast">Broadcast</a></li>
+                        <li><a href="../../solutions/software">Software</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="../../contact" class="schedule-demo">
+                <i class="fas fa-user"></i>
+                <span>Contact Us</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="blog-article">
+        <article>
+            <header class="article-hero">
+                <div class="container">
+                    <a href="../" class="breadcrumb">&larr; Back to Blog</a>
+                    <div class="article-topic-chips">
+                        <span class="article-topic-chip">Test &amp; Measurement</span>
+                    </div>
+                    <h1>Choosing the Right High-Voltage Probe for Accurate Measurements</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> 6 February 2026</span>
+                        <span><i class="far fa-clock"></i> 4 min read</span>
+                        <span><i class="far fa-user"></i> Primeasure Interpretation</span>
+                    </div>
+                </div>
+                <div class="article-hero-image">
+                    <img src="../../images/blog/high-voltage-probe-selection/hero.png" alt="Engineer connecting a high-voltage probe to a power electronics board">
+                </div>
+            </header>
+
+            <div class="container article-content">
+  <section>
+    <p><strong>Why it matters:</strong> A high-voltage probe that’s under-rated, noisy, or too capacitive can distort waveforms or destroy a scope. Teledyne LeCroy’s framework keeps measurements safe and accurate for power electronics, EV inverters, motor drives, and grid gear.</p>
+  </section>
+
+  <section>
+    <h2>1) Match voltage rating and derating</h2>
+    <p>Pick a probe whose DC and peak ratings exceed the highest expected waveform with margin. Watch the fine print: some ratings are only at 50/60 Hz. Use generous headroom for fast edges on SiC/GaN switching.</p>
+  </section>
+
+  <section>
+    <h2>2) Choose attenuation for dynamic range</h2>
+    <p>Higher attenuation (e.g., 100:1) protects the scope and widens input range but reduces sensitivity. Select the lowest ratio that keeps peaks within the probe’s linear region and the scope’s full scale.</p>
+  </section>
+
+  <section>
+    <h2>3) Mind bandwidth and rise time</h2>
+    <p>Bandwidth must cover the fastest edge rates you need to see. As a rule of thumb, probe bandwidth ≥ 5× the signal’s highest significant harmonic; otherwise overshoot and dv/dt will be misread.</p>
+  </section>
+
+  <section>
+    <h2>4) Control capacitive loading</h2>
+    <p>High-voltage probes add capacitance that can reshape switching transitions. Compare input capacitance specs and use the shortest ground return possible to reduce ringing.</p>
+  </section>
+
+  <section>
+    <h2>5) Verify common-mode limits</h2>
+    <p>For floating or half-bridge nodes, check common-mode voltage ratings and isolation category. Differential HV probes help reject common-mode noise and keep both inputs within safe limits.</p>
+  </section>
+
+  <section>
+    <h2>Primeasure POV</h2>
+    <ul class="article-checklist">
+      <li>For SiC/GaN measurements, prioritize probes with low capacitance and ample bandwidth; pair with scopes that support deskew to align voltage/current waveforms.</li>
+      <li>Standardize test benches with documented derating rules and probe-to-scope attenuation presets to avoid misconfiguration.</li>
+      <li>Add a quick pre-test checklist (ratings, attenuation, bandwidth, CMV) to every power lab station.</li>
+    </ul>
+  </section>
+
+  <section class="article-cta">
+    <h2>Need HV probing guidance?</h2>
+    <p>Primeasure can help choose probes, set derating rules, and deskew voltage/current pairs for power labs.</p>
+    <a href="../../contact" class="cta-button">Talk to Primeasure</a>
+  </section>
+
+  <section class="article-source">
+    <p><em>Source: <a href="https://blog.teledynelecroy.com/2022/09/choosing-high-voltage-oscilloscope.html" target="_blank" rel="noopener noreferrer">Teledyne LeCroy — Choosing the Best High Voltage Oscilloscope Probe</a></em></p>
+  </section>
+</div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: sales@primeasure.com</p>
+                    <p>Phone: +91-9884900031</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../about">About Us</a></li>
+                        <li><a href="../../events">Events</a></li>
+                        <li><a href="../../blog">Blog</a></li>
+                        <li><a href="../../contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/primeasure-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61572242886713" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                </div>
+                <p>&copy; 2026 Primeasure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/menu.js"></script>
+    <script src="../../js/analytics.js"></script>
+</body>
+</html>

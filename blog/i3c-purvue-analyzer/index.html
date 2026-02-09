@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Primeasure distills Introspect’s PurVue highlights: embedded real-time oscilloscope, protocol/PHY correlation, deep buffering, flexible triggers, and automation hooks for faster I3C debug.">
+    <link rel="canonical" href="https://primeasure.com/blog/i3c-purvue-analyzer">
+    <title>5 Things to Know About the I3C PurVue Analyzer (Embedded Real-Time Scope) | Primeasure</title>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFKRS4SNFV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SFKRS4SNFV', {
+        page_title: '5 Things to Know About the I3C PurVue Analyzer (Embedded Real-Time Scope) - Primeasure',
+        page_location: window.location.href,
+        send_page_view: true
+      });
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="5 Things to Know About the I3C PurVue Analyzer (Embedded Real-Time Scope)">
+    <meta property="og:description" content="Primeasure distills Introspect’s PurVue highlights: embedded real-time oscilloscope, protocol/PHY correlation, deep buffering, flexible triggers, and automation hooks for faster I3C debug.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://primeasure.com/images/blog/i3c-purvue-analyzer/hero.jpg">
+    <meta property="og:site_name" content="Primeasure">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="5 Things to Know About the I3C PurVue Analyzer (Embedded Real-Time Scope)">
+    <meta name="twitter:description" content="Primeasure distills Introspect’s PurVue highlights: embedded real-time oscilloscope, protocol/PHY correlation, deep buffering, flexible triggers, and automation hooks for faster I3C debug.">
+    <meta name="twitter:image" content="https://primeasure.com/images/blog/i3c-purvue-analyzer/hero.jpg">
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "5 Things to Know About the I3C PurVue Analyzer (Embedded Real-Time Scope)",
+      "description": "Primeasure distills Introspect’s PurVue highlights: embedded real-time oscilloscope, protocol/PHY correlation, deep buffering, flexible triggers, and automation hooks for faster I3C debug.",
+      "image": "https://primeasure.com/images/blog/i3c-purvue-analyzer/hero.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Primeasure Interpretation"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Primeasure",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://primeasure.com/images/logo.png"
+        }
+      },
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "mainEntityOfPage": "https://primeasure.com/blog/i3c-purvue-analyzer"
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
+            <a href="../../" class="logo">
+                <img src="../../images/logo.png" alt="Primeasure Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../">Home</a></li>
+                <li><a href="../../about">About</a></li>
+                <li><a href="../../events">Events</a></li>
+                <li><a href="../../blog" class="active">Blog</a></li>
+                <li class="has-dropdown">
+                    <a href="#solutions">Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../solutions/test-measurement">Test &amp; Measurement</a></li>
+                        <li><a href="../../solutions/broadcast">Broadcast</a></li>
+                        <li><a href="../../solutions/software">Software</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="../../contact" class="schedule-demo">
+                <i class="fas fa-user"></i>
+                <span>Contact Us</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="blog-article">
+        <article>
+            <header class="article-hero">
+                <div class="container">
+                    <a href="../" class="breadcrumb">&larr; Back to Blog</a>
+                    <div class="article-topic-chips">
+                        <span class="article-topic-chip">Test &amp; Measurement</span>
+                    </div>
+                    <h1>5 Things to Know About the I3C PurVue Analyzer (Embedded Real-Time Scope)</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> 6 February 2026</span>
+                        <span><i class="far fa-clock"></i> 4 min read</span>
+                        <span><i class="far fa-user"></i> Primeasure Interpretation</span>
+                    </div>
+                </div>
+                <div class="article-hero-image">
+                    <img src="../../images/blog/i3c-purvue-analyzer/hero.jpg" alt="Engineer analyzing I3C bus signals with an embedded oscilloscope view">
+                </div>
+            </header>
+
+            <div class="container article-content">
+  <section>
+    <p><strong>Why it matters:</strong> I3C blends high-speed data with tight timing rules. PurVue embeds a real-time oscilloscope inside the analyzer workflow so engineers can see protocol and PHY behavior together—cutting debug cycles for sensors, MCU hubs, and mobile designs.</p>
+  </section>
+
+  <section>
+    <h2>1) Embedded real-time oscilloscope</h2>
+    <p>PurVue captures analog waveforms alongside protocol events. You can spot overshoot, ringing, or marginal rise times right where arbitration or HDR commands occur.</p>
+  </section>
+
+  <section>
+    <h2>2) Protocol + PHY correlation</h2>
+    <p>Markers align decoded I3C traffic with eye views, letting you tie NACKs or timing violations directly to signal integrity issues instead of guessing.</p>
+  </section>
+
+  <section>
+    <h2>3) Deep buffering for bursts</h2>
+    <p>Extended memory keeps long captures intact—useful for multi-sensor bursts, hot-join sequences, or vendor-specific command flows.</p>
+  </section>
+
+  <section>
+    <h2>4) Flexible triggering</h2>
+    <p>Trigger on protocol conditions (e.g., HDR enter/exit, hot-join) and on analog thresholds to catch rare glitches that only show under certain load states.</p>
+  </section>
+
+  <section>
+    <h2>5) Automation hooks</h2>
+    <p>Script captures and pass/fail checks to integrate I3C validation into CI pipelines. Reuse test lists across firmware drops to block regressions.</p>
+  </section>
+
+  <section>
+    <h2>Primeasure POV</h2>
+    <ul class="article-checklist">
+      <li>Correlate PurVue captures with scope-based eye/jitter on critical nets (SDA/SCL) to confirm margins before board release.</li>
+      <li>Baseline hot-join timing across temperature corners; log analog markers with decoded events for reproducibility.</li>
+      <li>Add automated alarms for SDA/SCL rise/fall limits so marginal boards are flagged early.</li>
+    </ul>
+  </section>
+
+  <section class="article-cta">
+    <h2>Need I3C Validation Help?</h2>
+    <p>Primeasure can help script PurVue workflows, correlate with eye/jitter measurements, and harden your bring-up checklist.</p>
+    <a href="../../contact" class="cta-button">Talk to Primeasure</a>
+  </section>
+
+  <section class="article-source">
+    <p><em>Source: <a href="https://introspect.ca/blog/5-things-you-need-to-know-about-the-i3c-purvue-analyzer-embedded-real-time-oscilloscope/" target="_blank" rel="noopener noreferrer">Introspect — 5 Things You Need to Know About the I3C PurVue Analyzer</a></em></p>
+  </section>
+</div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: sales@primeasure.com</p>
+                    <p>Phone: +91-9884900031</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../about">About Us</a></li>
+                        <li><a href="../../events">Events</a></li>
+                        <li><a href="../../blog">Blog</a></li>
+                        <li><a href="../../contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/primeasure-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61572242886713" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                </div>
+                <p>&copy; 2026 Primeasure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/menu.js"></script>
+    <script src="../../js/analytics.js"></script>
+</body>
+</html>

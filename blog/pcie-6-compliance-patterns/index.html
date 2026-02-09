@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Primeasure distills Teledyne LeCroy’s update: new CP0/CP1 patterns, PAM4 link training nuances, and measurement reminders to keep PCIe 6.0 compliance on track.">
+    <link rel="canonical" href="https://primeasure.com/blog/pcie-6-compliance-patterns">
+    <title>New PCIe 6.0 Compliance Patterns: What Lab Teams Should Know | Primeasure</title>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFKRS4SNFV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SFKRS4SNFV', {
+        page_title: 'New PCIe 6.0 Compliance Patterns: What Lab Teams Should Know - Primeasure',
+        page_location: window.location.href,
+        send_page_view: true
+      });
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="New PCIe 6.0 Compliance Patterns: What Lab Teams Should Know">
+    <meta property="og:description" content="Primeasure distills Teledyne LeCroy’s update: new CP0/CP1 patterns, PAM4 link training nuances, and measurement reminders to keep PCIe 6.0 compliance on track.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://primeasure.com/images/blog/pcie-6-compliance-patterns/hero.PNG">
+    <meta property="og:site_name" content="Primeasure">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="New PCIe 6.0 Compliance Patterns: What Lab Teams Should Know">
+    <meta name="twitter:description" content="Primeasure distills Teledyne LeCroy’s update: new CP0/CP1 patterns, PAM4 link training nuances, and measurement reminders to keep PCIe 6.0 compliance on track.">
+    <meta name="twitter:image" content="https://primeasure.com/images/blog/pcie-6-compliance-patterns/hero.PNG">
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "New PCIe 6.0 Compliance Patterns: What Lab Teams Should Know",
+      "description": "Primeasure distills Teledyne LeCroy’s update: new CP0/CP1 patterns, PAM4 link training nuances, and measurement reminders to keep PCIe 6.0 compliance on track.",
+      "image": "https://primeasure.com/images/blog/pcie-6-compliance-patterns/hero.PNG",
+      "author": {
+        "@type": "Organization",
+        "name": "Primeasure Interpretation"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Primeasure",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://primeasure.com/images/logo.png"
+        }
+      },
+      "datePublished": "2026-02-06",
+      "dateModified": "2026-02-06",
+      "mainEntityOfPage": "https://primeasure.com/blog/pcie-6-compliance-patterns"
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
+            <a href="../../" class="logo">
+                <img src="../../images/logo.png" alt="Primeasure Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../">Home</a></li>
+                <li><a href="../../about">About</a></li>
+                <li><a href="../../events">Events</a></li>
+                <li><a href="../../blog" class="active">Blog</a></li>
+                <li class="has-dropdown">
+                    <a href="#solutions">Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../solutions/test-measurement">Test &amp; Measurement</a></li>
+                        <li><a href="../../solutions/broadcast">Broadcast</a></li>
+                        <li><a href="../../solutions/software">Software</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="../../contact" class="schedule-demo">
+                <i class="fas fa-user"></i>
+                <span>Contact Us</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="blog-article">
+        <article>
+            <header class="article-hero">
+                <div class="container">
+                    <a href="../" class="breadcrumb">&larr; Back to Blog</a>
+                    <div class="article-topic-chips">
+                        <span class="article-topic-chip">Test &amp; Measurement</span>
+                    </div>
+                    <h1>New PCIe 6.0 Compliance Patterns: What Lab Teams Should Know</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> 6 February 2026</span>
+                        <span><i class="far fa-clock"></i> 4 min read</span>
+                        <span><i class="far fa-user"></i> Primeasure Interpretation</span>
+                    </div>
+                </div>
+                <div class="article-hero-image">
+                    <img src="../../images/blog/pcie-6-compliance-patterns/hero.PNG" alt="Oscilloscope capturing PCIe 6.0 compliance patterns on a test board">
+                </div>
+            </header>
+
+            <div class="container article-content">
+  <section>
+    <p><strong>Why it matters:</strong> PCIe 6.0’s PAM4 signaling raises the bar for compliance. New patterns and measurement rules reduce ambiguity, but only if labs generate, capture, and analyze them correctly.</p>
+  </section>
+
+  <section>
+    <h2>What’s new in the compliance patterns</h2>
+    <ul class="article-checklist">
+      <li><strong>CP0/CP1 for PAM4:</strong> Updated symbols and transition densities stress equalization and clock recovery differently than NRZ-era patterns.</li>
+      <li><strong>Link training awareness:</strong> Patterns assume proper LTSSM behavior; mis-sequenced training can skew eye openings and BER results.</li>
+      <li><strong>Scrambling and de-emphasis:</strong> Specs clarify when scrambling is disabled and how preset/de-emphasis settings apply during testing.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Measurement reminders</h2>
+    <ul class="article-checklist">
+      <li>Use scopes/analyzers that support PAM4-specific eye masks and jitter decomposition (Rj/Dj, SNDR).</li>
+      <li>Deskew fixtures, cables, and probes before captures; small skews matter more with 64 GT/s PAM4.</li>
+      <li>Validate preset levels against DUT TX EQ; capture both prescribed pattern and live training sequences for correlation.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Primeasure POV</h2>
+    <ul class="article-checklist">
+      <li>Preload new CP0/CP1 into automation scripts so engineers can A/B old vs. new sequences quickly.</li>
+      <li>Add guardrails: block runs if link training state isn’t confirmed, and log preset/de-emphasis values with each acquisition.</li>
+      <li>Pair protocol analyzer traces with oscilloscope eye/jitter captures to root-cause mask hits vs. LTSSM behavior.</li>
+    </ul>
+  </section>
+
+  <section class="article-cta">
+    <h2>Need a PCIe 6.0 sanity check?</h2>
+    <p>Primeasure can help tune de-embed files, rebuild automation for CP0/CP1, and prep your lab for upcoming plugfests.</p>
+    <a href="../../contact" class="cta-button">Talk to Primeasure</a>
+  </section>
+
+  <section class="article-source">
+    <p><em>Source: <a href="https://blog.teledynelecroy.com/2023/02/new-pcie-60-compliance-pattern.html" target="_blank" rel="noopener noreferrer">Teledyne LeCroy — New PCIe 6.0 Compliance Pattern</a></em></p>
+  </section>
+</div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: sales@primeasure.com</p>
+                    <p>Phone: +91-9884900031</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../about">About Us</a></li>
+                        <li><a href="../../events">Events</a></li>
+                        <li><a href="../../blog">Blog</a></li>
+                        <li><a href="../../contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/primeasure-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61572242886713" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                </div>
+                <p>&copy; 2026 Primeasure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/menu.js"></script>
+    <script src="../../js/analytics.js"></script>
+</body>
+</html>
