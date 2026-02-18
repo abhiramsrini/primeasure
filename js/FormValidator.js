@@ -240,6 +240,7 @@ class FormValidator {
 
         return {
             _subject: `Event Registration - ${eventTitle || 'Primeasure Event'}`,
+            _cc: this.form.querySelector('#cc-recipients')?.value || 'abhiramsrini@primeasure.com,anirudh@primeasure.com,vrushali@primeasure.com',
             _captcha: 'true',
             _honey: '',
             event_title: eventTitle,
