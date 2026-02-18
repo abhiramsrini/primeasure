@@ -203,9 +203,6 @@ class FormValidator {
     }
 
     async submitForm() {
-        const submitBtn = this.form.querySelector('.submit-button');
-        const originalBtnText = submitBtn.textContent;
-        
         // Show loading state
         this.setLoadingState(true);
 
@@ -213,36 +210,47 @@ class FormValidator {
             // Get form data
             const formData = this.getFormData();
 
-            // Submit to Google Form
-            const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe7rtOOYIsrEH-iEJJHrBCqjktH58z5af_7MJ1OEcEVGfYttA/formResponse';
-            
-            await fetch(formUrl, {
+            const response = await fetch('https://formsubmit.co/ajax/sales@primeasure.com', {
                 method: 'POST',
-                mode: 'no-cors',
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
-                body: new URLSearchParams(formData)
+                body: JSON.stringify(formData)
             });
 
-            this.showSuccessMessage();
+            const result = await response.json();
+            const isSuccess = response.ok && (result.success === true || result.success === 'true');
 
+            if (!isSuccess) {
+                throw new Error('Form submission was not accepted.');
+            }
+
+            this.showSuccessMessage();
         } catch (error) {
             console.error('Submission error:', error);
             this.showErrorMessage('There was an error submitting the form. Please try again.');
+        } finally {
             this.setLoadingState(false);
         }
     }
 
     getFormData() {
+        const eventTitle = this.form.querySelector('#event-title-field')?.value || '';
+
         return {
-            'entry.1287541098': document.getElementById('event-title-field').value,
-            'entry.908367769': document.getElementById('name').value,
-            'entry.446693609': document.getElementById('email').value,
-            'entry.1619260382': document.getElementById('phone').value,
-            'entry.1308701333': document.getElementById('company').value || '',
-            'entry.119358989': document.getElementById('designation').value || '',
-            'entry.80917227': document.getElementById('message').value || ''
+            _subject: `Event Registration - ${eventTitle || 'Primeasure Event'}`,
+            _captcha: 'true',
+            _honey: '',
+            event_title: eventTitle,
+            event_type: this.form.querySelector('#event-type')?.value || '',
+            event_id: this.form.querySelector('#event-id')?.value || '',
+            name: this.form.querySelector('#name')?.value || '',
+            email: this.form.querySelector('#email')?.value || '',
+            phone: this.form.querySelector('#phone')?.value || '',
+            company: this.form.querySelector('#company')?.value || '',
+            designation: this.form.querySelector('#designation')?.value || '',
+            message: this.form.querySelector('#message')?.value || ''
         };
     }
 
