@@ -154,7 +154,7 @@
                         <h2>Send Us a Message</h2>
                         <form id="contactForm" action="https://formsubmit.co/sales@primeasure.com" method="POST">
                             <input type="hidden" name="_subject" value="New Contact Request - Primeasure Website">
-                            <input type="hidden" name="_cc" value="abhiramsrini@primeasure.com,anirudh@primeasure.com,vrushali@primeasure.com">
+                            <input type="hidden" name="_cc" value="abhiramsrini@primeasure.com">
                             <input type="hidden" name="_honey" value="">
                             <input type="hidden" name="_captcha" value="true">
                             <div class="form-group">
@@ -250,7 +250,6 @@
                                 const form = e.target;
                                 const submitBtn = form.querySelector('.submit-button');
                                 const formData = new FormData(form);
-                                const payload = Object.fromEntries(formData.entries());
 
                                 submitBtn.textContent = 'Sending...';
                                 submitBtn.disabled = true;
@@ -259,17 +258,22 @@
                                     const response = await fetch('https://formsubmit.co/ajax/sales@primeasure.com', {
                                         method: 'POST',
                                         headers: {
-                                            'Content-Type': 'application/json',
                                             'Accept': 'application/json'
                                         },
-                                        body: JSON.stringify(payload)
+                                        body: formData
                                     });
 
-                                    const result = await response.json();
+                                    const responseText = await response.text();
+                                    let result = {};
+                                    try {
+                                        result = JSON.parse(responseText);
+                                    } catch (parseError) {
+                                        result = {};
+                                    }
                                     const isSuccess = response.ok && (result.success === true || result.success === 'true');
 
                                     if (!isSuccess) {
-                                        throw new Error('Form submission was not accepted.');
+                                        throw new Error(result.message || 'Form submission was not accepted.');
                                     }
 
                                     form.reset();
@@ -281,7 +285,7 @@
                                 } catch (error) {
                                     showSubmissionDialog(
                                         'Submission Failed',
-                                        'We could not send your message right now. Please try again in a moment.',
+                                        error.message || 'We could not send your message right now. Please try again in a moment.',
                                         false
                                     );
                                 } finally {

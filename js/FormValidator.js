@@ -209,27 +209,36 @@ class FormValidator {
         try {
             // Get form data
             const formData = this.getFormData();
+            const payload = new FormData();
+            Object.entries(formData).forEach(([key, value]) => {
+                payload.append(key, value);
+            });
 
             const response = await fetch('https://formsubmit.co/ajax/sales@primeasure.com', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify(formData)
+                body: payload
             });
 
-            const result = await response.json();
+            const responseText = await response.text();
+            let result = {};
+            try {
+                result = JSON.parse(responseText);
+            } catch (parseError) {
+                result = {};
+            }
             const isSuccess = response.ok && (result.success === true || result.success === 'true');
 
             if (!isSuccess) {
-                throw new Error('Form submission was not accepted.');
+                throw new Error(result.message || 'Form submission was not accepted.');
             }
 
             this.showSuccessMessage();
         } catch (error) {
             console.error('Submission error:', error);
-            this.showErrorMessage('There was an error submitting the form. Please try again.');
+            this.showErrorMessage(error.message || 'There was an error submitting the form. Please try again.');
         } finally {
             this.setLoadingState(false);
         }
@@ -240,7 +249,7 @@ class FormValidator {
 
         return {
             _subject: `Event Registration - ${eventTitle || 'Primeasure Event'}`,
-            _cc: this.form.querySelector('#cc-recipients')?.value || 'abhiramsrini@primeasure.com,anirudh@primeasure.com,vrushali@primeasure.com',
+            _cc: this.form.querySelector('#cc-recipients')?.value || 'abhiramsrini@primeasure.com',
             _captcha: 'true',
             _honey: '',
             event_title: eventTitle,
