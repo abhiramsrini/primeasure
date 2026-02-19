@@ -12,9 +12,12 @@ return [
     'zoho_dc' => 'in', // com | in | eu | com.au | jp
 
     // Mail routing.
-    'from_address' => 'abhiramsrini@primeasure.com',
+    'from_address' => 'sales@primeasure.com',
     'to_address' => 'sales@primeasure.com,anirudh@primeasure.com',
     'cc_address' => '',
+    'event_from_address' => 'sales@primeasure.com',
+    'event_to_address' => 'sales@primeasure.com,anirudh@primeasure.com',
+    'event_cc_address' => '',
 
     // Optional operational settings.
     'rate_limit_window_seconds' => 600,

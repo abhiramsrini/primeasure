@@ -214,7 +214,7 @@ class FormValidator {
                 payload.append(key, value);
             });
 
-            const response = await fetch('https://formsubmit.co/ajax/sales@primeasure.com', {
+            const response = await fetch('../api/event-submit.php', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json'
@@ -248,10 +248,7 @@ class FormValidator {
         const eventTitle = this.form.querySelector('#event-title-field')?.value || '';
 
         return {
-            _subject: `Event Registration - ${eventTitle || 'Primeasure Event'}`,
-            _cc: this.form.querySelector('#cc-recipients')?.value || 'abhiramsrini@primeasure.com',
-            _captcha: 'true',
-            _honey: '',
+            _honey: this.form.querySelector('input[name=\"_honey\"]')?.value || '',
             event_title: eventTitle,
             event_type: this.form.querySelector('#event-type')?.value || '',
             event_id: this.form.querySelector('#event-id')?.value || '',
