@@ -15,9 +15,15 @@ return [
     'from_address' => 'sales@primeasure.com',
     'to_address' => 'sales@primeasure.com,anirudh@primeasure.com',
     'cc_address' => '',
+    'contact_ack_enabled' => true,
+    'contact_ack_from_address' => 'sales@primeasure.com',
+    'contact_ack_subject' => 'Thank You for Contacting Primeasure',
     'event_from_address' => 'sales@primeasure.com',
     'event_to_address' => 'sales@primeasure.com,anirudh@primeasure.com',
     'event_cc_address' => '',
+    'event_ack_enabled' => true,
+    'event_ack_from_address' => 'sales@primeasure.com',
+    'event_ack_subject' => 'Registration Received - {{event_title}}',
 
     // Optional operational settings.
     'rate_limit_window_seconds' => 600,

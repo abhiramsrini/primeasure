@@ -106,6 +106,30 @@ if (!$sendResult['success']) {
     json_response(['success' => false, 'message' => 'Unable to submit your registration right now.'], 502);
 }
 
+$ackEnabled = config_bool($config['event_ack_enabled'] ?? true);
+if ($ackEnabled) {
+    $ackFromAddress = trim((string)($config['event_ack_from_address'] ?? $fromAddress));
+    if ($ackFromAddress !== '' && !is_placeholder_value($ackFromAddress)) {
+        $ackSubjectTemplate = trim((string)($config['event_ack_subject'] ?? 'Registration Received - {{event_title}}'));
+        $ackSubject = str_replace('{{event_title}}', $eventTitle, $ackSubjectTemplate !== '' ? $ackSubjectTemplate : 'Registration Received - {{event_title}}');
+
+        $ackPayload = [
+            'fromAddress' => $ackFromAddress,
+            'toAddress' => $email,
+            'subject' => $ackSubject,
+            'content' => build_acknowledgement_body($name, $eventTitle),
+            'mailFormat' => 'plaintext',
+        ];
+
+        $ackResult = send_zoho_mail($config, $accessToken, $ackPayload);
+        if (!$ackResult['success']) {
+            error_log('Event registration acknowledgement email failed to send.');
+        }
+    } else {
+        error_log('Event registration acknowledgement email skipped due to sender configuration.');
+    }
+}
+
 json_response(['success' => true], 200);
 
 function load_config(): array
@@ -130,6 +154,9 @@ function load_config(): array
         'event_from_address' => getenv('EVENT_FROM_ADDRESS') ?: '',
         'event_to_address' => getenv('EVENT_TO_ADDRESS') ?: '',
         'event_cc_address' => getenv('EVENT_CC_ADDRESS') ?: '',
+        'event_ack_enabled' => getenv('EVENT_ACK_ENABLED') ?: '1',
+        'event_ack_from_address' => getenv('EVENT_ACK_FROM_ADDRESS') ?: '',
+        'event_ack_subject' => getenv('EVENT_ACK_SUBJECT') ?: 'Registration Received - {{event_title}}',
         'rate_limit_window_seconds' => (int)(getenv('CONTACT_RATE_WINDOW') ?: 600),
         'rate_limit_max_requests' => (int)(getenv('CONTACT_RATE_MAX') ?: 5),
     ];
@@ -152,6 +179,16 @@ function normalize_address_list(string $value): string
 function str_len(string $value): int
 {
     return function_exists('mb_strlen') ? mb_strlen($value) : strlen($value);
+}
+
+function config_bool($value): bool
+{
+    if (is_bool($value)) {
+        return $value;
+    }
+
+    $normalized = strtolower(trim((string)$value));
+    return in_array($normalized, ['1', 'true', 'yes', 'on'], true);
 }
 
 function is_placeholder_value(string $value): bool
@@ -293,6 +330,25 @@ function build_message_body(
         '',
         'IP: ' . $ipAddress,
         'Submitted At (UTC): ' . gmdate('Y-m-d H:i:s'),
+    ];
+
+    return implode("\n", $lines);
+}
+
+function build_acknowledgement_body(string $name, string $eventTitle): string
+{
+    $recipient = $name !== '' ? $name : 'Participant';
+    $lines = [
+        'Dear ' . $recipient . ',',
+        '',
+        'Thank you for registering for "' . $eventTitle . '" with Primeasure Technologies.',
+        'We have received your details successfully.',
+        '',
+        'Our team will review your registration and revert shortly with the next steps.',
+        'If you have any immediate questions, please contact us at sales@primeasure.com.',
+        '',
+        'Best regards,',
+        'Primeasure Technologies',
     ];
 
     return implode("\n", $lines);

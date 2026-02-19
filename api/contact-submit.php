@@ -89,6 +89,30 @@ if (!$sendResult['success']) {
     json_response(['success' => false, 'message' => 'Unable to submit your message right now.'], 502);
 }
 
+$ackEnabled = config_bool($config['contact_ack_enabled'] ?? true);
+if ($ackEnabled) {
+    $ackFromAddress = trim((string)($config['contact_ack_from_address'] ?? $config['from_address']));
+    if ($ackFromAddress !== '' && !is_placeholder_value($ackFromAddress)) {
+        $ackSubjectTemplate = trim((string)($config['contact_ack_subject'] ?? 'Thank You for Contacting Primeasure'));
+        $ackSubject = $ackSubjectTemplate !== '' ? $ackSubjectTemplate : 'Thank You for Contacting Primeasure';
+
+        $ackPayload = [
+            'fromAddress' => $ackFromAddress,
+            'toAddress' => $email,
+            'subject' => $ackSubject,
+            'content' => build_acknowledgement_body($name, $subject),
+            'mailFormat' => 'plaintext',
+        ];
+
+        $ackResult = send_zoho_mail($config, $accessToken, $ackPayload);
+        if (!$ackResult['success']) {
+            error_log('Contact acknowledgement email failed to send.');
+        }
+    } else {
+        error_log('Contact acknowledgement email skipped due to sender configuration.');
+    }
+}
+
 json_response(['success' => true], 200);
 
 function load_config(): array
@@ -110,6 +134,9 @@ function load_config(): array
         'from_address' => getenv('CONTACT_FROM_ADDRESS') ?: '',
         'to_address' => getenv('CONTACT_TO_ADDRESS') ?: '',
         'cc_address' => getenv('CONTACT_CC_ADDRESS') ?: '',
+        'contact_ack_enabled' => getenv('CONTACT_ACK_ENABLED') ?: '1',
+        'contact_ack_from_address' => getenv('CONTACT_ACK_FROM_ADDRESS') ?: '',
+        'contact_ack_subject' => getenv('CONTACT_ACK_SUBJECT') ?: 'Thank You for Contacting Primeasure',
         'rate_limit_window_seconds' => (int)(getenv('CONTACT_RATE_WINDOW') ?: 600),
         'rate_limit_max_requests' => (int)(getenv('CONTACT_RATE_MAX') ?: 5),
     ];
@@ -132,6 +159,16 @@ function normalize_address_list(string $value): string
 function str_len(string $value): int
 {
     return function_exists('mb_strlen') ? mb_strlen($value) : strlen($value);
+}
+
+function config_bool($value): bool
+{
+    if (is_bool($value)) {
+        return $value;
+    }
+
+    $normalized = strtolower(trim((string)$value));
+    return in_array($normalized, ['1', 'true', 'yes', 'on'], true);
 }
 
 function is_placeholder_value(string $value): bool
@@ -267,6 +304,25 @@ function build_message_body(
         '',
         'IP: ' . $ipAddress,
         'Submitted At (UTC): ' . gmdate('Y-m-d H:i:s'),
+    ];
+
+    return implode("\n", $lines);
+}
+
+function build_acknowledgement_body(string $name, string $subject): string
+{
+    $recipient = $name !== '' ? $name : 'Customer';
+    $lines = [
+        'Dear ' . $recipient . ',',
+        '',
+        'Thank you for contacting Primeasure Technologies.',
+        'We have received your message and appreciate your interest in our solutions.',
+        '',
+        'Our team will review your enquiry' . ($subject !== '' ? ' regarding "' . $subject . '"' : '') . ' and get back to you shortly.',
+        'If your request is urgent, please call us at +91-9884900031.',
+        '',
+        'Best regards,',
+        'Primeasure Technologies',
     ];
 
     return implode("\n", $lines);
