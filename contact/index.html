@@ -154,6 +154,7 @@
                         <h2>Send Us a Message</h2>
                         <form id="contactForm" action="../api/contact-submit.php" method="POST">
                             <input type="hidden" name="_honey" value="">
+                            <input type="hidden" name="form_started_at" value="">
                             <div class="form-group">
                                 <label for="name">Full Name *</label>
                                 <input type="text" id="name" name="name" required>
@@ -242,7 +243,17 @@
                                 });
                             }
 
-                            document.getElementById('contactForm').addEventListener('submit', async function(e) {
+                            const contactForm = document.getElementById('contactForm');
+                            const startedAtField = contactForm.querySelector('input[name="form_started_at"]');
+                            const setStartedAt = () => {
+                                if (startedAtField) {
+                                    startedAtField.value = String(Math.floor(Date.now() / 1000));
+                                }
+                            };
+
+                            setStartedAt();
+
+                            contactForm.addEventListener('submit', async function(e) {
                                 e.preventDefault();
                                 const form = e.target;
                                 const submitBtn = form.querySelector('.submit-button');
@@ -274,6 +285,7 @@
                                     }
 
                                     form.reset();
+                                    setStartedAt();
                                     showSubmissionDialog(
                                         'Message Sent Successfully!',
                                         'Thank you for contacting us. We will get back to you soon.',

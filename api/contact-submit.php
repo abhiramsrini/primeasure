@@ -30,6 +30,12 @@ if ($honeypot !== '') {
     json_response(['success' => true], 200);
 }
 
+$minSubmitSeconds = max((int)($config['contact_min_submit_seconds'] ?? 3), 1);
+$startedAt = parse_unix_timestamp($_POST['form_started_at'] ?? null);
+if (!is_valid_submit_timing($startedAt, $minSubmitSeconds)) {
+    json_response(['success' => false, 'message' => 'We could not verify your submission. Please try again.'], 400);
+}
+
 $name = clean_input($_POST['name'] ?? '');
 $email = clean_input($_POST['email'] ?? '');
 $phone = clean_input($_POST['phone'] ?? '');
@@ -56,9 +62,15 @@ if (str_len($message) < 5 || str_len($message) > 5000) {
     json_response(['success' => false, 'message' => 'Please enter a valid message.'], 400);
 }
 
+$maxLinks = max((int)($config['contact_spam_max_links'] ?? 2), 0);
+$minMeaningfulChars = max((int)($config['contact_spam_min_meaningful_chars'] ?? 20), 5);
+if (is_suspected_spam($subject, $message, $maxLinks, $minMeaningfulChars)) {
+    json_response(['success' => false, 'message' => 'Please provide more details in your message and try again.'], 400);
+}
+
 $ipAddress = (string)($_SERVER['REMOTE_ADDR'] ?? 'unknown');
-$limitWindow = (int)($config['rate_limit_window_seconds'] ?? 600);
-$limitRequests = (int)($config['rate_limit_max_requests'] ?? 5);
+$limitWindow = (int)($config['rate_limit_window_seconds'] ?? 900);
+$limitRequests = (int)($config['rate_limit_max_requests'] ?? 3);
 
 if (!enforce_rate_limit($ipAddress, $limitWindow, $limitRequests)) {
     json_response([
@@ -137,8 +149,11 @@ function load_config(): array
         'contact_ack_enabled' => getenv('CONTACT_ACK_ENABLED') ?: '1',
         'contact_ack_from_address' => getenv('CONTACT_ACK_FROM_ADDRESS') ?: '',
         'contact_ack_subject' => getenv('CONTACT_ACK_SUBJECT') ?: 'Thank You for Contacting Primeasure',
-        'rate_limit_window_seconds' => (int)(getenv('CONTACT_RATE_WINDOW') ?: 600),
-        'rate_limit_max_requests' => (int)(getenv('CONTACT_RATE_MAX') ?: 5),
+        'contact_min_submit_seconds' => (int)(getenv('CONTACT_MIN_SUBMIT_SECONDS') ?: 3),
+        'contact_spam_max_links' => (int)(getenv('CONTACT_SPAM_MAX_LINKS') ?: 2),
+        'contact_spam_min_meaningful_chars' => (int)(getenv('CONTACT_SPAM_MIN_MEANINGFUL_CHARS') ?: 20),
+        'rate_limit_window_seconds' => (int)(getenv('CONTACT_RATE_WINDOW') ?: 900),
+        'rate_limit_max_requests' => (int)(getenv('CONTACT_RATE_MAX') ?: 3),
     ];
 }
 
@@ -171,9 +186,101 @@ function config_bool($value): bool
     return in_array($normalized, ['1', 'true', 'yes', 'on'], true);
 }
 
+function parse_unix_timestamp($value): ?int
+{
+    if (!is_scalar($value)) {
+        return null;
+    }
+
+    $raw = trim((string)$value);
+    if ($raw === '' || !preg_match('/^\d{9,12}$/', $raw)) {
+        return null;
+    }
+
+    return (int)$raw;
+}
+
+function is_valid_submit_timing(?int $startedAt, int $minSubmitSeconds): bool
+{
+    if ($startedAt === null) {
+        return false;
+    }
+
+    $now = time();
+    if ($startedAt > ($now + 60)) {
+        return false;
+    }
+
+    return ($now - $startedAt) >= $minSubmitSeconds;
+}
+
 function is_placeholder_value(string $value): bool
 {
     return strpos($value, 'REPLACE_WITH_') === 0;
+}
+
+function is_suspected_spam(string $subject, string $message, int $maxLinks, int $minMeaningfulChars): bool
+{
+    $combined = trim($subject . ' ' . $message);
+    if ($combined === '') {
+        return true;
+    }
+
+    if (count_links($combined) > $maxLinks) {
+        return true;
+    }
+
+    if (meaningful_char_count($message) < $minMeaningfulChars) {
+        return true;
+    }
+
+    $spamKeywords = [
+        'casino',
+        'betting',
+        'poker',
+        'payday loan',
+        'loan approval',
+        'guaranteed profit',
+        'crypto investment',
+        'viagra',
+        'adult dating',
+        'backlink',
+        'guest post',
+        'link exchange',
+    ];
+
+    $lower = strtolower($combined);
+    foreach ($spamKeywords as $keyword) {
+        if (strpos($lower, $keyword) !== false) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function count_links(string $text): int
+{
+    if ($text === '') {
+        return 0;
+    }
+
+    preg_match_all('/(?:https?:\/\/|www\.)\S+/i', $text, $matches);
+    return isset($matches[0]) ? count($matches[0]) : 0;
+}
+
+function meaningful_char_count(string $text): int
+{
+    if ($text === '') {
+        return 0;
+    }
+
+    $alnumOnly = preg_replace('/[^a-z0-9]+/i', '', $text);
+    if (!is_string($alnumOnly)) {
+        return 0;
+    }
+
+    return str_len($alnumOnly);
 }
 
 function enforce_rate_limit(string $ipAddress, int $windowSeconds, int $maxRequests): bool

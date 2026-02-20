@@ -26,6 +26,9 @@ return [
     'event_ack_subject' => 'Registration Received - {{event_title}}',
 
     // Optional operational settings.
-    'rate_limit_window_seconds' => 600,
-    'rate_limit_max_requests' => 5,
+    'contact_min_submit_seconds' => 3,
+    'contact_spam_max_links' => 2,
+    'contact_spam_min_meaningful_chars' => 20,
+    'rate_limit_window_seconds' => 900,
+    'rate_limit_max_requests' => 3,
 ];
