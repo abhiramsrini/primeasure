@@ -130,11 +130,10 @@ class ContentRequestForm {
     }
 
     async submitForm() {
+        const payload = new FormData(this.form);
         this.setLoadingState(true);
 
         try {
-            const payload = new FormData(this.form);
-
             const response = await fetch('../api/content-request-submit.php', {
                 method: 'POST',
                 headers: {
