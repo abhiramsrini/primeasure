@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Request event recordings and files from completed Primeasure events.">
+    <link rel="canonical" href="https://primeasure.com/request-content">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFKRS4SNFV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-SFKRS4SNFV', {
+        page_title: 'Request Event Content - Primeasure',
+        page_location: window.location.href,
+        send_page_view: true
+      });
+    </script>
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Request Event Content - Primeasure">
+    <meta property="og:description" content="Request event recordings and files from completed Primeasure events.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://primeasure.com/images/logo.png">
+    <meta property="og:site_name" content="Primeasure">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Request Event Content - Primeasure">
+    <meta name="twitter:description" content="Request event recordings and files from completed Primeasure events.">
+    <meta name="twitter:image" content="https://primeasure.com/images/logo.png">
+
+    <title>Request Event Content - Primeasure</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .contact-section .event-card {
+            cursor: default;
+        }
+
+        .contact-section .event-card:hover {
+            transform: none;
+            box-shadow: var(--shadow-sm);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
+            <a href="../" class="logo">
+                <img src="../images/logo.png" alt="Primeasure Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../">Home</a></li>
+                <li><a href="../about">About</a></li>
+                <li><a href="../events" class="active">Events</a></li>
+                <li><a href="../blog">Blog</a></li>
+                <li class="has-dropdown">
+                    <a href="#solutions">Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../solutions/test-measurement">Test & Measurement</a></li>
+                        <li><a href="../solutions/broadcast">Broadcast</a></li>
+                        <li><a href="../solutions/software">Software</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="../contact" class="schedule-demo">
+                <i class="fas fa-user"></i>
+                <span>Contact Us</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="hero-banner">
+        <div class="hero-content">
+            <h1>Request Event Content</h1>
+            <p>Submit your request for recordings, slides, or event files.</p>
+        </div>
+    </div>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="event-card" id="request-event-card">
+                <div class="event-date-badge">
+                    <span class="weekday" id="event-weekday"></span>
+                    <span class="month" id="event-month"></span>
+                    <span class="day" id="event-day"></span>
+                    <span class="year" id="event-year"></span>
+                    <span class="time" id="event-time"></span>
+                </div>
+                <div class="event-main">
+                    <h3 id="event-name"></h3>
+                    <div class="event-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="event-location"></span>
+                    </div>
+                    <p class="description" id="event-description"></p>
+                </div>
+                <div class="event-logo">
+                    <img src="" alt="Event Logo">
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h2 id="request-title">Request Event Content</h2>
+                <form id="content-request-form" action="../api/content-request-submit.php" method="POST">
+                    <input type="hidden" name="_honey" value="">
+                    <input type="hidden" id="event-type" name="event_type">
+                    <input type="hidden" id="event-id" name="event_id">
+
+                    <div class="form-group">
+                        <label for="event-title-field">Event</label>
+                        <input type="text" id="event-title-field" name="event_title" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company Name *</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+
+                    <button type="submit" class="submit-button">Request Content</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: sales@primeasure.com</p>
+                    <p>Phone: +91-9884900031</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../about">About Us</a></li>
+                        <li><a href="../events">Events</a></li>
+                        <li><a href="../blog">Blog</a></li>
+                        <li><a href="../contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/primeasure-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61572242886713" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                </div>
+                <p>&copy; 2026 Primeasure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/EventManager.js"></script>
+    <script src="../js/ContentRequestRouter.js"></script>
+    <script src="../js/ContentRequestForm.js"></script>
+    <script src="../js/analytics.js"></script>
+</body>
+</html>

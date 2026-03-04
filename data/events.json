@@ -103,6 +103,7 @@
       "registrationEnabled": false,
       "company": "Primeasure",
       "status": "completed",
+      "contentRequestEnabled": true,
       "recapLabel": "View Recap"
     },
     {
@@ -120,6 +121,7 @@
       "registrationEnabled": false,
       "company": "Primeasure",
       "status": "completed",
+      "contentRequestEnabled": false,
       "recapLabel": "View Recap"
     },
     {
@@ -136,7 +138,8 @@
       "imageAlt": "Primeasure Logo",
       "registrationEnabled": true,
       "company": "Primeasure",
-      "status": "upcoming"
+      "status": "completed",
+      "contentRequestEnabled": true
     },
     {
       "id": "pcie-lab-days-2024-02-10",

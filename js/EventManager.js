@@ -335,10 +335,16 @@ class EventManager {
         const recapLabel = event.recapLabel || 'View Recap';
 
         if (status === 'completed') {
-            if (recapUrl) {
-                return `<a href="${recapUrl}" target="_blank" rel="noopener noreferrer" class="info-button recap-button">${recapLabel}</a>`;
+            if (!this.isContentRequestEnabled(event)) {
+                return '<span class="event-status-note">Thanks for joining</span>';
             }
-            return '<span class="event-status-note">Thanks for joining</span>';
+
+            const eventSlug = event.slug || '';
+            const requestButton = `<a href="../request-content#${eventSlug}" class="register-button content-request-button">Request Content</a>`;
+            if (recapUrl) {
+                return `${requestButton}<a href="${recapUrl}" target="_blank" rel="noopener noreferrer" class="info-button recap-button">${recapLabel}</a>`;
+            }
+            return requestButton;
         }
 
         if (event.registrationEnabled) {
@@ -361,6 +367,14 @@ class EventManager {
     normalizeStatus(value) {
         if (!value) return 'upcoming';
         return String(value).trim().toLowerCase();
+    }
+
+    isContentRequestEnabled(event = {}) {
+        if (typeof event.contentRequestEnabled === 'boolean') {
+            return event.contentRequestEnabled;
+        }
+
+        return Boolean(event.recapUrl || event.recordingUrl || event.slidesUrl);
     }
 
     renderEventsGrid(events = null, emptyMessage = 'More events will be announced soon. Stay tuned!') {

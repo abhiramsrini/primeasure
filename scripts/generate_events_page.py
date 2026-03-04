@@ -133,15 +133,28 @@ def build_action_button(event):
         or event.get("slidesUrl")
     )
     recap_label = event.get("recapLabel") or "View Recap"
+    content_request_url = f'../request-content#{escape(event.get("slug", ""))}'
 
     if status == "completed":
+        content_request_enabled = event.get("contentRequestEnabled")
+        if not isinstance(content_request_enabled, bool):
+            content_request_enabled = bool(recap_url)
+
+        if not content_request_enabled:
+            return '<span class="event-status-note">Thanks for joining</span>'
+
+        request_button = (
+            f'<a href="{content_request_url}" '
+            'class="register-button content-request-button">Request Content</a>'
+        )
         if recap_url:
-            return (
+            recap_button = (
                 f'<a href="{escape(recap_url)}" target="_blank" '
                 'rel="noopener noreferrer" class="info-button recap-button">'
                 f"{escape(recap_label)}</a>"
             )
-        return '<span class="event-status-note">Thanks for joining</span>'
+            return request_button + recap_button
+        return request_button
 
     if event.get("registrationEnabled"):
         return (

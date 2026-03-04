@@ -24,6 +24,12 @@ return [
     'event_ack_enabled' => true,
     'event_ack_from_address' => 'sales@primeasure.com',
     'event_ack_subject' => 'Registration Received - {{event_title}}',
+    'content_request_from_address' => 'sales@primeasure.com',
+    'content_request_to_address' => 'sales@primeasure.com,anirudh@primeasure.com',
+    'content_request_cc_address' => '',
+    'content_request_ack_enabled' => true,
+    'content_request_ack_from_address' => 'sales@primeasure.com',
+    'content_request_ack_subject' => 'Content Request Received - {{event_title}}',
 
     // Optional operational settings.
     'contact_min_submit_seconds' => 3,
