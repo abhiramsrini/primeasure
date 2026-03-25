@@ -1,59 +1,35 @@
-// Intersection Observer for animate-on-scroll
-// Animate cards on scroll
-const animateOnScroll = () => {
-    const cards = document.querySelectorAll('.product-card, .service-card, .value-card, .support-card');
-    
-    cards.forEach(card => {
-        const cardTop = card.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        
-        if (cardTop < windowHeight * 0.85) {
-            card.classList.add('animate');
-        }
-    });
-};
-
-window.addEventListener('scroll', animateOnScroll);
-window.addEventListener('load', animateOnScroll);
-const observerOptions = {
-    threshold: 0.2,
-    rootMargin: '0px'
-};
-
+// Intersection Observer for animate-on-scroll (replaces getBoundingClientRect scroll loop)
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('animate');
         }
     });
-}, observerOptions);
+}, { threshold: 0.2 });
 
-// Observe all animatable elements
 document.querySelectorAll('.product-card, .service-card, .value-card, .support-card').forEach(el => {
     observer.observe(el);
 });
 
-// Navbar scroll behavior
+// Navbar scroll behaviour — hide on scroll-down, reveal on scroll-up
 let lastScroll = 0;
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     if (currentScroll <= 0) {
         navbar.classList.remove('scroll-up');
         return;
     }
 
     if (currentScroll > lastScroll && !navbar.classList.contains('scroll-down')) {
-        // Scrolling down
         navbar.classList.remove('scroll-up');
         navbar.classList.add('scroll-down');
     } else if (currentScroll < lastScroll && navbar.classList.contains('scroll-down')) {
-        // Scrolling up
         navbar.classList.remove('scroll-down');
         navbar.classList.add('scroll-up');
     }
 
     lastScroll = currentScroll;
-});
+}, { passive: true });

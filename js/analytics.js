@@ -14,33 +14,18 @@ class PrimeasureAnalytics {
         this.init();
     }
 
-    init() {
-        // Wait for gtag to be available
+    init(retries = 0) {
         if (typeof gtag !== 'undefined') {
             this.setupEventTracking();
-            this.trackPageView();
-        } else {
-            // Retry after a short delay
-            setTimeout(() => this.init(), 100);
+        } else if (retries < 20) {
+            // Retry up to 2 seconds; gtag is always defined in <head> so this is a safety net only
+            setTimeout(() => this.init(retries + 1), 100);
         }
     }
 
-    // Track page views with enhanced data
+    // Page view is already sent by the inline gtag('config') in <head> — no duplicate needed.
     trackPageView() {
-        const pageTitle = document.title;
-        const pageLocation = window.location.href;
-        const pagePath = window.location.pathname;
-        
-        if (typeof gtag !== 'undefined') {
-            gtag('config', ANALYTICS_CONFIG.GA4_ID, {
-                page_title: pageTitle,
-                page_location: pageLocation,
-                page_path: pagePath,
-                send_page_view: true
-            });
-        }
-
-        this.log('Page view tracked:', pageTitle);
+        this.log('Page view tracked (by inline gtag config):', document.title);
     }
 
     // Track contact form submissions
@@ -255,23 +240,28 @@ class PrimeasureAnalytics {
         this.setupBlogTracking();
     }
 
-    // Setup scroll depth tracking
+    // Setup scroll depth tracking — throttled via requestAnimationFrame, passive listener
     setupScrollTracking() {
         let scrollDepthTracked = [];
         const thresholds = [25, 50, 75, 90];
+        let ticking = false;
 
         window.addEventListener('scroll', () => {
-            const scrollPercent = Math.round(
-                (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
-            );
-
-            thresholds.forEach(threshold => {
-                if (scrollPercent >= threshold && !scrollDepthTracked.includes(threshold)) {
-                    scrollDepthTracked.push(threshold);
-                    this.trackScrollDepth(threshold);
-                }
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                if (docHeight <= 0) { ticking = false; return; }
+                const scrollPercent = Math.round((window.scrollY / docHeight) * 100);
+                thresholds.forEach(threshold => {
+                    if (scrollPercent >= threshold && !scrollDepthTracked.includes(threshold)) {
+                        scrollDepthTracked.push(threshold);
+                        this.trackScrollDepth(threshold);
+                    }
+                });
+                ticking = false;
             });
-        });
+        }, { passive: true });
     }
 
     // Detect and track solution page views
