@@ -7,6 +7,9 @@
     <link rel="canonical" href="{{CANONICAL_URL}}">
     <title>{{TITLE}} | Primeasure</title>
 
+    <!-- Resource hints -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFKRS4SNFV"></script>
     <script>
@@ -36,7 +39,8 @@
 
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
 
     <script type="application/ld+json">
 {{STRUCTURED_DATA}}
@@ -49,7 +53,7 @@
                 <span class="menu-icon"></span>
             </button>
             <a href="../../" class="logo">
-                <img src="../../images/logo.png" alt="Primeasure Logo">
+                <img src="../../images/logo.webp" alt="Primeasure Logo">
             </a>
             <ul class="nav-links">
                 <li><a href="../../">Home</a></li>

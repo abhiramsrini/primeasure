@@ -89,7 +89,7 @@ class ContentRequestRouter {
 
         const logoImg = document.querySelector('.event-logo img');
         if (logoImg) {
-            logoImg.src = event.image || '../images/logo.png';
+            logoImg.src = event.image || '../images/logo.webp';
             logoImg.alt = event.imageAlt || 'Event Logo';
         }
     }

@@ -10,7 +10,7 @@
       "topics": [
         "test-measurement"
       ],
-      "heroImage": "../images/blog/i3c-purvue-analyzer/hero.jpg",
+      "heroImage": "../images/blog/i3c-purvue-analyzer/hero.webp",
       "heroAlt": "Engineer analyzing I3C bus signals with an embedded oscilloscope view",
       "author": "Primeasure Interpretation"
     },
@@ -24,7 +24,7 @@
       "topics": [
         "test-measurement"
       ],
-      "heroImage": "../images/blog/pcie-6-compliance-patterns/hero.PNG",
+      "heroImage": "../images/blog/pcie-6-compliance-patterns/hero.webp",
       "heroAlt": "Oscilloscope capturing PCIe 6.0 compliance patterns on a test board",
       "author": "Primeasure Interpretation"
     },
@@ -38,7 +38,7 @@
       "topics": [
         "broadcast"
       ],
-      "heroImage": "../images/blog/data-driven-news-graphics/hero.jpg",
+      "heroImage": "../images/blog/data-driven-news-graphics/hero.webp",
       "heroAlt": "News control room preparing data-driven lower thirds",
       "author": "Primeasure Interpretation"
     },
@@ -52,7 +52,7 @@
       "topics": [
         "test-measurement"
       ],
-      "heroImage": "../images/blog/high-voltage-probe-selection/hero.png",
+      "heroImage": "../images/blog/high-voltage-probe-selection/hero.webp",
       "heroAlt": "Engineer connecting a high-voltage probe to a power electronics board",
       "author": "Primeasure Interpretation"
     },
@@ -66,7 +66,7 @@
       "topics": [
         "test-measurement"
       ],
-      "heroImage": "../images/blog/sv6e-soundwire-analysis/hero.jpg",
+      "heroImage": "../images/blog/sv6e-soundwire-analysis/hero.webp",
       "heroAlt": "Oscilloscope setup analyzing SoundWire interface signals",
       "author": "Primeasure Interpretation"
     },
@@ -80,7 +80,7 @@
       "topics": [
         "broadcast"
       ],
-      "heroImage": "../images/blog/virtual-placement-8-ip-workflows/hero.png",
+      "heroImage": "../images/blog/virtual-placement-8-ip-workflows/hero.webp",
       "heroAlt": "Broadcast camera operator courtside with augmented graphics overlay",
       "author": "Primeasure Interpretation"
     },
@@ -94,7 +94,7 @@
       "topics": [
         "test-measurement"
       ],
-      "heroImage": "../images/blog/oscilloscope-network-security/hero.jpg",
+      "heroImage": "../images/blog/oscilloscope-network-security/hero.webp",
       "heroAlt": "Teledyne LeCroy WaveSurfer oscilloscope front panel and network ports",
       "author": "Primeasure Interpretation"
     },
@@ -108,7 +108,7 @@
       "topics": [
         "test-measurement"
       ],
-      "heroImage": "../images/blog/panel-self-refresh-testing/hero.png",
+      "heroImage": "../images/blog/panel-self-refresh-testing/hero.webp",
       "heroAlt": "Engineer validating embedded DisplayPort panel self refresh sequences",
       "author": "Primeasure Interpretation"
     },
@@ -122,7 +122,7 @@
       "topics": [
         "test-measurement"
       ],
-      "heroImage": "../images/blog/choosing-oscilloscope-basics/hero.png",
+      "heroImage": "../images/blog/choosing-oscilloscope-basics/hero.webp",
       "heroAlt": "Engineer reviewing oscilloscope bandwidth and sampling charts",
       "author": "Primeasure Interpretation"
     },
@@ -136,7 +136,7 @@
       "topics": [
         "broadcast"
       ],
-      "heroImage": "../images/blog/cloud-production-sports-broadcasting/hero.png",
+      "heroImage": "../images/blog/cloud-production-sports-broadcasting/hero.webp",
       "heroAlt": "Sports production team monitoring cloud-based broadcast feeds",
       "author": "Primeasure Interpretation"
     },
@@ -150,7 +150,7 @@
       "topics": [
         "broadcast"
       ],
-      "heroImage": "../images/blog/ampp-platform-updates/hero.png",
+      "heroImage": "../images/blog/ampp-platform-updates/hero.webp",
       "heroAlt": "Control room operators managing cloud production dashboards",
       "author": "Primeasure Interpretation"
     },
@@ -164,7 +164,7 @@
       "topics": [
         "test-measurement"
       ],
-      "heroImage": "../images/blog/evolution-in-vehicle-network/hero.png",
+      "heroImage": "../images/blog/evolution-in-vehicle-network/hero.webp",
       "heroAlt": "Engineer monitoring automotive network analysis tools",
       "author": "Primeasure Interpretation"
     },
@@ -178,7 +178,7 @@
       "topics": [
         "test-measurement"
       ],
-      "heroImage": "../images/blog/pcie-6-transmitter-testing/hero.png",
+      "heroImage": "../images/blog/pcie-6-transmitter-testing/hero.webp",
       "heroAlt": "Oscilloscope verifying PCIe transmitter eye diagram",
       "author": "Primeasure Interpretation"
     },
@@ -192,7 +192,7 @@
       "topics": [
         "test-measurement"
       ],
-      "heroImage": "../images/blog/debugging-edp-power-saving/hero.png",
+      "heroImage": "../images/blog/debugging-edp-power-saving/hero.webp",
       "heroAlt": "Engineer analyzing embedded DisplayPort power management signals",
       "author": "Primeasure Interpretation"
     },
@@ -207,7 +207,7 @@
         "memory",
         "test-measurement"
       ],
-      "heroImage": "../images/blog/probing-ddr-lpddr-signals/hero.png",
+      "heroImage": "../images/blog/probing-ddr-lpddr-signals/hero.webp",
       "heroAlt": "Oscilloscope probing DDR memory interfaces",
       "author": "Primeasure Interpretation"
     },
@@ -221,7 +221,7 @@
       "topics": [
         "test-measurement"
       ],
-      "heroImage": "../images/blog/rsh2-oscilloscope-compatibility/hero.png",
+      "heroImage": "../images/blog/rsh2-oscilloscope-compatibility/hero.webp",
       "heroAlt": "Engineer preparing oscilloscopes and probes in a lab",
       "author": "Primeasure Interpretation"
     }

@@ -421,7 +421,7 @@ class BlogManager {
                 publishDate: '2025-03-21',
                 readingTime: 7,
                 topics: ['test-measurement'],
-                heroImage: '../images/blog/pcie-6-transmitter-testing/hero.png',
+                heroImage: '../images/blog/pcie-6-transmitter-testing/hero.webp',
                 heroAlt: 'Oscilloscope verifying PCIe transmitter eye diagram',
                 author: 'Primeasure High-Speed Team'
             },
@@ -433,7 +433,7 @@ class BlogManager {
                 publishDate: '2025-03-23',
                 readingTime: 6,
                 topics: ['broadcast'],
-                heroImage: '../images/blog/cloud-production-sports-broadcasting/hero.png',
+                heroImage: '../images/blog/cloud-production-sports-broadcasting/hero.webp',
                 heroAlt: 'Sports production team monitoring cloud-based broadcast feeds',
                 author: 'Primeasure Broadcast Practice'
             },
@@ -445,7 +445,7 @@ class BlogManager {
                 publishDate: '2025-03-23',
                 readingTime: 5,
                 topics: ['broadcast', 'software'],
-                heroImage: '../images/blog/ampp-platform-updates/hero.png',
+                heroImage: '../images/blog/ampp-platform-updates/hero.webp',
                 heroAlt: 'Control room operators managing cloud production dashboards',
                 author: 'Primeasure Broadcast Practice'
             },
@@ -457,7 +457,7 @@ class BlogManager {
                 publishDate: '2025-03-20',
                 readingTime: 6,
                 topics: ['software', 'test-measurement'],
-                heroImage: '../images/blog/debugging-edp-power-saving/hero.png',
+                heroImage: '../images/blog/debugging-edp-power-saving/hero.webp',
                 heroAlt: 'Engineer analyzing embedded DisplayPort power management signals',
                 author: 'Primeasure Display & Software Team'
             },
@@ -469,7 +469,7 @@ class BlogManager {
                 publishDate: '2025-03-18',
                 readingTime: 5,
                 topics: ['test-measurement'],
-                heroImage: '../images/blog/rsh2-oscilloscope-compatibility/hero.png',
+                heroImage: '../images/blog/rsh2-oscilloscope-compatibility/hero.webp',
                 heroAlt: 'Engineer preparing oscilloscopes and probes in a lab',
                 author: 'Primeasure Test & Measurement Team'
             },
@@ -481,7 +481,7 @@ class BlogManager {
                 publishDate: '2025-03-20',
                 readingTime: 6,
                 topics: ['memory', 'test-measurement'],
-                heroImage: '../images/blog/probing-ddr-lpddr-signals/hero.png',
+                heroImage: '../images/blog/probing-ddr-lpddr-signals/hero.webp',
                 heroAlt: 'Oscilloscope probing DDR memory interfaces',
                 author: 'Primeasure Memory Solutions Team'
             },
@@ -493,7 +493,7 @@ class BlogManager {
                 publishDate: '2025-03-22',
                 readingTime: 6,
                 topics: ['automotive', 'test-measurement'],
-                heroImage: '../images/blog/evolution-in-vehicle-network/hero.png',
+                heroImage: '../images/blog/evolution-in-vehicle-network/hero.webp',
                 heroAlt: 'Engineer monitoring automotive network analysis tools',
                 author: 'Primeasure Automotive Solutions'
             }
