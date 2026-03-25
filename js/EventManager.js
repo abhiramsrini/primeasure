@@ -298,6 +298,9 @@ class EventManager {
         const dateInfo = this.formatEventDate(event);
         const actionButton = this.getActionButton(event);
         const statusTag = this.getStatusTag(event);
+        const actionsHtml = actionButton
+            ? `<div class="event-actions">${actionButton}</div>`
+            : '';
 
         return `
             <div class="event-card">
@@ -318,9 +321,7 @@ class EventManager {
                         <span>${event.location}</span>
                     </div>
                     <p>${event.description}</p>
-                    <div class="event-actions">
-                        ${actionButton}
-                    </div>
+                    ${actionsHtml}
                 </div>
                 <div class="event-logo">
                     <img src="${event.image}" alt="${event.imageAlt}">
@@ -361,7 +362,7 @@ class EventManager {
         if (status === 'completed') {
             return '<span class="event-status-tag event-status-tag--completed">Event Completed</span>';
         }
-        return '';
+        return '<span class="event-status-tag event-status-tag--upcoming">Upcoming</span>';
     }
 
     normalizeStatus(value) {

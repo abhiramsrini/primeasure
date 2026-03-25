@@ -1,6 +1,23 @@
 {
   "events": [
     {
+      "id": "nab-2026-04-18",
+      "slug": "nab-2026",
+      "type": "expo",
+      "title": "NAB Show 2026",
+      "date": "2026-04-18",
+      "dateEnd": "2026-04-22",
+      "time": "9:00 AM",
+      "location": "Las Vegas, NV, USA",
+      "description": "Meet the Primeasure team at NAB Show 2026, where we'll be representing Grass Valley. Find us at Booth C2408.",
+      "fullDescription": "The Primeasure team will be present at NAB Show 2026 representing Grass Valley. Visit us at Booth C2408 to explore the latest broadcast and media technology solutions. NAB Show is the world's largest convention encompassing the convergence of media, entertainment, and technology.",
+      "image": "../images/events/nab.jpg",
+      "imageAlt": "NAB Show 2026 Logo",
+      "registrationEnabled": false,
+      "company": "GrassValley",
+      "status": "upcoming"
+    },
+    {
       "id": "memory-solutions-2025-09-02",
       "slug": "memory-solutions-seminar",
       "type": "seminar",
@@ -123,6 +140,22 @@
       "status": "completed",
       "contentRequestEnabled": false,
       "recapLabel": "View Recap"
+    },
+    {
+      "id": "pcie-gen6-webinar-2026-04-22",
+      "slug": "pcie-gen6-multi-level-signaling-2026",
+      "type": "webinar",
+      "title": "Beyond NRZ: Tackling Multi-Level Signaling Challenges in Next-Generation High-Speed Interfaces",
+      "date": "2026-04-22",
+      "time": "3:00 PM – 4:00 PM IST",
+      "location": "Webinar (IST)",
+      "description": "Join Thanu Rajendran and Sadanand Bhatt as they explore PCIe Gen 6 multi-level signaling challenges using a combined Teledyne LeCroy and Anritsu solution.",
+      "fullDescription": "Join Thanu Rajendran and Sadanand Bhatt as they explore PCIe Gen 6 multi-level signaling challenges using a combined Teledyne LeCroy and Anritsu solution.",
+      "image": "../images/logo.png",
+      "imageAlt": "Primeasure Logo",
+      "registrationEnabled": true,
+      "company": "Primeasure",
+      "status": "upcoming"
     },
     {
       "id": "clock-expert-2026-03-04",
