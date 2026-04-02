@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Primeasure's product catalog — authorized distributor for Teledyne LeCroy oscilloscopes in India. High-definition and standard oscilloscopes for semiconductor, automotive, R&D industries.">
+    <link rel="canonical" href="https://primeasure.com/products">
+
+    <!-- Resource hints -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFKRS4SNFV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SFKRS4SNFV', {
+        page_title: 'Products - Primeasure',
+        page_location: window.location.href,
+        send_page_view: true
+      });
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Products - Primeasure">
+    <meta property="og:description" content="Authorized distributor for Teledyne LeCroy oscilloscopes in India. Explore our product catalog.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../images/home/waveform.webp">
+    <meta property="og:site_name" content="Primeasure">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Products - Primeasure">
+    <meta name="twitter:description" content="Authorized distributor for Teledyne LeCroy oscilloscopes in India.">
+    <meta name="twitter:image" content="../images/home/waveform.webp">
+
+    <title>Products | Teledyne LeCroy Oscilloscopes India - Primeasure</title>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Products - Primeasure",
+      "description": "Product catalog for Primeasure — authorized Teledyne LeCroy distributor in India.",
+      "url": "https://primeasure.com/products",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Primeasure",
+        "url": "https://primeasure.com"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+
+    <style>
+        /* ===== PRODUCTS LANDING PAGE STYLES ===== */
+        .products-intro-section {
+            padding: 64px 0;
+            background: #fff;
+        }
+
+        .products-intro-text {
+            max-width: 700px;
+            margin: 0 auto 56px;
+            text-align: center;
+        }
+
+        .products-intro-text h2 {
+            font-size: 1.75rem;
+            color: var(--primary-blue, #241F61);
+            margin-bottom: 16px;
+        }
+
+        .products-intro-text p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .product-categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .category-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.09);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .category-card:hover:not(.coming-soon) {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 32px rgba(0,0,0,0.14);
+        }
+
+        .category-card-img {
+            height: 200px;
+            background: linear-gradient(135deg, #241F61 0%, #2F308B 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card-img::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 65%);
+        }
+
+        .category-card-img i {
+            font-size: 3.5rem;
+            color: rgba(255,255,255,0.35);
+            position: relative;
+            z-index: 1;
+        }
+
+        .category-card-body {
+            padding: 28px 24px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-label {
+            display: inline-block;
+            background: #eef0ff;
+            color: #2F308B;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+        }
+
+        .category-card-body h2 {
+            font-size: 1.3rem;
+            color: #241F61;
+            margin: 0 0 10px;
+        }
+
+        .category-card-body p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        .category-card-body .cta-button {
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            background: #241F61;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .category-card-body .cta-button:hover {
+            background: #2F308B;
+            transform: translateY(-2px);
+        }
+
+        /* Coming Soon card */
+        .coming-soon {
+            opacity: 0.55;
+            cursor: default;
+        }
+
+        .coming-soon .category-card-img {
+            background: linear-gradient(135deg, #555 0%, #777 100%);
+        }
+
+        .coming-soon-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 50px;
+            z-index: 2;
+        }
+
+        .coming-soon .category-card-body .cta-button {
+            background: #999;
+            pointer-events: none;
+        }
+
+        @media (max-width: 1024px) {
+            .product-categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .product-categories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="menu-icon"></span>
+                </button>
+                <a href="../" class="logo">
+                    <img src="../images/logo.webp" alt="Primeasure Logo">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../about">About</a></li>
+                    <li><a href="../events">Events</a></li>
+                    <li><a href="../blog">Blog</a></li>
+                    <li class="has-dropdown">
+                        <a href="../products" class="active">Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../products/oscilloscopes">Oscilloscopes</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#solutions">Solutions</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../solutions/test-measurement">Test & Measurement</a></li>
+                            <li><a href="../solutions/broadcast">Broadcast</a></li>
+                            <li><a href="../solutions/software">Software</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a href="../contact" class="schedule-demo">
+                    <i class="fas fa-user"></i>
+                    <span>Contact Us</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-banner">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Products</h1>
+                    <p>Authorized distributor for industry-leading test &amp; measurement instruments in India</p>
+                    <div class="hero-buttons">
+                        <a href="../contact" class="cta-button">Request a Quote</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="products-intro-section">
+            <div class="container">
+                <div class="products-intro-text">
+                    <h2>Industry-Leading Instruments, Expert Local Support</h2>
+                    <p>Primeasure is an authorized distributor for Teledyne LeCroy in India. We supply, demonstrate, and support the full range of their test &amp; measurement instruments — from entry-level oscilloscopes to ultra-high-bandwidth modular systems — backed by over 30 years of expertise.</p>
+                </div>
+
+                <div class="product-categories-grid">
+
+                    <!-- Oscilloscopes -->
+                    <div class="category-card">
+                        <div class="category-card-img" style="background:#fff; border-bottom:1px solid #f0f0f0;">
+                            <img src="../images/products/waveprohd.webp" alt="WavePro HD Oscilloscope" style="width:100%;height:100%;object-fit:contain;padding:16px;">
+                        </div>
+                        <div class="category-card-body">
+                            <span class="category-label">Teledyne LeCroy</span>
+                            <h2>Oscilloscopes</h2>
+                            <p>From 70 MHz entry-level scopes to 65 GHz modular high-bandwidth systems — 18 product families covering high-definition (12-bit) and standard (8-bit) platforms.</p>
+                            <a href="oscilloscopes" class="cta-button">
+                                View All Oscilloscopes
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Coming Soon: Probes & Accessories -->
+                    <div class="category-card coming-soon">
+                        <div class="category-card-img">
+                            <span class="coming-soon-badge">Coming Soon</span>
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <div class="category-card-body">
+                            <span class="category-label">Teledyne LeCroy</span>
+                            <h2>Probes &amp; Accessories</h2>
+                            <p>Differential, high-voltage, current, and active probes to complement your oscilloscope setup.</p>
+                            <a href="#" class="cta-button">
+                                Coming Soon
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: sales@primeasure.com</p>
+                    <p>Phone: +91-9884900031</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../about">About Us</a></li>
+                        <li><a href="../events">Events</a></li>
+                        <li><a href="../blog">Blog</a></li>
+                        <li><a href="../contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/primeasure-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61572242886713" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                </div>
+                <p>&copy; 2026 Primeasure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/menu.js" defer></script>
+    <script src="../js/analytics.js" defer></script>
+</body>
+</html>
