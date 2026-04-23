@@ -15,7 +15,8 @@
       "imageAlt": "NAB Show 2026 Logo",
       "registrationEnabled": false,
       "company": "GrassValley",
-      "status": "upcoming"
+      "status": "completed",
+      "contentRequestEnabled": false
     },
     {
       "id": "memory-solutions-2025-09-02",
@@ -153,9 +154,10 @@
       "fullDescription": "Join Thanu Rajendran and Sadanand Bhatt as they explore PCIe Gen 6 multi-level signaling challenges using a combined Teledyne LeCroy and Anritsu solution.",
       "image": "../images/logo.webp",
       "imageAlt": "Primeasure Logo",
-      "registrationEnabled": true,
+      "registrationEnabled": false,
       "company": "Primeasure",
-      "status": "upcoming"
+      "status": "completed",
+      "contentRequestEnabled": true
     },
     {
       "id": "clock-expert-2026-03-04",
