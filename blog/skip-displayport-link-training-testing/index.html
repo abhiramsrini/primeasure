@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Primeasure&#x27;s take on Introspect&#x27;s SV7C-eDP approach: a simple Pinetree software toggle disables link training so engineers can stream video to non-compliant prototypes and validate receiver traffic and signal integrity weeks before firmware is ready.">
+    <link rel="canonical" href="https://primeasure.com/blog/skip-displayport-link-training-testing">
+    <title>How to Skip DisplayPort Link Training for Early-Stage Prototype Testing | Primeasure</title>
+
+    <!-- Resource hints -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFKRS4SNFV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SFKRS4SNFV', {
+        page_title: 'How to Skip DisplayPort Link Training for Early-Stage Prototype Testing - Primeasure',
+        page_location: window.location.href,
+        send_page_view: true
+      });
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="How to Skip DisplayPort Link Training for Early-Stage Prototype Testing">
+    <meta property="og:description" content="Primeasure&#x27;s take on Introspect&#x27;s SV7C-eDP approach: a simple Pinetree software toggle disables link training so engineers can stream video to non-compliant prototypes and validate receiver traffic and signal integrity weeks before firmware is ready.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://primeasure.com/images/blog/skip-displayport-link-training-testing/hero.webp">
+    <meta property="og:site_name" content="Primeasure">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Skip DisplayPort Link Training for Early-Stage Prototype Testing">
+    <meta name="twitter:description" content="Primeasure&#x27;s take on Introspect&#x27;s SV7C-eDP approach: a simple Pinetree software toggle disables link training so engineers can stream video to non-compliant prototypes and validate receiver traffic and signal integrity weeks before firmware is ready.">
+    <meta name="twitter:image" content="https://primeasure.com/images/blog/skip-displayport-link-training-testing/hero.webp">
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Skip DisplayPort Link Training for Early-Stage Prototype Testing",
+      "description": "Primeasure's take on Introspect's SV7C-eDP approach: a simple Pinetree software toggle disables link training so engineers can stream video to non-compliant prototypes and validate receiver traffic and signal integrity weeks before firmware is ready.",
+      "image": "https://primeasure.com/images/blog/skip-displayport-link-training-testing/hero.webp",
+      "author": {
+        "@type": "Organization",
+        "name": "Primeasure Interpretation"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Primeasure",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://primeasure.com/images/logo.png"
+        }
+      },
+      "datePublished": "2026-05-11",
+      "dateModified": "2026-05-11",
+      "mainEntityOfPage": "https://primeasure.com/blog/skip-displayport-link-training-testing"
+    }
+    </script>
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
+            <a href="../../" class="logo">
+                <img src="../../images/logo.webp" alt="Primeasure Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../">Home</a></li>
+                <li><a href="../../about">About</a></li>
+                <li><a href="../../events">Events</a></li>
+                <li><a href="../../blog" class="active">Blog</a></li>
+                <li class="has-dropdown">
+                    <a href="../../products">Products</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../products/oscilloscopes">Oscilloscopes</a></li>
+                            <li><a href="../../products/probes">Probes &amp; Accessories</a></li>
+                    </ul>
+                </li>
+                <li class="has-dropdown">
+                    <a href="#solutions">Solutions</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../solutions/test-measurement">Test &amp; Measurement</a></li>
+                        <li><a href="../../solutions/broadcast">Broadcast</a></li>
+                        <li><a href="../../solutions/software">Software</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="../../contact" class="schedule-demo">
+                <i class="fas fa-user"></i>
+                <span>Contact Us</span>
+            </a>
+        </div>
+    </nav>
+    </header>
+
+    <main class="blog-article">
+        <article>
+            <header class="article-hero">
+                <div class="container">
+                    <a href="../" class="breadcrumb">&larr; Back to Blog</a>
+                    <div class="article-topic-chips">
+                        <span class="article-topic-chip">Test &amp; Measurement</span>
+                    </div>
+                    <h1>How to Skip DisplayPort Link Training for Early-Stage Prototype Testing</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> 11 May 2026</span>
+                        <span><i class="far fa-clock"></i> 3 min read</span>
+                        <span><i class="far fa-user"></i> Primeasure Interpretation</span>
+                    </div>
+                </div>
+                <div class="article-hero-image">
+                    <img src="../../images/blog/skip-displayport-link-training-testing/hero.webp" alt="Engineer validating DisplayPort video stream on an early-stage prototype without link training">
+                </div>
+            </header>
+
+            <div class="container article-content">
+  <section>
+    <p><strong>Why it matters:</strong> DisplayPort 2.1 delivers up to 80 Gbps, but early prototypes often lack a working link training stack. Waiting for full protocol compliance before running any receiver validation means losing weeks of test time. Introspect's SV7C-eDP with Pinetree software offers a simple toggle to bypass link training entirely, letting engineers stream video to a non-compliant prototype and validate receiver traffic and signal integrity from day one.</p>
+  </section>
+
+  <section>
+    <h2>What is link training and why does it block early validation?</h2>
+    <p>Link training is the negotiation sequence where source and sink agree on data transfer rate, lane count, and voltage-swing levels before any video stream flows. On a mature device this runs automatically—but on a prototype without a complete firmware stack, it never completes. Without a workaround, the entire test setup stalls waiting for a handshake that the DUT cannot yet provide.</p>
+  </section>
+
+  <section>
+    <h2>The software toggle: disabling link training on the SV7C-eDP</h2>
+    <p>Pinetree software exposes a single toggle on the <code>sstGenerator</code> component that disables link training on the generator side. With that switch flipped, the SV7C-eDP transmits a live DisplayPort stream regardless of whether the prototype responds to training sequences. Engineers set lane count, data rate, and voltage swing manually—matching what the DUT's hardware is expected to support—and the stream flows immediately.</p>
+  </section>
+
+  <section>
+    <h2>What you can validate without link training</h2>
+    <ul class="article-checklist">
+      <li><strong>Receiver traffic checks:</strong> Confirm the prototype accepts and processes video packets correctly before the protocol layer is complete.</li>
+      <li><strong>Signal integrity verification:</strong> Measure eye diagrams, voltage swing, and pre-emphasis at the receiver end independently of training outcomes.</li>
+      <li><strong>Protocol violation detection:</strong> Identify malformed packets or timing violations in the data stream without a fully compliant link negotiation blocking access.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Primeasure POV</h2>
+    <ul class="article-checklist">
+      <li>Don't wait for full protocol compliance to start signal integrity checks—bypassing link training lets you catch PCB layout and equalization issues weeks before firmware is ready.</li>
+      <li>Tag all captures taken in link-training-disabled mode separately from compliant-device runs; teams need to know which data reflects trained vs. manually configured parameters.</li>
+      <li>When the prototype does gain link training support, run both modes back-to-back and confirm that the auto-negotiated settings match what you configured manually during early validation—divergence signals a firmware bug worth catching before tapeout.</li>
+    </ul>
+  </section>
+
+  <section class="article-cta">
+    <h2>Testing Early-Stage DisplayPort Prototypes?</h2>
+    <p>Primeasure can help configure the SV7C-eDP for your prototype's electrical parameters, build Pinetree test scripts, and structure signal integrity captures for early bring-up reports.</p>
+    <a href="../../contact" class="cta-button">Talk to Primeasure</a>
+  </section>
+
+  <section class="article-source">
+    <p><em>Source: <a href="https://introspect.ca/blog/how-to-skip-displayport-link-training-in-testing/" target="_blank" rel="noopener noreferrer">Introspect Technology — How to Skip DisplayPort Link Training in Testing</a></em></p>
+  </section>
+</div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: sales@primeasure.com</p>
+                    <p>Phone: +91-9884900031</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../about">About Us</a></li>
+                        <li><a href="../../events">Events</a></li>
+                        <li><a href="../../blog">Blog</a></li>
+                        <li><a href="../../contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/primeasure-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61572242886713" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                </div>
+                <p>&copy; 2026 Primeasure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/menu.js"></script>
+    <script src="../../js/analytics.js"></script>
+</body>
+</html>

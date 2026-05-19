@@ -1,0 +1,43 @@
+<div class="container article-content">
+  <section>
+    <p><strong>Why it matters:</strong> DisplayPort 2.1 delivers up to 80 Gbps, but early prototypes often lack a working link training stack. Waiting for full protocol compliance before running any receiver validation means losing weeks of test time. Introspect's SV7C-eDP with Pinetree software offers a simple toggle to bypass link training entirely, letting engineers stream video to a non-compliant prototype and validate receiver traffic and signal integrity from day one.</p>
+  </section>
+
+  <section>
+    <h2>What is link training and why does it block early validation?</h2>
+    <p>Link training is the negotiation sequence where source and sink agree on data transfer rate, lane count, and voltage-swing levels before any video stream flows. On a mature device this runs automatically—but on a prototype without a complete firmware stack, it never completes. Without a workaround, the entire test setup stalls waiting for a handshake that the DUT cannot yet provide.</p>
+  </section>
+
+  <section>
+    <h2>The software toggle: disabling link training on the SV7C-eDP</h2>
+    <p>Pinetree software exposes a single toggle on the <code>sstGenerator</code> component that disables link training on the generator side. With that switch flipped, the SV7C-eDP transmits a live DisplayPort stream regardless of whether the prototype responds to training sequences. Engineers set lane count, data rate, and voltage swing manually—matching what the DUT's hardware is expected to support—and the stream flows immediately.</p>
+  </section>
+
+  <section>
+    <h2>What you can validate without link training</h2>
+    <ul class="article-checklist">
+      <li><strong>Receiver traffic checks:</strong> Confirm the prototype accepts and processes video packets correctly before the protocol layer is complete.</li>
+      <li><strong>Signal integrity verification:</strong> Measure eye diagrams, voltage swing, and pre-emphasis at the receiver end independently of training outcomes.</li>
+      <li><strong>Protocol violation detection:</strong> Identify malformed packets or timing violations in the data stream without a fully compliant link negotiation blocking access.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Primeasure POV</h2>
+    <ul class="article-checklist">
+      <li>Don't wait for full protocol compliance to start signal integrity checks—bypassing link training lets you catch PCB layout and equalization issues weeks before firmware is ready.</li>
+      <li>Tag all captures taken in link-training-disabled mode separately from compliant-device runs; teams need to know which data reflects trained vs. manually configured parameters.</li>
+      <li>When the prototype does gain link training support, run both modes back-to-back and confirm that the auto-negotiated settings match what you configured manually during early validation—divergence signals a firmware bug worth catching before tapeout.</li>
+    </ul>
+  </section>
+
+  <section class="article-cta">
+    <h2>Testing Early-Stage DisplayPort Prototypes?</h2>
+    <p>Primeasure can help configure the SV7C-eDP for your prototype's electrical parameters, build Pinetree test scripts, and structure signal integrity captures for early bring-up reports.</p>
+    <a href="../../contact" class="cta-button">Talk to Primeasure</a>
+  </section>
+
+  <section class="article-source">
+    <p><em>Source: <a href="https://introspect.ca/blog/how-to-skip-displayport-link-training-in-testing/" target="_blank" rel="noopener noreferrer">Introspect Technology — How to Skip DisplayPort Link Training in Testing</a></em></p>
+  </section>
+</div>

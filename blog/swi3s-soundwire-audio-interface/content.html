@@ -1,0 +1,43 @@
+<div class="container article-content">
+  <section>
+    <p><strong>Why it matters:</strong> SoundWire powers audio in headphones, microphones, laptops, and automotive systems—but tops out at 24 Mbps with a fixed frame structure that limits flexibility. SWI3S triples that bandwidth to 76 Mbps and replaces the rigid frame with a row-based transport scheme, opening the door to more demanding audio applications without leaving the MIPI ecosystem.</p>
+  </section>
+
+  <section>
+    <h2>1) Dynamic control data placement</h2>
+    <p>SoundWire's fixed frame structure locks control bandwidth at design time. SWI3S implements a full transport layer with configurable control bandwidth that adjusts during operation, letting devices handle more sophisticated configuration sequences mid-stream—critical for complex, multi-component audio ecosystems where audio streams and control traffic compete for bandwidth.</p>
+  </section>
+
+  <section>
+    <h2>2) Two PHY layer options for different electrical environments</h2>
+    <ul class="article-checklist">
+      <li><strong>DLV (Differential Low Voltage):</strong> Higher speed with reduced electromagnetic interference—suited to dense, noise-sensitive layouts.</li>
+      <li><strong>FBCSE (Forwarded Bit Clock Single-Ended):</strong> Simplified electrical design with lower power draw—well-matched to long-cable runs, automotive implementations, and cost-constrained designs.</li>
+    </ul>
+    <p>The ability to choose PHY per application means one protocol can serve both tight smartphone layouts and extended automotive runs without compromise.</p>
+  </section>
+
+  <section>
+    <h2>3) Simplified payload placement with fewer parameters</h2>
+    <p>SWI3S leverages the periodicity of its row structure and natural sampling frequency multiples. Fewer configuration parameters mean less setup complexity for audio payload mapping—reducing integration time compared to SoundWire's frame-based approach and lowering the risk of misconfigured channel layouts.</p>
+  </section>
+
+  <section>
+    <h2>Primeasure POV</h2>
+    <ul class="article-checklist">
+      <li>Characterize both PHY layers on your target layout early in bring-up—DLV and FBCSE carry different noise and timing margins that show up before link training completes.</li>
+      <li>Map SWI3S's dynamic control bandwidth to your worst-case configuration sequences first; confirm the transport layer handles mid-stream adjustments without dropped audio frames.</li>
+      <li>If targeting automotive or long-cable use cases, sweep eye margins across the full cable length range—FBCSE's simplified electrical model does not automatically mean relaxed signal integrity requirements.</li>
+    </ul>
+  </section>
+
+  <section class="article-cta">
+    <h2>Validating SWI3S in Your Audio Stack?</h2>
+    <p>Primeasure can help plan PHY characterization, automate SWI3S bring-up workflows, and correlate protocol events with signal integrity data.</p>
+    <a href="../../contact" class="cta-button">Talk to Primeasure</a>
+  </section>
+
+  <section class="article-source">
+    <p><em>Source: <a href="https://introspect.ca/blog/meet-swi3s-ready-to-make-some-sound-waves/" target="_blank" rel="noopener noreferrer">Introspect Technology — Meet SWI3S: Ready to Make Some Sound Waves</a></em></p>
+  </section>
+</div>

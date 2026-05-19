@@ -1,6 +1,77 @@
 {
   "posts": [
     {
+      "id": "rise-of-broadcast-av-2026-05",
+      "slug": "rise-of-broadcast-av",
+      "title": "When Every Organisation Becomes a Broadcaster: The Rise of Broadcast AV",
+      "excerpt": "Primeasure's take on Grass Valley's perspective: Fortune 500 companies, governments, and universities now produce broadcast-scale video—but most lack the infrastructure to match. Broadcast AV closes that gap with engineering rigour, operational reliability, and production flexibility.",
+      "publishDate": "2026-05-11",
+      "readingTime": 3,
+      "topics": [
+        "broadcast"
+      ],
+      "heroImage": "../images/blog/rise-of-broadcast-av/hero.webp",
+      "heroAlt": "Corporate broadcast AV production setup for a large-scale live event",
+      "author": "Primeasure Interpretation"
+    },
+    {
+      "id": "olympic-scale-sports-production-platform-2026-05",
+      "slug": "olympic-scale-sports-production-platform",
+      "title": "Building a Platform for Olympic-Scale Sports Production",
+      "excerpt": "Primeasure's take on how Warner Bros. Discovery used Grass Valley AMPP to deliver 42 linear channels in 22 languages, 62,000+ hours of content, and 650 concurrent users across the Milano Cortina 2026 Winter Olympics.",
+      "publishDate": "2026-05-11",
+      "readingTime": 4,
+      "topics": [
+        "broadcast"
+      ],
+      "heroImage": "../images/blog/olympic-scale-sports-production-platform/hero.webp",
+      "heroAlt": "Broadcast operations centre managing Olympic sports production across multiple channels",
+      "author": "Primeasure Interpretation"
+    },
+    {
+      "id": "skip-displayport-link-training-testing-2026-05",
+      "slug": "skip-displayport-link-training-testing",
+      "title": "How to Skip DisplayPort Link Training for Early-Stage Prototype Testing",
+      "excerpt": "Primeasure's take on Introspect's SV7C-eDP approach: a simple Pinetree software toggle disables link training so engineers can stream video to non-compliant prototypes and validate receiver traffic and signal integrity weeks before firmware is ready.",
+      "publishDate": "2026-05-11",
+      "readingTime": 3,
+      "topics": [
+        "test-measurement"
+      ],
+      "heroImage": "../images/blog/skip-displayport-link-training-testing/hero.webp",
+      "heroAlt": "Engineer validating DisplayPort video stream on an early-stage prototype without link training",
+      "author": "Primeasure Interpretation"
+    },
+    {
+      "id": "swi3s-soundwire-audio-interface-2026-05",
+      "slug": "swi3s-soundwire-audio-interface",
+      "title": "3 Ways SWI3S Advances Audio Interface Testing Beyond SoundWire",
+      "excerpt": "Primeasure's take on Introspect's SWI3S: 76 Mbps bandwidth, dynamic control data placement, and dual PHY options make this next-gen MIPI audio interface a step change for headphone, microphone, and automotive audio validation.",
+      "publishDate": "2026-05-11",
+      "readingTime": 3,
+      "topics": [
+        "test-measurement"
+      ],
+      "heroImage": "../images/blog/swi3s-soundwire-audio-interface/hero.webp",
+      "heroAlt": "SWI3S next-generation MIPI audio interface test setup",
+      "author": "Primeasure Interpretation"
+    },
+    {
+      "id": "m5504-high-speed-digital-tester-2026-05",
+      "slug": "m5504-high-speed-digital-tester",
+      "title": "5 Reasons the Introspect M5504 Brings ATE-Grade Memory Testing to the Lab Bench",
+      "excerpt": "Primeasure's take on Introspect's M5504: 48 simultaneous 28.3 Gbps channels, an integrated virtual memory controller, and Pinetree™ automation collapse multi-day LPDDR/DDR/HBM bring-up into a single benchtop session.",
+      "publishDate": "2026-05-11",
+      "readingTime": 4,
+      "topics": [
+        "test-measurement",
+        "memory"
+      ],
+      "heroImage": "../images/blog/m5504-high-speed-digital-tester/hero.webp",
+      "heroAlt": "Introspect M5500 Test System tower for high-speed memory interface validation",
+      "author": "Primeasure Interpretation"
+    },
+    {
       "id": "i3c-purvue-analyzer-2026-02",
       "slug": "i3c-purvue-analyzer",
       "title": "5 Things to Know About the I3C PurVue Analyzer (Embedded Real-Time Scope)",
